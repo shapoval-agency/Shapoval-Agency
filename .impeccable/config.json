@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-05T08:47:40.971Z",
+        "reason": "user confirmed: brief lists Inter Light/Medium/Regular for this project"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-06T10:54:13.362Z",
+        "reason": "false positive: HTML-only markup audit with no typography/CSS changes"
+      }
+    ]
+  }
+}

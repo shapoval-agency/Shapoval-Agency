@@ -1,0 +1,154 @@
+/* Design tokens — Figma shapoval-style-2025 (cleaned) */
+:root {
+  /* —— Fonts —— */
+  --font-family-azo-sans: "azo-sans-web", "azo-sans", "Azo Sans", system-ui, sans-serif;
+  --font-family-inter: "Inter", system-ui, sans-serif;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* —— Font sizes (raw scale from Figma) —— */
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-24: 24px;
+  --font-size-38: 38px;
+  --font-size-61: 61px;
+  --font-size-86: 86px;
+  --font-size-116: 116px;
+  --font-size-156: 156px;
+  --font-size-250: 250px;
+
+  /*
+   * Adaptive text roles — mobile first.
+   * Switch at min-width: 1280px (see bottom of file).
+   * Scale step: 12→14→16→24→38→61→86→116→156
+   */
+  --text-display: var(--font-size-86);
+  --text-h1: var(--font-size-38);
+  --text-h2: var(--font-size-24);
+  --text-lead: var(--font-size-16);
+  --text-body: var(--font-size-14);
+  --text-caption: var(--font-size-12);
+  --text-button: var(--font-size-14);
+  --text-button-lg: var(--font-size-16);
+
+  /* —— Letter spacing —— */
+  --font-letter-spacing-minus-1: -1px;
+  --font-letter-spacing-0: 0;
+  --font-letter-spacing-1: 1px;
+  --font-letter-spacing-2: 2px;
+
+  /* —— Line heights (unitless) —— */
+  --line-height-tight: 1;
+  --line-height-snug: 1.2;
+  --line-height-heading: 1.25;
+  --line-height-body: 1.4;
+  --line-height-relaxed: 1.5;
+  --line-height-loose: 1.6;
+
+  /* —— Colors: grayscale —— */
+  --colors-basic-colors-grayscale-100: #101010;
+  --colors-basic-colors-grayscale-80: #393939;
+  --colors-basic-colors-grayscale-60: #696969;
+  --colors-basic-colors-grayscale-40: #d6d6d6;
+  --colors-basic-colors-grayscale-20: #f3f3f3;
+  --colors-basic-colors-grayscale-20-75: rgba(243, 243, 243, 0.75);
+  --colors-basic-colors-grayscale-20-50: rgba(243, 243, 243, 0.5);
+
+  /* —— Colors: pumpkin —— */
+  --colors-basic-colors-pumpkin-100: #ff831a;
+  --colors-basic-colors-pumpkin-80: #ff9b47;
+  --colors-basic-colors-pumpkin-60: #feb475;
+  --colors-basic-colors-pumpkin-40: #ffcda3;
+  --colors-basic-colors-pumpkin-20: #ffe6d1;
+
+  /* —— Colors: scarlet —— */
+  --colors-basic-colors-scarlet-100: #ff3800;
+  --colors-basic-colors-scarlet-80: #ff5f33;
+  --colors-basic-colors-scarlet-60: #fe8766;
+  --colors-basic-colors-scarlet-40: #ffaf99;
+  --colors-basic-colors-scarlet-20: #ffd7cc;
+
+  /* —— Colors: dodger blue —— */
+  --colors-basic-colors-dodger-blue-100: #5b5aff;
+  --colors-basic-colors-dodger-blue-80: #7b7bff;
+  --colors-basic-colors-dodger-blue-60: #9c9cfe;
+  --colors-basic-colors-dodger-blue-40: #bdbdff;
+  --colors-basic-colors-dodger-blue-20: #dedeff;
+
+  /* —— Colors: gorse —— */
+  --colors-additional-colors-gorse-100: #ffdb4d;
+  --colors-additional-colors-gorse-80: #ffe270;
+  --colors-additional-colors-gorse-60: #fee994;
+  --colors-additional-colors-gorse-40: #fff0b7;
+  --colors-additional-colors-gorse-20: #fff7db;
+
+  /* —— Colors: soft olive —— */
+  --colors-additional-colors-soft-olive-100: #b5d68a;
+  --colors-additional-colors-soft-olive-80: #c9e4a1;
+  --colors-additional-colors-soft-olive-60: #d8efb8;
+  --colors-additional-colors-soft-olive-40: #e4f5cc;
+  --colors-additional-colors-soft-olive-20: #f1fadf;
+
+  /* —— Colors: violet —— */
+  --colors-additional-colors-violet-100: #aa2b8e;
+  --colors-additional-colors-violet-80: #bb55a4;
+  --colors-additional-colors-violet-60: #cc7fbb;
+  --colors-additional-colors-violet-40: #ddaad1;
+  --colors-additional-colors-violet-20: #eed4e8;
+
+  /* —— Colors: lima —— */
+  --colors-additional-colors-lima-100: #89db33;
+  --colors-additional-colors-lima-80: #a0e25b;
+  --colors-additional-colors-lima-60: #b8e984;
+  --colors-additional-colors-lima-40: #cff0ad;
+  --colors-additional-colors-lima-20: #e7f7d6;
+
+  /* —— Colors: malachite —— */
+  --colors-additional-colors-malachite-100: #04c65d;
+  --colors-additional-colors-malachite-80: #36d17d;
+  --colors-additional-colors-malachite-60: #68dc9d;
+  --colors-additional-colors-malachite-40: #9ae8be;
+  --colors-additional-colors-malachite-20: #ccf3de;
+
+  /* —— Colors: radiance —— */
+  --colors-additional-colors-radiance-100: #007eff;
+  --colors-additional-colors-radiance-80: #3397ff;
+  --colors-additional-colors-radiance-60: #66b1fe;
+  --colors-additional-colors-radiance-40: #99cbff;
+  --colors-additional-colors-radiance-20: #cce5ff;
+
+  /* —— Short aliases —— */
+  --color-black: var(--colors-basic-colors-grayscale-100);
+  --color-gray-80: var(--colors-basic-colors-grayscale-80);
+  --color-gray-60: var(--colors-basic-colors-grayscale-60);
+  --color-gray-40: var(--colors-basic-colors-grayscale-40);
+  --color-gray-20: var(--colors-basic-colors-grayscale-20);
+  --color-white-75: var(--colors-basic-colors-grayscale-20-75);
+  --color-white-50: var(--colors-basic-colors-grayscale-20-50);
+  --color-blue-100: var(--colors-basic-colors-dodger-blue-100);
+  --color-blue-80: var(--colors-basic-colors-dodger-blue-80);
+  --color-blue-60: var(--colors-basic-colors-dodger-blue-60);
+  --color-blue-40: var(--colors-basic-colors-dodger-blue-40);
+  --color-blue-20: var(--colors-basic-colors-dodger-blue-20);
+  --color-pumpkin: var(--colors-basic-colors-pumpkin-100);
+  --color-scarlet: var(--colors-basic-colors-scarlet-100);
+}
+
+/* Desktop typography switch */
+@media (min-width: 1280px) {
+  :root {
+    --text-display: var(--font-size-116);
+    --text-h1: var(--font-size-61);
+    --text-h2: var(--font-size-38);
+    --text-lead: var(--font-size-24);
+    --text-body: var(--font-size-16);
+    --text-caption: var(--font-size-14);
+    --text-button: var(--font-size-16);
+    --text-button-lg: var(--font-size-16);
+  }
+}

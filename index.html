@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shapoval Agency — маркетинг-команда замість підрядників</title>
+  <meta name="description"
+    content="Shapoval Agency — маркетинг-команда, яка прибирає хаос і об'єднує всі процеси в єдину систему. Отримайте консультацію." />
+
+  <link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css" />
+  <link rel="stylesheet" href="css/libs/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/libs/fancybox.css" />
+  <link rel="stylesheet" href="css/libs/lenis.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/icomoon.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти до вмісту</a>
+
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo" aria-label="Shapoval Agency">
+        <img src="img/logo.svg" alt="" width="282" height="48" class="logo__img" decoding="async" />
+        <img src="img/logo-mob.svg" alt="" width="87" height="80" class="logo__img logo__img--mob" decoding="async" />
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Головна навігація">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="/" class="nav__link" aria-current="page">Головна</a>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">Про нас</a>
+          </li>
+          <li class="nav__item">
+            <a href="#services" class="nav__link">Послуги</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Контакти</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions-slot" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <div class="header__actions">
+    <a href="#contact" class="header__action">
+      <span class="icon-nameplus" aria-hidden="true"></span>
+      Стати клієнтом
+    </a>
+
+    <span class="header__action-mob">Стати клієнтом</span>
+
+    <button class="burger" type="button" aria-label="Відкрити меню" data-label-close="Закрити меню" aria-controls="menu"
+      aria-expanded="false">
+      <span class="burger__line" aria-hidden="true"></span>
+      <span class="burger__line" aria-hidden="true"></span>
+      <span class="burger__line" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" aria-hidden="true"
+    data-lenis-prevent>
+    <div class="menu__inner">
+      <div class="menu__header">
+        <a href="/" class="menu__logo" aria-label="Shapoval Agency">
+          <img src="img/logo-mob.svg" alt="" width="87" height="80" decoding="async" />
+        </a>
+        <h2 class="menu__title" id="menu-title">Навігація</h2>
+      </div>
+
+      <div class="menu__body">
+        <div class="menu__aside">
+          <address class="menu__contacts">
+            <ul class="menu__contacts-list">
+              <li class="menu__contacts-item">
+                <a class="menu__contacts-link" href="mailto:yaroslav@shapoval.agency">
+                  yaroslav@shapoval.agency
+                </a>
+              </li>
+              <li class="menu__contacts-item">
+                <a class="menu__contacts-link" href="tel:+380979534724">
+                  +38 (097) 953-47-24
+                </a>
+              </li>
+              <li class="menu__contacts-item">
+                Україна, м. Одеса,<br />
+                вул. Комітетська, буд. 14а
+              </li>
+            </ul>
+          </address>
+
+          <div class="menu__meta">
+            <p class="menu__copy">
+              © 2015–2026 Shapoval [agency]. All rights reserved | Усі права захищені.
+              Юридична особа: ФОП “Шаповал Ярослав” · ЄДРПОУ 562 4441 5871 2224 · Ukraine
+            </p>
+
+            <ul class="menu__legal-list">
+              <li class="menu__legal-item">
+                <a class="menu__legal-link" href="/privacy">Політика конфіденційності</a>
+              </li>
+              <li class="menu__legal-item">
+                <a class="menu__legal-link" href="/terms">Умови використання</a>
+              </li>
+            </ul>
+
+            <nav class="menu__langs" aria-label="Мова сайту">
+              <ul class="menu__langs-list">
+                <li class="menu__langs-item">
+                  <a class="menu__langs-link" href="/en" hreflang="en" lang="en">ENG</a>
+                </li>
+                <li class="menu__langs-item">
+                  <a class="menu__langs-link" href="/" hreflang="uk" lang="uk" aria-current="true">UKR</a>
+                </li>
+                <li class="menu__langs-item">
+                  <a class="menu__langs-link" href="/ru" hreflang="ru" lang="ru">RUS</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <nav class="menu__nav" aria-label="Меню сайту">
+          <ul class="menu__list menu__list--left">
+            <li class="menu__item">
+              <a class="menu__link" href="/strategy">
+                Стратегія і бренд
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/digital">
+                Digital
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/marketing">
+                Маркетинг
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/content">
+                Контент
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="menu__list menu__list--right">
+            <li class="menu__item">
+              <a class="menu__link" href="#about">
+                Про нас
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/blog">
+                Блог
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/portfolio">
+                Портфоліо
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/reviews">
+                Відгуки
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="/courses">
+                Курси
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link" href="#contact">
+                Контакти
+                <span class="icon-namearrow-right" aria-hidden="true"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            Маркетинг-команда
+            <span class="hero__title-accent">замість десятка підрядників</span>
+          </h1>
+          <p class="hero__text">
+            Ми <span class="hero__text-accent">прибираємо хаос у маркетингу</span>,
+            об'єднуючи всі процеси в єдину систему.
+          </p>
+        </div>
+
+        <div class="hero__box">
+          <a href="#contact" class="hero__btn">
+            Отримати консультацію
+          </a>
+
+          <div class="hero__google">
+            <div class="hero__google-score" aria-label="Оцінка Google 5.0 з 5">
+              <img src="img/Google__logo.svg" alt="" width="24" height="24" class="hero__google-logo"
+                decoding="async" />
+              <ul class="hero__google-stars" aria-hidden="true">
+                <li class="hero__google-stars-item">
+                  <img src="img/star.svg" alt="" width="16" height="16" decoding="async" />
+                </li>
+                <li class="hero__google-stars-item">
+                  <img src="img/star.svg" alt="" width="16" height="16" decoding="async" />
+                </li>
+                <li class="hero__google-stars-item">
+                  <img src="img/star.svg" alt="" width="16" height="16" decoding="async" />
+                </li>
+                <li class="hero__google-stars-item">
+                  <img src="img/star.svg" alt="" width="16" height="16" decoding="async" />
+                </li>
+                <li class="hero__google-stars-item">
+                  <img src="img/star.svg" alt="" width="16" height="16" decoding="async" />
+                </li>
+              </ul>
+              <span class="hero__google-value">5.0</span>
+            </div>
+
+            <p class="hero__google-caption">
+              Наші клієнти залишили
+              <a href="#" class="hero__google-link">10 Google відгуків</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__media" aria-hidden="true">
+        <video class="hero__video" src="img/hero.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+    </section>
+
+    <section class="problems" aria-labelledby="problems-title">
+      <div class="container">
+        <div class="problems__intro">
+          <div class="problems__header">
+            <p class="problems__label">Проблеми бізнесу</p>
+            <h2 class="problems__title" id="problems-title"><span class="problems__title-accent">Впізнаєте</span> себе?
+            </h2>
+            <p class="problems__text">Більшість бізнесів стикаються з цими викликами. Ми знаємо, як їх вирішувати.</p>
+          </div>
+
+          <div class="problems__card">
+            <span class="problems__card-icon" aria-hidden="true">
+              <i class="icon-namestar"></i>
+            </span>
+            <div class="problems__card-content">
+              <h3 class="problems__card-title">Прогнозований результат</h3>
+              <p class="problems__card-text">
+                На етапі переговорів робимо оцінку результату та ризиків бізнесу. Під час роботи будуємо систему
+                окупності.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ol class="problems__accordion" data-accordion>
+          <li class="problems__item">
+            <h3 class="problems__item-heading">
+              <button class="problems__item-button" type="button" id="problems-button-1" aria-expanded="false"
+                aria-controls="problems-panel-1">
+                <span class="problems__item-number" aria-hidden="true">[ 01 ]</span>
+                <span class="problems__item-content">
+                  <span class="problems__item-title">Реклама "з'їдає" бюджет</span>
+                  <span class="problems__item-subtitle"><span aria-hidden="true">➝ </span>Заявки дорогі або їх майже
+                    немає</span>
+                </span>
+                <span class="problems__item-icon" aria-hidden="true">
+                  <i class="icon-namecaret-up"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="problems__item-panel" id="problems-panel-1" role="region" aria-labelledby="problems-button-1">
+              <div class="problems__item-body">
+                <p class="problems__item-text">
+                  Реклама в Google або соціальних мережах не приводить заявок або вони занадто дорогі. Звітність не дає
+                  розуміння, що робити далі.
+                </p>
+                <a class="problems__item-link" href="#contact">Отримати план окупності</a>
+              </div>
+            </div>
+          </li>
+          <li class="problems__item">
+            <h3 class="problems__item-heading">
+              <button class="problems__item-button" type="button" id="problems-button-2" aria-expanded="false"
+                aria-controls="problems-panel-2">
+                <span class="problems__item-number" aria-hidden="true">[ 02 ]</span>
+                <span class="problems__item-content">
+                  <span class="problems__item-title">Підрядникам не можна довіряти</span>
+                  <span class="problems__item-subtitle"><span aria-hidden="true">➝ </span>Простіше зробити самому, ніж
+                    пояснити.</span>
+                </span>
+                <span class="problems__item-icon" aria-hidden="true">
+                  <i class="icon-namecaret-up"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="problems__item-panel" id="problems-panel-2" role="region" aria-labelledby="problems-button-2">
+              <div class="problems__item-body">
+                <p class="problems__item-text">
+                  Не вникають у продукт, роблять помилки в текстах, ігнорують домовленості. Доводиться перевіряти кожен
+                  крок — ніби найняли підрядника, щоб додати собі роботи.
+                </p>
+                <a class="problems__item-link" href="#contact">Обговорити проєкт з нами</a>
+              </div>
+            </div>
+          </li>
+          <li class="problems__item">
+            <h3 class="problems__item-heading">
+              <button class="problems__item-button" type="button" id="problems-button-3" aria-expanded="false"
+                aria-controls="problems-panel-3">
+                <span class="problems__item-number" aria-hidden="true">[ 03 ]</span>
+                <span class="problems__item-content">
+                  <span class="problems__item-title">Підрядникам не можна довіряти</span>
+                  <span class="problems__item-subtitle"><span aria-hidden="true">➝ </span>Не допомагає закрити
+                    клієнта.</span>
+                </span>
+                <span class="problems__item-icon" aria-hidden="true">
+                  <i class="icon-namecaret-up"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="problems__item-panel" id="problems-panel-3" role="region" aria-labelledby="problems-button-3">
+              <div class="problems__item-body">
+                <p class="problems__item-text">
+                  Сайт не показує цінність продукту, не підсилює переговори, не викликає довіри. Замість інструмента
+                  продажів — сторінка в інтернеті.
+                </p>
+                <a class="problems__item-link" href="#contact">Збільшити кількість заявок</a>
+              </div>
+            </div>
+          </li>
+          <li class="problems__item">
+            <h3 class="problems__item-heading">
+              <button class="problems__item-button" type="button" id="problems-button-4" aria-expanded="false"
+                aria-controls="problems-panel-4">
+                <span class="problems__item-number" aria-hidden="true">[ 04 ]</span>
+                <span class="problems__item-content">
+                  <span class="problems__item-title">У маркетингу повний хаос</span>
+                  <span class="problems__item-subtitle"><span aria-hidden="true">➝ </span>Ніхто не відповідає за
+                    результат.</span>
+                </span>
+                <span class="problems__item-icon" aria-hidden="true">
+                  <i class="icon-namecaret-up"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="problems__item-panel" id="problems-panel-4" role="region" aria-labelledby="problems-button-4">
+              <div class="problems__item-body">
+                <p class="problems__item-text">
+                  Підрядники перекладають відповідальність один на одного, завдання губляться, витрати зростають, а
+                  результату немає.
+                </p>
+                <a class="problems__item-link" href="#contact">Отримати єдиного відповідального</a>
+              </div>
+            </div>
+          </li>
+          <li class="problems__item">
+            <h3 class="problems__item-heading">
+              <button class="problems__item-button" type="button" id="problems-button-5" aria-expanded="false"
+                aria-controls="problems-panel-5">
+                <span class="problems__item-number" aria-hidden="true">[ 05 ]</span>
+                <span class="problems__item-content">
+                  <span class="problems__item-title">Не видно результату</span>
+                  <span class="problems__item-subtitle"><span aria-hidden="true">➝ </span>Платите за десятки окремих
+                    задач без єдиної системи.</span>
+                </span>
+                <span class="problems__item-icon" aria-hidden="true">
+                  <i class="icon-namecaret-up"></i>
+                </span>
+              </button>
+            </h3>
+            <div class="problems__item-panel" id="problems-panel-5" role="region" aria-labelledby="problems-button-5">
+              <div class="problems__item-body">
+                <p class="problems__item-text">
+                  Вкладаєте гроші в маркетинг, але не бачите прозорої аналітики, зрозумілих звітів і реального впливу на
+                  бізнес.
+                </p>
+                <a class="problems__item-link" href="#contact">Зробити маркетинг прозорим</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="business-value" aria-labelledby="business-value-title">
+      <div class="container">
+        <div class="business-value__header">
+          <p class="business-value__label">Переваги для бізнесу</p>
+          <div class="business-value__header-box">
+            <h2 class="business-value__title" id="business-value-title">
+              Чому бізнес обирає <span class="business-value__title-accent">відділ маркетингу</span>
+              замість найму співробітників?
+            </h2>
+            <p class="business-value__text">
+              Закриваємо ключові маркетингові задачі однією командою — без витрат на утримання окремих спеціалістів.
+            </p>
+          </div>
+        </div>
+
+        <ul class="business-value__list" data-expand-cards>
+          <li class="business-value__item is-active">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-1">Економія</h3>
+              <p class="business-value__item-text">
+                Одна команда замість кількох окремих підрядників та штатних спеціалістів. Платите за конкретні кроки до
+                результату, а не за утримання команди.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-1">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+          <li class="business-value__item">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-2">Команда</h3>
+              <p class="business-value__item-text">
+                Під одним управлінням працюють стратеги, маркетологи, дизайнери, контент- та digital-фахівці. Усі
+                рухаються до спільного результату.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-2">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+          <li class="business-value__item">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-3">Відповідальність</h3>
+              <p class="business-value__item-text">
+                Один партнер відповідає за весь комплекс робіт — від стратегії та позиціонування до реалізації й
+                результату.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-3">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+          <li class="business-value__item">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-4">Час</h3>
+              <p class="business-value__item-text">
+                Не потрібно координувати десятки людей і передавати задачі між різними підрядниками. Команда працює
+                синхронно, скорочуючи шлях від ідеї до реалізації.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-4">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+          <li class="business-value__item">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-5">Масштабування</h3>
+              <p class="business-value__item-text">
+                Підключаємо потрібні компетенції тоді, коли вони потрібні бізнесу. Команду та обсяг робіт можна
+                масштабувати без розширення штату.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-5">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+          <li class="business-value__item">
+            <span class="business-value__item-icon" aria-hidden="true">
+              <i class="icon-namearrow-up-right"></i>
+            </span>
+            <div class="business-value__item-inner">
+              <h3 class="business-value__item-title" id="business-value-item-6">Експертність</h3>
+              <p class="business-value__item-text">
+                Ви отримуєте доступ до досвіду фахівців із різних напрямів, не наймаючи кожного окремо та не витрачаючи
+                час на їх пошук.
+              </p>
+              <a class="business-value__item-link" href="#contact" aria-describedby="business-value-item-6">
+                Обговорити проєкт
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="working-model" aria-labelledby="working-model-title">
+      <div class="container">
+        <h2 class="working-model__title visually-hidden" id="working-model-title">
+          Як змінюється робота з маркетингом після співпраці з нами
+        </h2>
+
+        <div class="working-model__card working-model__card--before">
+          <div class="working-model__card-content">
+            <p class="working-model__card-label">Ваш бізнес зараз</p>
+            <div class="working-model__card-heading">
+              <h3 class="working-model__card-title">
+                Наймаєте <span class="working-model__card-title-accent">окремих</span> підрядників
+              </h3>
+              <p class="working-model__card-text">
+                Сайт, реклама, дизайн, контент, аналітика — кожним напрямком займається окремий виконавець.
+                Координувати їхню роботу та відповідати за кінцевий результат доводиться вам.
+              </p>
+            </div>
+          </div>
+          <figure class="working-model__figure">
+            <img class="working-model__img" src="img/working-model1.png"
+              alt="Схема: сайт, реклама, дизайн, контент і аналітика — п'ять окремих підрядників, усі зв'язки сходяться на вас"
+              width="380" height="387" loading="lazy" decoding="async" />
+            <figcaption class="working-model__caption">Ви відповідаєте за результат</figcaption>
+          </figure>
+        </div>
+
+        <div class="working-model__card working-model__card--after">
+          <div class="working-model__card-content">
+            <p class="working-model__card-label">Після співпраці з нами</p>
+            <div class="working-model__card-heading">
+              <h3 class="working-model__card-title">
+                Працюєте з <span class="working-model__card-title-accent">однією</span> командою
+              </h3>
+              <p class="working-model__card-text">
+                Одна команда, один менеджер, одна відповідальність. Ви ставите задачу — ми беремо на себе весь
+                процес і відповідаємо за результат.
+              </p>
+            </div>
+          </div>
+          <figure class="working-model__figure">
+            <img class="working-model__img" src="img/working-model2.png"
+              alt="Схема: shapoval agency об'єднує сайт, рекламу, дизайн, контент і аналітику, з вами на зв'язку один менеджер"
+              width="580" height="385" loading="lazy" decoding="async" />
+            <figcaption class="working-model__caption">Ми відповідаємо за результат</figcaption>
+          </figure>
+        </div>
+
+        <a class="working-model__link" href="#contact">
+          Отримати консультацію
+          <i class="icon-namecaret-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/libs/gsap.min.js"></script>
+  <script src="js/libs/ScrollTrigger.min.js"></script>
+  <script src="js/libs/lenis.min.js"></script>
+  <script src="js/libs/swiper-bundle.min.js"></script>
+  <script src="js/libs/fancybox.umd.js"></script>
+  <script src="js/burger.js"></script>
+  <script src="js/accordion.js"></script>
+  <script src="js/expand-cards.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
