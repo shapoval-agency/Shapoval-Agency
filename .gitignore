@@ -3,3 +3,6 @@
 .idea/
 .vscode/
 .impeccable/hook.cache.json
+
+# тимчасові відео кейсів (замінити стиснутими)
+img/video-*.mp4

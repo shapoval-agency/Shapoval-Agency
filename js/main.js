@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     rootSelector: '.business-value__list',
   })
 
+  // кейси: відео вантажаться і грають лише біля екрана
+  initLazyVideos()
+
   window.app = {
     lenis,
     gsap,

@@ -279,8 +279,8 @@
           </div>
         </div>
 
-        <ol class="problems__accordion" data-accordion>
-          <li class="problems__item">
+        <div class="problems__accordion" data-accordion>
+          <div class="problems__item">
             <h3 class="problems__item-heading">
               <button class="problems__item-button" type="button" id="problems-button-1" aria-expanded="false"
                 aria-controls="problems-panel-1">
@@ -304,8 +304,8 @@
                 <a class="problems__item-link" href="#contact">Отримати план окупності</a>
               </div>
             </div>
-          </li>
-          <li class="problems__item">
+          </div>
+          <div class="problems__item">
             <h3 class="problems__item-heading">
               <button class="problems__item-button" type="button" id="problems-button-2" aria-expanded="false"
                 aria-controls="problems-panel-2">
@@ -329,8 +329,8 @@
                 <a class="problems__item-link" href="#contact">Обговорити проєкт з нами</a>
               </div>
             </div>
-          </li>
-          <li class="problems__item">
+          </div>
+          <div class="problems__item">
             <h3 class="problems__item-heading">
               <button class="problems__item-button" type="button" id="problems-button-3" aria-expanded="false"
                 aria-controls="problems-panel-3">
@@ -354,8 +354,8 @@
                 <a class="problems__item-link" href="#contact">Збільшити кількість заявок</a>
               </div>
             </div>
-          </li>
-          <li class="problems__item">
+          </div>
+          <div class="problems__item">
             <h3 class="problems__item-heading">
               <button class="problems__item-button" type="button" id="problems-button-4" aria-expanded="false"
                 aria-controls="problems-panel-4">
@@ -379,8 +379,8 @@
                 <a class="problems__item-link" href="#contact">Отримати єдиного відповідального</a>
               </div>
             </div>
-          </li>
-          <li class="problems__item">
+          </div>
+          <div class="problems__item">
             <h3 class="problems__item-heading">
               <button class="problems__item-button" type="button" id="problems-button-5" aria-expanded="false"
                 aria-controls="problems-panel-5">
@@ -404,8 +404,8 @@
                 <a class="problems__item-link" href="#contact">Зробити маркетинг прозорим</a>
               </div>
             </div>
-          </li>
-        </ol>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -424,8 +424,8 @@
           </div>
         </div>
 
-        <ul class="business-value__list" data-expand-cards>
-          <li class="business-value__item is-active">
+        <div class="business-value__list" data-expand-cards>
+          <div class="business-value__item is-active">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -439,8 +439,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-          <li class="business-value__item">
+          </div>
+          <div class="business-value__item">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -454,8 +454,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-          <li class="business-value__item">
+          </div>
+          <div class="business-value__item">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -469,8 +469,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-          <li class="business-value__item">
+          </div>
+          <div class="business-value__item">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -484,8 +484,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-          <li class="business-value__item">
+          </div>
+          <div class="business-value__item">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -499,8 +499,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-          <li class="business-value__item">
+          </div>
+          <div class="business-value__item">
             <span class="business-value__item-icon" aria-hidden="true">
               <i class="icon-namearrow-up-right"></i>
             </span>
@@ -514,8 +514,8 @@
                 Обговорити проєкт
               </a>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -533,15 +533,62 @@
                 Наймаєте <span class="working-model__card-title-accent">окремих</span> підрядників
               </h3>
               <p class="working-model__card-text">
-                Сайт, реклама, дизайн, контент, аналітика — кожним напрямком займається окремий виконавець.
+                Сайт, реклама, дизайн, контент, аналітика — кожним напрямком займається <span
+                  class="working-model__card-text-accent">окремий виконавець.</span>
                 Координувати їхню роботу та відповідати за кінцевий результат доводиться вам.
               </p>
             </div>
           </div>
           <figure class="working-model__figure">
-            <img class="working-model__img" src="img/working-model1.png"
-              alt="Схема: сайт, реклама, дизайн, контент і аналітика — п'ять окремих підрядників, усі зв'язки сходяться на вас"
-              width="380" height="387" loading="lazy" decoding="async" />
+            <div class="working-model__diagram working-model__diagram--before" role="img"
+              aria-label="Схема: сайт, реклама, дизайн, контент і аналітика — п'ять окремих підрядників, усі зв'язки сходяться на вас">
+              <ul class="working-model__services">
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-site.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Сайт</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-ads.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Реклама</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-design.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Дизайн</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-content.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Контент</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-analytics.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Аналітика</span>
+                </li>
+              </ul>
+              <img class="working-model__wires" src="img/working-model/wires.svg" alt="" width="380" height="208"
+                loading="lazy" decoding="async" />
+              <div class="working-model__person">
+                <span class="working-model__avatar">
+                  <img src="img/working-model/avatar-client.svg" alt="" width="32" height="32" loading="lazy"
+                    decoding="async" />
+                </span>
+                <span class="working-model__tooltip">Ви</span>
+              </div>
+            </div>
             <figcaption class="working-model__caption">Ви відповідаєте за результат</figcaption>
           </figure>
         </div>
@@ -560,17 +607,177 @@
             </div>
           </div>
           <figure class="working-model__figure">
-            <img class="working-model__img" src="img/working-model2.png"
-              alt="Схема: shapoval agency об'єднує сайт, рекламу, дизайн, контент і аналітику, з вами на зв'язку один менеджер"
-              width="580" height="385" loading="lazy" decoding="async" />
+            <div class="working-model__diagram working-model__diagram--after" role="img"
+              aria-label="Схема: shapoval agency об'єднує сайт, рекламу, дизайн, контент і аналітику, з вами на зв'язку один менеджер">
+              <div class="working-model__logo">
+                <img src="img/working-model/logo.svg" alt="" width="188" height="32" loading="lazy" decoding="async" />
+              </div>
+              <span class="working-model__tree"></span>
+              <ul class="working-model__services">
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-site.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Сайт</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-ads.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Реклама</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-design.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Дизайн</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-content.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Контент</span>
+                </li>
+                <li class="working-model__service">
+                  <span class="working-model__service-icon">
+                    <img src="img/working-model/icon-analytics.svg" alt="" width="32" height="32" loading="lazy"
+                      decoding="async" />
+                  </span>
+                  <span class="working-model__service-name">Аналітика</span>
+                </li>
+              </ul>
+              <span class="working-model__line"></span>
+              <div class="working-model__person">
+                <span class="working-model__avatar working-model__avatar--manager">
+                  <img src="img/working-model/avatar-manager.svg" alt="" width="32" height="32" loading="lazy"
+                    decoding="async" />
+                </span>
+                <span class="working-model__tooltip">Менеджер</span>
+              </div>
+            </div>
             <figcaption class="working-model__caption">Ми відповідаємо за результат</figcaption>
           </figure>
+          <a href="#contact" class="btn btn--primary">
+            Отримати консультацію
+            <span class="icon-namecaret-right" aria-hidden="true"></span>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <a class="working-model__link" href="#contact">
-          Отримати консультацію
-          <i class="icon-namecaret-right" aria-hidden="true"></i>
-        </a>
+    <section class="cases" aria-labelledby="cases-title">
+      <div class="container">
+        <h2 class="cases__title visually-hidden" id="cases-title">Наші кейси</h2>
+        <div class="cases__list">
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-1.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">UkrTerminal</h3>
+                <p class="cases__card-text">Сайт для нафтотранспортної компанії</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-2.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">Vesna Realty</h3>
+                <p class="cases__card-text">Сайт агенції з нерухомості в Нью-Йорку</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-3.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">Agrarian Club</h3>
+                <p class="cases__card-text">Корпоративний сайт для агрокомпанії</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-4.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">aNavigator™</h3>
+                <p class="cases__card-text">Редизайн сайту з трейдингових послуг</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-5.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">Sofia Biletskaya</h3>
+                <p class="cases__card-text">Редизайн сайту для бізнес-коуча</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-6.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">Sprint</h3>
+                <p class="cases__card-text">Просування компанії з типографії у Google Ads</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-7.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">Ok Consulting</h3>
+                <p class="cases__card-text">Корпоративний сайт для консалтингової агенції</p>
+              </div>
+            </a>
+          </article>
+          <article class="cases__card">
+            <a class="cases__link" href="#">
+              <div class="cases__media">
+                <video class="cases__video" src="img/video-8.mp4" muted loop playsinline preload="none" aria-hidden="true"
+                  poster="img/_hero-frame.jpg" data-lazy-video></video>
+                <span class="cases__badge" aria-hidden="true">Кейс</span>
+              </div>
+              <div class="cases__body">
+                <h3 class="cases__card-title">aNavigator™</h3>
+                <p class="cases__card-text">Редизайн сайту з трейдингових послуг</p>
+              </div>
+            </a>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -583,6 +790,7 @@
   <script src="js/burger.js"></script>
   <script src="js/accordion.js"></script>
   <script src="js/expand-cards.js"></script>
+  <script src="js/lazy-videos.js"></script>
   <script src="js/main.js"></script>
 </body>
 
