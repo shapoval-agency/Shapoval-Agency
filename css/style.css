@@ -1937,8 +1937,8 @@ body.is-menu-open .header {
 .cases__all-link:focus-visible,
 .cases__all-link:active {
   border-radius: 99px;
-  background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-20, #DEDEFF);
-  box-shadow: 0 0 1px 0 var(--colors-basic-colors-dodger-blue-60, #9C9CFE);
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+  box-shadow: 0 0 1px 0 #9C9CFE;
 }
 
 .cases__list-row {
@@ -1947,7 +1947,402 @@ body.is-menu-open .header {
   flex-direction: column;
 }
 
+.service {
+  padding: 32px 16px;
+}
 
+.service .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  align-self: stretch;
+}
+
+.service__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.service__label {
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  background: linear-gradient(270deg, #5B5AFF 31.82%, #FF831A 65.9%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+}
+
+.service__top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.service__title {
+  color: #101010;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.service__title-accent {
+  font-weight: 500;
+}
+
+.service__text {
+  color: #393939;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.service__body {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.service__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 276px;
+  min-height: 548px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #FFF;
+  box-shadow: 0 2px 16px 0 rgba(124, 111, 224, 0.08);
+  flex: 1 0 0;
+}
+
+.service__card-header {
+  height: 250px;
+  padding: 24px 16px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service__card-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.service__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service__card:nth-of-type(1) .service__card-media {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #FFF0B7;
+}
+
+.service__card:nth-of-type(2) .service__card-media {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+}
+
+.service__card:nth-of-type(3) .service__card-media {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #EED4E8;
+}
+
+.service__card:nth-of-type(4) .service__card-media {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #CCF3DE;
+}
+
+.service__card-title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  z-index: 1;
+  position: relative;
+}
+
+.service__card-text {
+  min-height: 72px;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+.service__card-link {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  width: 100%;
+  color: #F3F3F3;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  border-radius: 99px;
+  background: #101010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease;
+}
+
+.service__card-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background-color: #5b5aff;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service__card-link:hover,
+.service__card-link:focus-visible,
+.service__card-link:active {
+  box-shadow: 0 0 1px 0 #5b5aff;
+}
+
+.service__card-link:hover::before,
+.service__card-link:focus-visible::before,
+.service__card-link:active::before {
+  width: 100%;
+}
+
+.service__card-body {
+  padding: 16px 12px;
+}
+
+.service__list {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  width: 100%;
+}
+
+.service__item-link {
+  padding: 12px;
+  border-top: 1px solid #F3F3F3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  transition: all 0.4s;
+}
+
+.service__item-link:hover,
+.service__item-link:focus-visible,
+.service__item-link:active {
+  border-top: 1px solid #F3F3F3;
+  background: rgba(243, 243, 243, 0.50);
+  padding-left: 24px;
+}
+
+
+.service__item-icon {
+  padding: 0 12px;
+  transition: all 0.4s;
+}
+
+
+.service__item-link:hover .service__item-icon,
+.service__item-link:focus-visible .service__item-icon,
+.service__item-link:active .service__item-icon {
+  padding-right: 0;
+}
+
+.service__item-icon::before {
+  font-size: 24px;
+}
+
+.service__item {
+  width: 100%;
+}
+
+
+/* ---------- cases: анімації (js/cases.js) ---------- */
+.cases {
+  --cases-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cases__link {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 1. Поява при скролі (лише коли JS увімкнув .is-ready) */
+.cases.is-ready .cases__media {
+  opacity: 0;
+  transform: translateY(40px) scale(0.92);
+  /* поява — transform, ховер — окрема властивість scale: анімації не перебивають одна одну */
+  transition:
+    transform 1.3s var(--cases-ease),
+    opacity 0.65s ease,
+    scale 0.7s var(--cases-ease);
+}
+
+.cases.is-ready .cases__video {
+  transform: scale(1.07);
+  transition:
+    transform 1.3s var(--cases-ease),
+    scale 0.7s var(--cases-ease);
+}
+
+.cases.is-ready .cases__body {
+  opacity: 0;
+  transition: opacity 0.9s var(--cases-ease) 0.3s;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__media {
+  opacity: 1;
+  transform: none;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__video {
+  transform: none;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__body {
+  opacity: 1;
+}
+
+/* 2. Ховер + світіння (canvas створює JS) */
+.cases__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0;
+  filter: blur(40px) saturate(1.5);
+  transform: scale(1);
+  pointer-events: none;
+  transition:
+    opacity 0.7s var(--cases-ease),
+    transform 0.7s var(--cases-ease);
+}
+
+.cases__card.is-hovered .cases__glow {
+  opacity: 0.6;
+  transform: scale(1.03);
+}
+
+.cases__card.is-hovered .cases__media {
+  scale: 1.015;
+}
+
+.cases__card.is-hovered .cases__video {
+  scale: 1.03;
+}
+
+/* 3. Курсор-плашка */
+.cases__card.is-hovered .cases__media {
+  cursor: none;
+}
+
+.cases__cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: #101010;
+  color: #f3f3f3;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  pointer-events: none;
+  /* центр плашки — під курсором; x/y задає GSAP */
+  translate: -50% -50%;
+  scale: 0;
+  opacity: 0;
+  transition:
+    scale 0.45s var(--cases-ease),
+    opacity 0.3s ease;
+}
+
+.cases.is-cursor-visible .cases__cursor {
+  scale: 1;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cases.is-ready .cases__media,
+  .cases.is-ready .cases__video,
+  .cases.is-ready .cases__body,
+  .cases__glow {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .service__card-link,
+  .service__card-link::before {
+    transition: none;
+  }
+}
+
+.service__card-link:hover {
+  background: #101010;
+  box-shadow: 0 0 1px 0 #5B5AFF;
+}
 
 @media (min-width: 1280px) {
   .header {
@@ -1960,7 +2355,6 @@ body.is-menu-open .header {
     flex: none;
   }
 
-  /* Десктоп: шапку ховаємо, header__actions лишаються */
   body.is-menu-open .header {
     z-index: 100;
     opacity: 0;
@@ -2532,7 +2926,7 @@ body.is-menu-open .header {
     height: 676px;
   }
 
-  .cases__list > .cases__card:nth-of-type(2) {
+  .cases__list>.cases__card:nth-of-type(2) {
     width: 876px;
     height: 676px;
     margin: 0 auto;
@@ -2583,6 +2977,72 @@ body.is-menu-open .header {
   .cases__card-text {
     font-size: 16px;
   }
+
+  .cases__all-link {
+    font-size: 16px;
+  }
+
+  .service {
+    padding: 64px 52px;
+  }
+
+  .service .container {
+    max-width: 1576px;
+    gap: 64px;
+  }
+
+  .service__top {
+    gap: 32px;
+  }
+
+  .service__label {
+    font-size: 16px;
+  }
+
+  .service__title {
+    font-size: 38px;
+  }
+
+  .service__text {
+    font-size: 24px;
+  }
+
+  .service__body {
+    gap: 24px;
+  }
+
+  .service__card-text {
+    font-size: 16px;
+  }
+
+  .service__card-link {
+    font-size: 16px;
+  }
+
+  .service__card-body {
+    padding: 24px;
+  }
+
+  .service__item-link {
+    font-size: 16px;
+  }
+
+  .service__card {
+    min-height: 564px;
+    padding: 8px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0 2px 16px 0 rgba(124, 111, 224, 0.08);
+  }
+
+  .service__card-header {
+    height: 250px;
+    padding: 24px 16px;
+  }
+
+  .service__card-title {
+    font-size: 24px;
+  }
 }
 
 .visually-hidden {
@@ -2598,9 +3058,7 @@ body.is-menu-open .header {
   border: 0 !important;
 }
 
-/* cases (десктоп): теги з'являються при ховері / фокусі на картці.
-   Список завжди займає своє місце (лише прозорий), тож висота картки не змінюється
-   і блоки нижче не смикаються */
+
 @media (min-width: 1280px) and (hover: hover) {
   .cases__card-list {
     opacity: 0;
@@ -2637,10 +3095,6 @@ body.is-menu-open .header {
   .cases__card:focus-within .cases__card-item {
     transform: none;
   }
-
-  .cases__all-link {
-    font-size: 16px;
-  }
 }
 
 @media (min-width: 1280px) and (hover: hover) and (prefers-reduced-motion: reduce) {
@@ -2651,122 +3105,50 @@ body.is-menu-open .header {
   }
 }
 
-/* ---------- cases: анімації (js/cases.js) ---------- */
-.cases {
-  --cases-ease: cubic-bezier(0.16, 1, 0.3, 1);
+/* service (десктоп з мишею): при ховері / фокусі на картці з'являється картинка
+   і виїжджає знизу кнопка "Почати з консультації". Без миші все видно одразу */
+@media (min-width: 1280px) and (hover: hover) {
+  .service__card {
+    --service-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service__card-img {
+    opacity: 0;
+    transform: scale(1.08);
+    transition:
+      opacity 0.5s ease,
+      transform 0.8s var(--service-ease);
+  }
+
+  /* кнопка ховається за нижній край шапки (у шапки overflow: hidden) */
+  .service__card-link {
+    opacity: 0;
+    transform: translateY(calc(100% + 24px));
+    transition:
+      box-shadow 0.35s ease,
+      opacity 0.3s ease,
+      transform 0.6s var(--service-ease);
+  }
+
+  .service__card:hover .service__card-img,
+  .service__card:focus-within .service__card-img,
+  .service__card:active .service__card-img {
+    opacity: 1;
+    transform: none;
+  }
+
+  .service__card:hover .service__card-link,
+  .service__card:focus-within .service__card-link,
+  .service__card:active .service__card-link {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s, 0.05s, 0.05s;
+  }
 }
 
-.cases__link {
-  position: relative;
-  isolation: isolate;
-}
-
-/* 1. Поява при скролі (лише коли JS увімкнув .is-ready) */
-.cases.is-ready .cases__media {
-  opacity: 0;
-  transform: translateY(40px) scale(0.92);
-  /* поява — transform, ховер — окрема властивість scale: анімації не перебивають одна одну */
-  transition:
-    transform 1.3s var(--cases-ease),
-    opacity 0.65s ease,
-    scale 0.7s var(--cases-ease);
-}
-
-.cases.is-ready .cases__video {
-  transform: scale(1.07);
-  transition:
-    transform 1.3s var(--cases-ease),
-    scale 0.7s var(--cases-ease);
-}
-
-.cases.is-ready .cases__body {
-  opacity: 0;
-  transition: opacity 0.9s var(--cases-ease) 0.3s;
-}
-
-.cases.is-ready .cases__card.is-visible .cases__media {
-  opacity: 1;
-  transform: none;
-}
-
-.cases.is-ready .cases__card.is-visible .cases__video {
-  transform: none;
-}
-
-.cases.is-ready .cases__card.is-visible .cases__body {
-  opacity: 1;
-}
-
-/* 2. Ховер + світіння (canvas створює JS) */
-.cases__glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  border-radius: 12px;
-  opacity: 0;
-  filter: blur(40px) saturate(1.5);
-  transform: scale(1);
-  pointer-events: none;
-  transition:
-    opacity 0.7s var(--cases-ease),
-    transform 0.7s var(--cases-ease);
-}
-
-.cases__card.is-hovered .cases__glow {
-  opacity: 0.6;
-  transform: scale(1.03);
-}
-
-.cases__card.is-hovered .cases__media {
-  scale: 1.015;
-}
-
-.cases__card.is-hovered .cases__video {
-  scale: 1.03;
-}
-
-/* 3. Курсор-плашка */
-.cases__card.is-hovered .cases__media {
-  cursor: none;
-}
-
-.cases__cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  padding: 8px 16px;
-  border-radius: 99px;
-  background: #101010;
-  color: #f3f3f3;
-  font-family: var(--font-inter);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  white-space: nowrap;
-  pointer-events: none;
-  /* центр плашки — під курсором; x/y задає GSAP */
-  translate: -50% -50%;
-  scale: 0;
-  opacity: 0;
-  transition:
-    scale 0.45s var(--cases-ease),
-    opacity 0.3s ease;
-}
-
-.cases.is-cursor-visible .cases__cursor {
-  scale: 1;
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .cases.is-ready .cases__media,
-  .cases.is-ready .cases__video,
-  .cases.is-ready .cases__body,
-  .cases__glow {
+@media (min-width: 1280px) and (hover: hover) and (prefers-reduced-motion: reduce) {
+  .service__card-img,
+  .service__card-link {
     transition: none;
   }
 }
