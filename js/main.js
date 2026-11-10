@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // кейси: відео вантажаться і грають лише біля екрана
   initLazyVideos()
 
+  // кейси: поява при скролі, світіння і курсор-плашка (як у clay.global)
+  const cases = initCases()
+
   window.app = {
     lenis,
     gsap,
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     burger,
     problemsAccordion,
     businessValueCards,
+    cases,
   }
 
   // Swiper — розкоментуй, коли буде розмітка .swiper

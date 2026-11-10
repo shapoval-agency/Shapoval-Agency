@@ -1752,6 +1752,10 @@ body.is-menu-open .header {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
 }
 
 .cases__list {
@@ -1772,8 +1776,176 @@ body.is-menu-open .header {
   align-self: stretch;
 }
 
+.cases__media {
+  border-radius: 12px;
+  box-shadow: 0 0 68px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
 
+.cases__video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
 
+.cases__badge {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  border-radius: 99px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+}
+
+.cases__body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cases__card-title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+
+.cases__card-text {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+}
+
+.cases__card-list {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.cases__card-item {
+  display: flex;
+  align-items: center;
+  border-radius: 99px;
+  border: 1px solid #393939;
+  padding: 4px 8px;
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.cases__all-link {
+  border-radius: 99px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+  padding: 0 8px 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.cases__all-link .icon-namecaret-right {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cases__all-link .icon-namecaret-right::before {
+  font-size: 24px;
+  color: #393939;
+}
+
+.cases__all-link {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease;
+}
+
+.cases__all-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #BDBDFF;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cases__all-link .icon-namecaret-right {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cases__all-link:hover,
+.cases__all-link:focus-visible,
+.cases__all-link:active {
+  box-shadow: 0 0 1px 0 #5b5aff;
+}
+
+.cases__all-link:hover::before,
+.cases__all-link:focus-visible::before,
+.cases__all-link:active::before {
+  width: 100%;
+}
+
+.cases__all-link:hover .icon-namecaret-right,
+.cases__all-link:focus-visible .icon-namecaret-right,
+.cases__all-link:active .icon-namecaret-right {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cases__all-link,
+  .cases__all-link::before,
+  .cases__all-link .icon-namecaret-right {
+    transition: none;
+  }
+}
+
+.cases__all-link:hover,
+.cases__all-link:focus-visible,
+.cases__all-link:active {
+  border-radius: 99px;
+  background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-20, #DEDEFF);
+  box-shadow: 0 0 1px 0 var(--colors-basic-colors-dodger-blue-60, #9C9CFE);
+}
+
+.cases__list-row {
+  display: flex;
+  gap: 64px;
+  flex-direction: column;
+}
 
 
 
@@ -2325,6 +2497,92 @@ body.is-menu-open .header {
     font-size: 16px;
   }
 
+  .cases {
+    padding: 64px 52px;
+  }
+
+  .cases .container {
+    gap: 128px;
+    max-width: 1176px;
+  }
+
+  .cases__list {
+    gap: 128px;
+  }
+
+  .cases__list-row {
+    flex-direction: row;
+    gap: 124px;
+    align-items: flex-start;
+  }
+
+  .cases__list-row:nth-of-type(1) .cases__card:nth-of-type(1) {
+    width: 476px;
+    height: 576px;
+  }
+
+  .cases__list-row:nth-of-type(1) .cases__card:nth-of-type(2) {
+    width: 576px;
+    margin-top: 176px;
+    height: 676px;
+  }
+
+  .cases__list .cases__card:nth-of-type(1) {
+    width: 876px;
+    height: 676px;
+  }
+
+  .cases__list > .cases__card:nth-of-type(2) {
+    width: 876px;
+    height: 676px;
+    margin: 0 auto;
+  }
+
+  .cases__list-row:nth-of-type(2) {
+    align-items: center;
+  }
+
+  .cases__list-row:nth-of-type(2) .cases__card:nth-of-type(1) {
+    width: 476px;
+    height: 576px;
+  }
+
+  .cases__list-row:nth-of-type(2) .cases__card:nth-of-type(2) {
+    width: 576px;
+    height: 876px;
+  }
+
+  .cases__list-row:nth-of-type(3) .cases__card:nth-of-type(1) {
+    width: 476px;
+    height: 576px;
+  }
+
+  .cases__list-row:nth-of-type(3) .cases__card:nth-of-type(2) {
+    width: 576px;
+    height: 676px;
+    margin-top: 88px;
+  }
+
+  .cases__card-title {
+    font-size: 24px;
+  }
+
+  .cases__link {
+    height: 100%;
+  }
+
+  .cases__media {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cases__video {
+    object-fit: cover;
+  }
+
+  .cases__card-text {
+    font-size: 16px;
+  }
 }
 
 .visually-hidden {
@@ -2338,4 +2596,177 @@ body.is-menu-open .header {
   clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+/* cases (десктоп): теги з'являються при ховері / фокусі на картці.
+   Список завжди займає своє місце (лише прозорий), тож висота картки не змінюється
+   і блоки нижче не смикаються */
+@media (min-width: 1280px) and (hover: hover) {
+  .cases__card-list {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .cases__card-item {
+    transform: translateY(10px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cases__card-item:nth-child(2) {
+    transition-delay: 0.04s;
+  }
+
+  .cases__card-item:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+
+  .cases__card-item:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+
+  .cases__card-item:nth-child(n + 5) {
+    transition-delay: 0.16s;
+  }
+
+  .cases__card:hover .cases__card-list,
+  .cases__card:focus-within .cases__card-list {
+    opacity: 1;
+  }
+
+  .cases__card:hover .cases__card-item,
+  .cases__card:focus-within .cases__card-item {
+    transform: none;
+  }
+
+  .cases__all-link {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1280px) and (hover: hover) and (prefers-reduced-motion: reduce) {
+
+  .cases__card-list,
+  .cases__card-item {
+    transition: none;
+  }
+}
+
+/* ---------- cases: анімації (js/cases.js) ---------- */
+.cases {
+  --cases-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cases__link {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 1. Поява при скролі (лише коли JS увімкнув .is-ready) */
+.cases.is-ready .cases__media {
+  opacity: 0;
+  transform: translateY(40px) scale(0.92);
+  /* поява — transform, ховер — окрема властивість scale: анімації не перебивають одна одну */
+  transition:
+    transform 1.3s var(--cases-ease),
+    opacity 0.65s ease,
+    scale 0.7s var(--cases-ease);
+}
+
+.cases.is-ready .cases__video {
+  transform: scale(1.07);
+  transition:
+    transform 1.3s var(--cases-ease),
+    scale 0.7s var(--cases-ease);
+}
+
+.cases.is-ready .cases__body {
+  opacity: 0;
+  transition: opacity 0.9s var(--cases-ease) 0.3s;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__media {
+  opacity: 1;
+  transform: none;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__video {
+  transform: none;
+}
+
+.cases.is-ready .cases__card.is-visible .cases__body {
+  opacity: 1;
+}
+
+/* 2. Ховер + світіння (canvas створює JS) */
+.cases__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0;
+  filter: blur(40px) saturate(1.5);
+  transform: scale(1);
+  pointer-events: none;
+  transition:
+    opacity 0.7s var(--cases-ease),
+    transform 0.7s var(--cases-ease);
+}
+
+.cases__card.is-hovered .cases__glow {
+  opacity: 0.6;
+  transform: scale(1.03);
+}
+
+.cases__card.is-hovered .cases__media {
+  scale: 1.015;
+}
+
+.cases__card.is-hovered .cases__video {
+  scale: 1.03;
+}
+
+/* 3. Курсор-плашка */
+.cases__card.is-hovered .cases__media {
+  cursor: none;
+}
+
+.cases__cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: #101010;
+  color: #f3f3f3;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  pointer-events: none;
+  /* центр плашки — під курсором; x/y задає GSAP */
+  translate: -50% -50%;
+  scale: 0;
+  opacity: 0;
+  transition:
+    scale 0.45s var(--cases-ease),
+    opacity 0.3s ease;
+}
+
+.cases.is-cursor-visible .cases__cursor {
+  scale: 1;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cases.is-ready .cases__media,
+  .cases.is-ready .cases__video,
+  .cases.is-ready .cases__body,
+  .cases__glow {
+    transition: none;
+  }
 }
