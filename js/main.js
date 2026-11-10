@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // кейси: поява при скролі, світіння і курсор-плашка (як у clay.global)
   const cases = initCases()
 
+  // value-chain: підсвітка результатів, пов'язаних з послугою
+  const valueChain = initValueChain()
+
   window.app = {
     lenis,
     gsap,
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     problemsAccordion,
     businessValueCards,
     cases,
+    valueChain,
   }
 
   // Swiper — розкоментуй, коли буде розмітка .swiper

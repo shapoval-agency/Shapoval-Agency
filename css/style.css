@@ -513,24 +513,6 @@ body {
     visibility 0s linear 0s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .menu {
-    transform: none;
-    transition:
-      opacity 0.2s ease,
-      visibility 0s linear 0.2s;
-    opacity: 0;
-  }
-
-  .menu.is-open {
-    transform: none;
-    opacity: 1;
-    transition:
-      opacity 0.2s ease,
-      visibility 0s linear 0s;
-  }
-}
-
 body.is-menu-open {
   overflow: hidden;
 }
@@ -1336,16 +1318,6 @@ body.is-menu-open .header {
   transform: rotate(90deg);
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-  .business-value__item,
-  .business-value__item-inner,
-  .business-value__item-text,
-  .business-value__item-link {
-    transition: none !important;
-  }
-}
-
 .working-model {
   padding: 64px 16px 32px 16px;
 }
@@ -1635,17 +1607,6 @@ body.is-menu-open .header {
   background: linear-gradient(var(--wm-line), var(--wm-line)) 50% 5px / 1px 48px no-repeat;
 }
 
-@media (min-width: 1280px) {
-  .working-model__diagram {
-    --wm-icon-box: 64px;
-    --wm-icon: 32px;
-  }
-
-  .working-model__diagram--before .working-model__services {
-    height: 115px;
-  }
-}
-
 .working-model__card .btn {
   border-radius: 99px;
   background: #101010;
@@ -1715,15 +1676,6 @@ body.is-menu-open .header {
 .working-model__card .btn:focus-visible .icon-namecaret-right,
 .working-model__card .btn:active .icon-namecaret-right {
   transform: translateX(4px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .working-model__card .btn,
-  .working-model__card .btn::before,
-  .working-model__card .btn .icon-namecaret-right {
-    transition: none;
-  }
 }
 
 .working-model__card .btn:hover {
@@ -1922,15 +1874,6 @@ body.is-menu-open .header {
 .cases__all-link:focus-visible .icon-namecaret-right,
 .cases__all-link:active .icon-namecaret-right {
   transform: translateX(4px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .cases__all-link,
-  .cases__all-link::before,
-  .cases__all-link .icon-namecaret-right {
-    transition: none;
-  }
 }
 
 .cases__all-link:hover,
@@ -2189,12 +2132,10 @@ body.is-menu-open .header {
   padding-left: 24px;
 }
 
-
 .service__item-icon {
   padding: 0 12px;
   transition: all 0.4s;
 }
-
 
 .service__item-link:hover .service__item-icon,
 .service__item-link:focus-visible .service__item-icon,
@@ -2209,7 +2150,6 @@ body.is-menu-open .header {
 .service__item {
   width: 100%;
 }
-
 
 /* ---------- cases: анімації (js/cases.js) ---------- */
 .cases {
@@ -2321,30 +2261,450 @@ body.is-menu-open .header {
   opacity: 1;
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-  .cases.is-ready .cases__media,
-  .cases.is-ready .cases__video,
-  .cases.is-ready .cases__body,
-  .cases__glow {
-    transition: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-  .service__card-link,
-  .service__card-link::before {
-    transition: none;
-  }
-}
-
 .service__card-link:hover {
   background: #101010;
   box-shadow: 0 0 1px 0 #5B5AFF;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ---------- value-chain: схема "Ваш бізнес → На що ми впливаємо" ----------
+   Одна й та сама схема на всіх ширинах, змінюються лише розміри (змінні).
+   Що не влазить у ширину — обрізає секція (overflow-x: clip) */
+.value-chain {
+  overflow-x: clip;
+}
+
+.value-chain__diagram {
+  /* мобільна */
+  --vc-outer: 522px;
+  --vc-inner: 325px;
+  --vc-pill-height: 42px;
+  --vc-pill-font: 12px;
+  --vc-title-font: 14px;
+  --vc-row-gap: 24px;
+  --vc-service-col-gap: 9px;
+  --vc-outcome-col-gap: 14px;
+  /* ряди трохи нижче центру — над ними заголовок "Ваш бізнес" */
+  --vc-rows-shift: 5px;
+  /* середній ряд результатів відсунутий назовні: там коло найширше */
+  --vc-middle-offset: 47px;
+  --vc-impact-title-top: 60px;
+  --vc-core-title-top: 30px;
+  --vc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  height: var(--vc-outer);
+}
+
+/* ---- зовнішнє коло + результати ---- */
+.value-chain__impact {
+  position: absolute;
+  inset: 0;
+}
+
+.value-chain__impact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--vc-outer);
+  height: var(--vc-outer);
+  border: 1px dashed #393939;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.value-chain__impact-title,
+.value-chain__core-title {
+  position: absolute;
+  left: 50%;
+  margin: 0;
+  color: #101010;
+  font-family: var(--font-azo);
+  font-size: var(--vc-title-font);
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.value-chain__impact-title {
+  top: var(--vc-impact-title-top);
+  color: #101010;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.value-chain__outcomes {
+  position: absolute;
+  top: calc(50% + var(--vc-rows-shift));
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--vc-row-gap) / 2) var(--vc-outcome-col-gap);
+  /* ширина за вмістом: пари не розбиваються, зайве йде за край і обрізається секцією */
+  width: max-content;
+  transform: translateY(-50%);
+}
+
+.value-chain__outcomes::before,
+.value-chain__outcomes::after {
+  content: "";
+  flex-basis: 100%;
+  height: 0;
+}
+
+.value-chain__outcomes::before {
+  order: 1;
+}
+
+.value-chain__outcomes::after {
+  order: 3;
+}
+
+.value-chain__outcome:nth-child(-n + 2) {
+  order: 0;
+}
+
+.value-chain__outcome:nth-child(3),
+.value-chain__outcome:nth-child(4) {
+  order: 2;
+}
+
+.value-chain__outcome:nth-child(n + 5) {
+  order: 4;
+}
+
+.value-chain__outcomes--brand {
+  right: calc(50% + var(--vc-inner) / 2);
+  justify-content: flex-end;
+}
+
+.value-chain__outcomes--growth {
+  left: calc(50% + var(--vc-inner) / 2);
+  justify-content: flex-start;
+}
+
+.value-chain__outcomes--brand .value-chain__outcome:nth-child(3),
+.value-chain__outcomes--brand .value-chain__outcome:nth-child(4) {
+  translate: calc(var(--vc-middle-offset) * -1) 0;
+}
+
+.value-chain__outcomes--growth .value-chain__outcome:nth-child(3),
+.value-chain__outcomes--growth .value-chain__outcome:nth-child(4) {
+  translate: var(--vc-middle-offset) 0;
+}
+
+.value-chain__outcome {
+  display: inline-flex;
+  align-items: center;
+  height: var(--vc-pill-height);
+  padding: 0 24px;
+  border: 1px solid #D6D6D6;
+  border-radius: 99px;
+  background: #fff;
+  color: #D6D6D6;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  width: max-content;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.value-chain__outcome.is-highlighted {
+  border-color: #d6d6d6;
+  background: var(--colors-basic-colors-dodger-blue-80, #7b7bff);
+  color: #f3f3f3;
+}
+
+/* ---- внутрішнє коло + послуги ---- */
+.value-chain__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--vc-inner);
+  height: var(--vc-inner);
+  border: 1px dashed #101010;
+  border-radius: 50%;
+  background: #ededf5;
+  transform: translate(-50%, -50%);
+}
+
+.value-chain__core-title {
+  top: var(--vc-core-title-top);
+  color: #101010;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* послуги рядами 2 / 3 / 2, кожна кнопка — по ширині тексту.
+   ::before / ::after — "переноси рядка" між рядами (order), тому row-gap — половина */
+.value-chain__services {
+  position: absolute;
+  top: calc(50% + var(--vc-rows-shift));
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--vc-row-gap) / 2) var(--vc-service-col-gap);
+  width: max-content;
+  transform: translate(-50%, -50%);
+}
+
+.value-chain__services::before,
+.value-chain__services::after {
+  content: "";
+  flex-basis: 100%;
+  height: 0;
+}
+
+.value-chain__services::before {
+  order: 1;
+}
+
+.value-chain__services::after {
+  order: 3;
+}
+
+.value-chain__service-item:nth-child(-n + 2) {
+  order: 0;
+}
+
+.value-chain__service-item:nth-child(n + 3):nth-child(-n + 5) {
+  order: 2;
+}
+
+.value-chain__service-item:nth-child(n + 6) {
+  order: 4;
+}
+
+.value-chain__service {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--vc-pill-height);
+  padding: 8px 12px 8px 8px;
+  border: 0;
+  border-radius: 99px;
+  background: #101010;
+  color: #F3F3F3;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.35s ease;
+}
+
+.value-chain__service img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.value-chain__service-icon {
+  flex: none;
+  width: calc(var(--vc-pill-font) + 2px);
+  height: calc(var(--vc-pill-font) + 2px);
+}
+
+.value-chain__service:focus-visible {
+  outline: 2px solid #5b5aff;
+  outline-offset: 3px;
+}
+
+/* активна послуга (ховер / фокус / закріплена) — фіолетова, без тіні */
+.value-chain__service.is-active {
+  background: var(--colors-basic-colors-dodger-blue-100, #5b5aff);
+}
+
+.value-chain {
+  padding: 48px 16px;
+}
+
+.value-chain .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  gap: 42px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.value-chain__top {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.value-chain__top-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 276px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.value-chain__top-label {
+  width: 100%;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  background: linear-gradient(270deg, #5B5AFF 54.52%, #FF831A 124.52%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.value-chain__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.value-chain__title-accent {
+  font-weight: 500;
+}
+
+.value-chain__top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 276px;
+  align-self: stretch;
+  flex: 1 0 0;
+}
+
+.value-chain__text {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.value-chain__text-accent {
+  font-weight: 500;
+}
+
+.value-chain__link {
+  padding: 16px 56px 16px 40px;
+  border-radius: 99px;
+  background: #101010;
+  width: max-content;
+  color: #F3F3F3;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* ховер як у .hero__btn: фіолетова заливка зліва направо + тонка обводка */
+.value-chain__link {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease;
+}
+
+.value-chain__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.value-chain__link:hover,
+.value-chain__link:focus-visible,
+.value-chain__link:active {
+  background: var(--colors-basic-colors-grayscale-100, #101010);
+  box-shadow: 0 0 1px 0 var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
+}
+
+.value-chain__link:hover::before,
+.value-chain__link:focus-visible::before,
+.value-chain__link:active::before {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== Десктоп (від 1280px) ==================== */
 @media (min-width: 1280px) {
+  .working-model__diagram {
+    --wm-icon-box: 64px;
+    --wm-icon: 32px;
+  }
+
+  .working-model__diagram--before .working-model__services {
+    height: 115px;
+  }
+
   .header {
     left: 50%;
     transform: translateX(-50%);
@@ -3043,22 +3403,68 @@ body.is-menu-open .header {
   .service__card-title {
     font-size: 24px;
   }
+
+  /* десктоп: ті самі кола, більші розміри */
+  .value-chain__diagram {
+    --vc-outer: 628px;
+    --vc-inner: 391px;
+    --vc-pill-height: 44px;
+    --vc-pill-font: 14px;
+    --vc-title-font: 24px;
+    --vc-row-gap: 44px;
+    --vc-service-col-gap: 25px;
+    --vc-outcome-col-gap: 26px;
+    --vc-rows-shift: 10px;
+    --vc-middle-offset: 85px;
+    --vc-impact-title-top: 65px;
+    --vc-core-title-top: 36px;
+  }
+
+  .value-chain__service {
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .value-chain {
+    padding: 64px 52px;
+  }
+
+  .value-chain__core-title {
+    font-size: 24px;
+  }
+
+  .value-chain .container {
+    max-width: 1176px;
+    gap: 8px;
+  }
+
+  .value-chain__impact-title {
+    font-size: 24px;
+  }
+
+  .value-chain__top-content {
+    max-width: 476px;
+    padding-top: 48px;
+  }
+
+  .value-chain__top-label {
+    font-size: 16px;
+  }
+
+  .value-chain__title {
+    font-size: 38px;
+  }
+
+  .value-chain__text {
+    font-size: 16px;
+  }
+
+  .value-chain__link {
+    font-size: 16px;
+  }
 }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  clip: rect(0 0 0 0) !important;
-  clip-path: inset(50%) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-
+/* ==================== Десктоп з мишею: ховер-анімації ==================== */
 @media (min-width: 1280px) and (hover: hover) {
   .cases__card-list {
     opacity: 0;
@@ -3095,19 +3501,9 @@ body.is-menu-open .header {
   .cases__card:focus-within .cases__card-item {
     transform: none;
   }
-}
 
-@media (min-width: 1280px) and (hover: hover) and (prefers-reduced-motion: reduce) {
-
-  .cases__card-list,
-  .cases__card-item {
-    transition: none;
-  }
-}
-
-/* service (десктоп з мишею): при ховері / фокусі на картці з'являється картинка
-   і виїжджає знизу кнопка "Почати з консультації". Без миші все видно одразу */
-@media (min-width: 1280px) and (hover: hover) {
+  /* service (десктоп з мишею): при ховері / фокусі на картці з'являється картинка
+     і виїжджає знизу кнопка "Почати з консультації". Без миші все видно одразу */
   .service__card {
     --service-ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -3146,7 +3542,75 @@ body.is-menu-open .header {
   }
 }
 
+/* ==================== Зменшення руху: вимикаємо анімації ==================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .value-chain__link,
+  .value-chain__link::before {
+    transition: none;
+  }
+
+  .menu {
+    transform: none;
+    transition:
+      opacity 0.2s ease,
+      visibility 0s linear 0.2s;
+    opacity: 0;
+  }
+
+  .menu.is-open {
+    transform: none;
+    opacity: 1;
+    transition:
+      opacity 0.2s ease,
+      visibility 0s linear 0s;
+  }
+
+  .business-value__item,
+  .business-value__item-inner,
+  .business-value__item-text,
+  .business-value__item-link {
+    transition: none !important;
+  }
+
+  .working-model__card .btn,
+  .working-model__card .btn::before,
+  .working-model__card .btn .icon-namecaret-right {
+    transition: none;
+  }
+
+  .cases__all-link,
+  .cases__all-link::before,
+  .cases__all-link .icon-namecaret-right {
+    transition: none;
+  }
+
+  .cases.is-ready .cases__media,
+  .cases.is-ready .cases__video,
+  .cases.is-ready .cases__body,
+  .cases__glow {
+    transition: none;
+  }
+
+  .service__card-link,
+  .service__card-link::before {
+    transition: none;
+  }
+
+  .value-chain__service,
+  .value-chain__outcome {
+    transition: none;
+  }
+}
+
+/* ==================== Десктоп з мишею + зменшення руху ==================== */
 @media (min-width: 1280px) and (hover: hover) and (prefers-reduced-motion: reduce) {
+
+  .cases__card-list,
+  .cases__card-item {
+    transition: none;
+  }
+
   .service__card-img,
   .service__card-link {
     transition: none;
