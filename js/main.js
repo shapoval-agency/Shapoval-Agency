@@ -1,26 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  const lenis = new Lenis({
-    autoRaf: false,
-  })
+  // Lenis — лише на десктопі з мишею і не в Safari:
+  //   - мобілки / планшети (тач): нативний скрол із інерцією кращий;
+  //   - Safari: власний плавний скрол трекпада, з Lenis він "пливе" і смикається;
+  //   - prefers-reduced-motion: без згладжування.
+  // Без Lenis ScrollTrigger працює на нативному скролі, нічого більше не треба.
+  const isSafari = /^((?!chrome|chromium|crios|fxios|edg|android).)*safari/i.test(navigator.userAgent)
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  lenis.on('scroll', ScrollTrigger.update)
+  const lenis = isSafari || isTouch || reducedMotion ? null : new Lenis({ autoRaf: false })
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000)
-  })
+  if (lenis) {
+    lenis.on('scroll', ScrollTrigger.update)
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+  }
 
   gsap.ticker.lagSmoothing(0)
+
+  // поява елементів при скролі + зум відео в hero (як на clay.global).
+  // На самому початку: hero прихований з <head>, тож reveal має запуститись, навіть якщо щось нижче впаде
+  const reveal = initReveal()
+  const heroZoom = initHeroZoom()
 
   Fancybox.bind('[data-fancybox]', {})
 
   const burger = initBurger({
+    // без Lenis скрол блокує body.is-menu-open { overflow: hidden }
     onOpen: () => {
-      lenis.stop()
+      lenis?.stop()
     },
     onClose: () => {
-      lenis.start()
+      lenis?.start()
     },
   })
 
@@ -67,5 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     teamSlider,
     reviewsSlider,
     footerReveal,
+    reveal,
+    heroZoom,
   }
 })

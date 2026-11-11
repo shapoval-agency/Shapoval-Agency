@@ -3711,6 +3711,14 @@ body.is-menu-open .header {
 
 
 
+/* ==================== Поява при скролі (js/reveal.js) ====================
+   До появи елемент прозорий; саму анімацію запускає JS (Web Animations API).
+   hero прихований одразу (клас reveal-ready ставиться в <head>), інші — коли JS позначив їх data-reveal */
+.reveal-ready [data-reveal]:not(.is-revealed),
+.reveal-ready .hero__content > :not(.is-revealed) {
+  opacity: 0;
+}
+
 /* ==================== Footer reveal (js/footer-reveal.js) ====================
    Мінімум, без якого ефект не працює. Оформлення футера — у .footer */
 .footer-reveal {

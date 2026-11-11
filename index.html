@@ -17,6 +17,10 @@
   <link rel="stylesheet" href="css/icomoon.css" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- поява при скролі (js/reveal.js): клас ставимо до відмальовки, щоб перший екран не блимав -->
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-ready')
+  </script>
 </head>
 
 <body>
@@ -1698,6 +1702,7 @@
   <script src="js/team-slider.js"></script>
   <script src="js/reviews-slider.js"></script>
   <script src="js/footer-reveal.js"></script>
+  <script src="js/reveal.js"></script>
   <script src="js/main.js"></script>
 </body>
 
