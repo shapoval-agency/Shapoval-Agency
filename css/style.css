@@ -766,18 +766,18 @@ body.is-menu-open .header {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
-  top: 80px;
-  left: -27px;
+  top: 71px;
+  left: -29px;
 }
 
 .header__action-mob::before {
   content: "";
   position: absolute;
-  top: -10px;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%) rotate(-135deg);
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   z-index: -1;
   border-radius: 4px;
   background:
@@ -933,7 +933,7 @@ body.is-menu-open .header {
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  gap: 8px;
+  gap: 16px;
   align-self: stretch;
   padding: 16px;
   border-radius: 12px;
@@ -1070,6 +1070,7 @@ body.is-menu-open .header {
   font-family: var(--font-azo);
   font-size: 16px;
   font-weight: 500;
+  text-align: left;
   line-height: 1.4;
   letter-spacing: 0;
 }
@@ -1101,7 +1102,7 @@ body.is-menu-open .header {
 }
 
 .business-value {
-  padding: 64px 16px;
+  padding: 49px 16px 64px 16px;
   overflow: hidden;
 }
 
@@ -1132,6 +1133,7 @@ body.is-menu-open .header {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .business-value__header-box {
@@ -1171,7 +1173,7 @@ body.is-menu-open .header {
   --bv-card-active: 276px;
   --bv-card-height: 276px;
   --bv-card-padding: 16px;
-  --bv-head-height: 48px;
+  --bv-head-height: 20px;
   --bv-ease: cubic-bezier(0.65, 0, 0.35, 1);
   --bv-duration: 0.7s;
   display: flex;
@@ -1277,6 +1279,10 @@ body.is-menu-open .header {
 .business-value__item-link {
   width: max-content;
   padding: 8px 12px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
   color: #F3F3F3;
   text-wrap-style: balance;
   font-family: var(--font-inter);
@@ -1307,10 +1313,10 @@ body.is-menu-open .header {
 .business-value__item-icon {
   position: absolute;
   z-index: 1;
-  top: var(--bv-card-padding);
-  right: calc((var(--bv-card-collapsed) - var(--bv-head-height)) / 2);
-  width: var(--bv-head-height);
-  height: var(--bv-head-height);
+  top: 14px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
 }
 
 .business-value__item:not(.is-active) .business-value__item-icon i {
@@ -1367,6 +1373,7 @@ body.is-menu-open .header {
   font-family: var(--font-azo);
   font-size: 14px;
   font-weight: 500;
+  text-transform: uppercase;
   line-height: 1.5;
   letter-spacing: 0;
   background: linear-gradient(270deg, #5B5AFF 31.82%, #FF831A 322.08%);
@@ -1544,7 +1551,7 @@ body.is-menu-open .header {
 .working-model__tooltip {
   position: absolute;
   top: 15px;
-  left: calc(50% + 24px);
+  left: calc(50% + 30px);
   padding: 8px 12px;
   border-radius: 4px;
   background: #fff;
@@ -1561,8 +1568,8 @@ body.is-menu-open .header {
 .working-model__tooltip::before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: -8px;
+  top: 12px;
+  left: -12px;
   width: 16.83px;
   height: 7.59px;
   background: url("../img/working-model/tooltip-tip.svg") center / contain no-repeat;
@@ -1733,12 +1740,17 @@ body.is-menu-open .header {
   box-shadow: 0 0 68px 0 rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
+  /* мобілка: власна висота блока, а не 16:9 відео. Пропорція з макета: 408×445 на екрані 440 */
+  width: 100%;
+  aspect-ratio: 408 / 445;
 }
 
 .cases__video {
+  display: block;
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
 
 .cases__badge {
@@ -1919,6 +1931,7 @@ body.is-menu-open .header {
   font-family: var(--font-azo);
   font-size: 14px;
   font-weight: 500;
+  text-transform: uppercase;
   line-height: 1.5;
   letter-spacing: 0;
   background: linear-gradient(270deg, #5B5AFF 31.82%, #FF831A 65.9%);
@@ -1960,6 +1973,8 @@ body.is-menu-open .header {
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .service__body {
@@ -2620,6 +2635,7 @@ body.is-menu-open .header {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
+  text-transform: uppercase;
   letter-spacing: 0;
   background: linear-gradient(270deg, #5B5AFF 54.52%, #FF831A 124.52%);
   background-clip: text;
@@ -2715,7 +2731,7 @@ body.is-menu-open .header {
 }
 
 .about {
-  padding: 64px 16px;
+  padding: 96px 16px 64px 16px;
   background: #FFF;
 }
 
@@ -2766,7 +2782,7 @@ body.is-menu-open .header {
   letter-spacing: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
 }
 
 .about__left-step {
@@ -2781,12 +2797,10 @@ body.is-menu-open .header {
   color: #101010;
   text-wrap-style: balance;
   font-family: var(--font-azo);
-  font-size: var(--font-size-38, 24px);
-  font-style: normal;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 125%;
-  /* 30px */
-  letter-spacing: var(--font-letter-spacing-0, 0);
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 .about__left-step-list {
@@ -3159,7 +3173,7 @@ body.is-menu-open .header {
   color: #393939;
   text-wrap-style: balance;
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
@@ -3697,6 +3711,400 @@ body.is-menu-open .header {
 
 
 
+/* ==================== Footer reveal (js/footer-reveal.js) ====================
+   Мінімум, без якого ефект не працює. Оформлення футера — у .footer */
+.footer-reveal {
+  /* колір "шапки" = фон сторінки над футером (низ градієнта body) */
+  --footer-reveal-cap-bg: #fbf7fd;
+  --footer-reveal-cap-height: 44px;
+  --footer-reveal-cap-radius: 32px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* смуга поверх верхнього краю футера — ніби контент закінчується заокругленням */
+.footer-reveal__cap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: var(--footer-reveal-cap-height);
+  border-radius: 0 0 var(--footer-reveal-cap-radius) var(--footer-reveal-cap-radius);
+  background: var(--footer-reveal-cap-bg);
+  pointer-events: none;
+}
+
+.footer-reveal__inner {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* ==================== Footer: відео на фоні ==================== */
+/* шари знизу вгору: #101010 (поки відео не завантажилось) → відео → радіальний градієнт → контент */
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #101010;
+  padding: 64px 16px 16px 16px;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(61.91% 58.46% at 22.51% 0%, rgba(0, 0, 0, 0.2) 0%, #101010 100%);
+  pointer-events: none;
+}
+
+.footer__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.footer__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  align-self: stretch;
+}
+
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  align-self: stretch;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  align-self: stretch;
+}
+
+.footer__logo {
+  width: 109px;
+  height: 100%;
+}
+
+.footer__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.footer__title {
+  color: #F3F3F3;
+  text-align: center;
+  text-wrap-style: balance;
+  width: 100%;
+  font-family: var(--font-azo);
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.footer__cta-link {
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  border-radius: 99px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease, color 0.35s ease;
+}
+
+/* заливка зліва направо, як у .team__all-link / .reviews__all-link */
+.footer__cta-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background: #5B5AFF;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__cta-link:hover,
+.footer__cta-link:focus-visible,
+.footer__cta-link:active {
+  color: #F3F3F3;
+  box-shadow: 0 0 1px 0 #5B5AFF;
+}
+
+.footer__cta-link:hover::before,
+.footer__cta-link:focus-visible::before,
+.footer__cta-link:active::before {
+  width: 100%;
+}
+
+.footer__cta-link:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
+
+.footer__cta-link span {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__cta-link:hover span,
+.footer__cta-link:focus-visible span,
+.footer__cta-link:active span {
+  transform: translateX(4px);
+}
+
+.footer__cta-link span::before {
+  font-size: 24px;
+  color: inherit;
+}
+
+.footer__text {
+  color: rgba(243, 243, 243, 0.75);
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.footer__contact {
+  color: #F3F3F3;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.footer__address {
+  color: #F3F3F3;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.footer__nav {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+}
+
+.footer__menu {
+  display: flex;
+  min-width: 276px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  flex: 1 0 0;
+}
+
+.footer__menu-link {
+  padding: 12px 12px 12px 0;
+  border-bottom: 1px solid #F3F3F3;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(243, 243, 243, 0.75);
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  transition: color 0.35s ease;
+}
+
+.footer__menu-link span {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer__menu-link span::before {
+  font-size: 24px;
+}
+
+.footer__menu-link:hover,
+.footer__menu-link:focus-visible,
+.footer__menu-link:active {
+  color: #F3F3F3;
+}
+
+/* іконка зсувається на 12px праворуч — у правий padding посилання,
+   тож ширина не змінюється і сусіди не стрибають */
+.footer__menu-link:hover span,
+.footer__menu-link:focus-visible span,
+.footer__menu-link:active span {
+  transform: translateX(12px);
+}
+
+.footer__menu-link:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.footer__social-link {
+  width: 62.545px;
+  height: 23.273px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__social-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.footer__copyright {
+  color: #D6D6D6;
+  text-align: center;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.footer__legal-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 12px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+}
+
+.footer__legal-link,
+.footer__lang-link {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.50);
+  color: var(--colors-basic-colors-grayscale-20-50, rgba(243, 243, 243, 0.50));
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.footer__legal-link:hover,
+.footer__legal-link:focus-visible,
+.footer__legal-link:active,
+.footer__lang-link:hover,
+.footer__lang-link:focus-visible,
+.footer__lang-link:active,
+.footer__lang-link--current {
+  border-bottom-color: rgba(243, 243, 243, 0.75);
+  color: rgba(243, 243, 243, 0.75);
+}
+
+.footer__legal-link:focus-visible,
+.footer__lang-link:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
+
+
+
 /* ==================== Десктоп (від 1280px) ==================== */
 @media (min-width: 1280px) {
   .working-model__diagram {
@@ -4089,6 +4497,7 @@ body.is-menu-open .header {
     justify-content: space-between;
     flex: none;
     flex-shrink: 0;
+    flex-direction: column;
   }
 
   .problems__label {
@@ -4106,6 +4515,7 @@ body.is-menu-open .header {
 
   .problems__card {
     padding: 24px 16px 24px 24px;
+    flex: none;
   }
 
   .problems__card-title {
@@ -4331,6 +4741,8 @@ body.is-menu-open .header {
   .cases__media {
     width: 100%;
     height: 100%;
+    /* десктоп: висоту задає картка */
+    aspect-ratio: auto;
   }
 
   .cases__video {
@@ -4368,6 +4780,8 @@ body.is-menu-open .header {
 
   .service__text {
     font-size: 24px;
+    max-width: 70%;
+    margin: 0 auto;
   }
 
   .service__body {
@@ -4467,7 +4881,7 @@ body.is-menu-open .header {
   }
 
   .about {
-    padding: 64px 16px;
+    padding: 138px 52px 32px 52px;
   }
 
   .about .container {
@@ -4489,8 +4903,13 @@ body.is-menu-open .header {
     height: 132px;
   }
 
+  .about__left-step-heading {
+    font-size: 38px;
+  }
+
   .about__left-top-content {
     font-size: 16px;
+    max-width: 75%;
   }
 
   .about__left-step {
@@ -4512,6 +4931,7 @@ body.is-menu-open .header {
     height: 200px;
     min-width: 276px;
     padding: 24px 0;
+    gap: 20px;
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 0;
@@ -4565,10 +4985,15 @@ body.is-menu-open .header {
   .team__heading {
     flex: none;
     width: 476px;
+    gap: 24px;
   }
 
   .team__label {
     font-size: 16px;
+  }
+
+  .team__slider {
+    gap: 42px;
   }
 
   .team__title {
@@ -4580,12 +5005,12 @@ body.is-menu-open .header {
   }
 
   .team__slide {
-    width: 465px;
+    width: auto;
   }
 
   .team__card {
     padding: 8px 24px 8px 8px;
-    gap: 12px;
+    gap: 24px;
   }
 
   .team__card-media {
@@ -4594,7 +5019,7 @@ body.is-menu-open .header {
   }
 
   .team__card-name {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .team__card-role {
@@ -4607,11 +5032,20 @@ body.is-menu-open .header {
   }
 
   .team__card-icon::before {
-    font-size: 32px;
+    font-size: 27px;
   }
 
   .team__all-link {
     font-size: 16px;
+  }
+  
+  .reviews__author {
+    margin-top: 10px;
+    gap: 26px;
+  }
+
+  .reviews__link {
+    min-height: 40px;
   }
 
   .reviews {
@@ -4664,10 +5098,132 @@ body.is-menu-open .header {
 
   .reviews__cta {
     font-size: 16px;
+    width: 376px;
+    justify-content: center;
   }
 
   .reviews__item {
     gap: 48px;
+  }
+
+  .footer {
+    padding: 128px 52px 24px 52px;
+  }
+
+  .footer .container {
+    max-width: 1576px;
+    gap: 176px;
+  }
+
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    align-self: stretch;
+    flex-direction: row;
+  }
+
+  .footer__info {
+    width: 776px;
+    max-width: 776px;
+    gap: 64px;
+    align-items: flex-start;
+  }
+
+  .footer__logo {
+    width: 143px;
+    height: 132px;
+  }
+
+  .footer__cta {
+    align-items: flex-start;
+  }
+
+  .footer__title {
+    font-size: 61px;
+    text-align: left;
+  }
+
+  .footer__cta-link {
+    font-size: 16px;
+  }
+
+  .footer__text {
+    font-size: 16px;
+    text-align: left;
+    max-width: 80%;
+    margin-top: 12px;
+  }
+
+  .footer__contacts {
+    align-items: flex-start;
+  }
+
+  .footer__contact {
+    font-size: 24px;
+  }
+
+  .footer__address {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .footer__nav {
+    height: auto;
+    gap: 128px;
+    width: 257px;
+    flex-direction: column;
+    flex: none;
+  }
+
+  .footer__menu {
+    flex-direction: column;
+    flex: none;
+    gap: 0;
+  }
+
+  .footer__menu-link {
+    font-size: 24px;
+    padding: 8px 8px 8px 0;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer__socials {
+    gap: 40px;
+  }
+
+  .footer__social-link {
+    width: 86px;
+    height: 32px;
+  }
+
+  .footer__legal {
+    width: 576px;
+    align-items: flex-start;
+  }
+
+  .business-value__list {
+    gap: 24px;
+  }
+
+  .cases__card {
+    flex: none;
+  }
+
+  .footer__copyright {
+    text-align: left;
+  }
+
+  .business-value__item-icon {
+    width: 48px;
+    height: 48px;
+    top: 34px;
+    right: 30px;
+
   }
 }
 
@@ -4764,7 +5320,14 @@ body.is-menu-open .header {
   .reviews__link::before,
   .reviews__cta,
   .reviews__cta::before,
-  .reviews__cta span {
+  .reviews__cta span,
+  .footer__cta-link,
+  .footer__cta-link::before,
+  .footer__cta-link span,
+  .footer__menu-link,
+  .footer__menu-link span,
+  .footer__legal-link,
+  .footer__lang-link {
     transition: none;
   }
 

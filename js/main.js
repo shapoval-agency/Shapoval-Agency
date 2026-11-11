@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // reviews: слайдер відгуків (fade)
   const reviewsSlider = initReviewsSlider()
 
+  // footer: виїжджає з-під контенту при скролі (як на awsmd.com)
+  const footerReveal = initFooterReveal()
+
   window.app = {
     lenis,
     gsap,
@@ -63,5 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     valueChain,
     teamSlider,
     reviewsSlider,
+    footerReveal,
   }
 })
