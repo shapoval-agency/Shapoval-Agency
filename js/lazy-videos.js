@@ -3,6 +3,9 @@
  * Розмітка:
  *   video[data-lazy-video][muted][loop][playsinline][preload="none"]
  *
+ *   video[data-lazy-video="after-load"] — те саме, але не раніше події load сторінки
+ *   (для hero: спершу CSS, шрифти й постер, потім важке відео — швидше перше відмалювання)
+ *
  * Поведінка:
  *   - відео не вантажиться, поки картка далеко від екрана;
  *   - підходить до екрана — вантажиться і грає; виходить — ставиться на паузу;
@@ -28,6 +31,15 @@ function initLazyVideos(options = {}) {
     // reduced motion: лишається постер, відео навіть не вантажимо
     if (motionQuery.matches) return
 
+    // after-load: чекаємо, поки сторінка довантажиться, і пробуємо ще раз (якщо відео досі на екрані)
+    if (video.dataset.lazyVideo === 'after-load' && document.readyState !== 'complete') {
+      if (!video.dataset.waiting) {
+        video.dataset.waiting = 'true'
+        window.addEventListener('load', () => video.dataset.inView === 'true' && play(video), { once: true })
+      }
+      return
+    }
+
     load(video)
 
     // autoplay muted дозволений, але play() може бути відхилений (економія батареї тощо)
@@ -43,6 +55,7 @@ function initLazyVideos(options = {}) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(({ target, isIntersecting }) => {
+        target.dataset.inView = String(isIntersecting)
         if (isIntersecting) play(target)
         else target.pause()
       })

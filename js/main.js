@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const reveal = initReveal()
   const heroZoom = initHeroZoom()
 
-  Fancybox.bind('[data-fancybox]', {})
-
   const burger = initBurger({
     // без Lenis скрол блокує body.is-menu-open { overflow: hidden }
     onOpen: () => {

@@ -8,15 +8,22 @@
   <meta name="description"
     content="Shapoval Agency — маркетинг-команда, яка прибирає хаос і об'єднує всі процеси в єдину систему. Отримайте консультацію." />
 
-  <link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css" />
+  <!-- Typekit (Azo Sans): з'єднання заздалегідь і CSS без блокування відмальовки.
+       Поки Azo вантажиться, заголовки показуються system-ui, потім підміняються -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="preload" href="https://use.typekit.net/ytp3bxc.css" as="style">
+  <link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css"></noscript>
   <link rel="stylesheet" href="css/libs/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="css/libs/fancybox.css" />
   <link rel="stylesheet" href="css/libs/lenis.css" />
   <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/icomoon.css" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- постер відео hero — перше, що видно на екрані -->
+  <link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high">
   <!-- поява при скролі (js/reveal.js): клас ставимо до відмальовки, щоб перший екран не блимав -->
   <script>
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-ready')
@@ -255,7 +262,10 @@
       </div>
 
       <div class="hero__media" aria-hidden="true">
-        <video class="hero__video" src="img/hero.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <video class="hero__video" muted loop playsinline preload="none" poster="img/hero-poster.webp" aria-hidden="true" data-lazy-video="after-load">
+          <source src="img/hero-720.mp4" type="video/mp4" media="(max-width: 767px)">
+          <source src="img/hero-1080.mp4" type="video/mp4">
+        </video>
       </div>
     </section>
 
@@ -682,7 +692,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-1.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-1-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -701,7 +711,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-2.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-2-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -721,7 +731,7 @@
             <a class="cases__link" href="#">
               <div class="cases__media">
                 <video class="cases__video" src="img/video-3.mp4" muted loop playsinline preload="none"
-                  aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                  aria-hidden="true" poster="img/video-3-poster.webp" data-lazy-video></video>
                 <span class="cases__badge" aria-hidden="true">Кейс</span>
               </div>
               <div class="cases__body">
@@ -741,7 +751,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-4.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-4-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -760,7 +770,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-5.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-5-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -780,7 +790,7 @@
             <a class="cases__link" href="#">
               <div class="cases__media">
                 <video class="cases__video" src="img/video-6.mp4" muted loop playsinline preload="none"
-                  aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                  aria-hidden="true" poster="img/video-6-poster.webp" data-lazy-video></video>
                 <span class="cases__badge" aria-hidden="true">Кейс</span>
               </div>
               <div class="cases__body">
@@ -800,7 +810,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-7.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-7-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -819,7 +829,7 @@
               <a class="cases__link" href="#">
                 <div class="cases__media">
                   <video class="cases__video" src="img/video-8.mp4" muted loop playsinline preload="none"
-                    aria-hidden="true" poster="img/_hero-frame.jpg" data-lazy-video></video>
+                    aria-hidden="true" poster="img/video-8-poster.webp" data-lazy-video></video>
                   <span class="cases__badge" aria-hidden="true">Кейс</span>
                 </div>
                 <div class="cases__body">
@@ -862,7 +872,7 @@
               <p class="service__card-text">Допомагаємо визначити, що саме бізнес має говорити ринку і як має виглядати.
               </p>
               <div class="service__card-media">
-                <img class="service__card-img" src="img/bg-figure1.png" width="335" height="250" alt="" loading="lazy"
+                <img class="service__card-img" src="img/bg-figure1.webp" width="335" height="250" alt="" loading="lazy"
                   decoding="async" />
               </div>
               <a class="service__card-link" href="#contact" aria-describedby="service-card-1">Почати з консультації</a>
@@ -902,7 +912,7 @@
               <p class="service__card-text">Перетворюємо бренд і пропозицію на digital-продукт, який працює на бізнес.
               </p>
               <div class="service__card-media">
-                <img class="service__card-img" src="img/bg-figure2.png" width="335" height="250" alt="" loading="lazy"
+                <img class="service__card-img" src="img/bg-figure2.webp" width="335" height="250" alt="" loading="lazy"
                   decoding="async" />
               </div>
               <a class="service__card-link" href="#contact" aria-describedby="service-card-2">Почати з консультації</a>
@@ -947,7 +957,7 @@
               <h3 class="service__card-title" id="service-card-3">Performance-маркетинг</h3>
               <p class="service__card-text">Приводимо цільову аудиторію та перетворюємо увагу на заявки й продажі.</p>
               <div class="service__card-media">
-                <img class="service__card-img" src="img/bg-figure3.png" width="335" height="250" alt="" loading="lazy"
+                <img class="service__card-img" src="img/bg-figure3.webp" width="335" height="250" alt="" loading="lazy"
                   decoding="async" />
               </div>
               <a class="service__card-link" href="#contact" aria-describedby="service-card-3">Почати з консультації</a>
@@ -987,7 +997,7 @@
               <p class="service__card-text">Створюємо матеріали, через які бренд виглядає, звучить і комунікує з
                 аудиторією.</p>
               <div class="service__card-media">
-                <img class="service__card-img" src="img/bg-figure4.png" width="335" height="250" alt="" loading="lazy"
+                <img class="service__card-img" src="img/bg-figure4.webp" width="335" height="250" alt="" loading="lazy"
                   decoding="async" />
               </div>
               <a class="service__card-link" href="#contact" aria-describedby="service-card-4">Почати з консультації</a>
@@ -1078,35 +1088,35 @@
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="branding"
                     data-value-chain-targets="awareness positioning reputation trust loyalty">
-                    <img src="img/value-chain__core1.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core1.svg" width="24" height="24" alt="">
                     Брендинг
                   </button>
                 </li>
                 <li class="value-chain__service-item">
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="strategy" data-value-chain-targets="positioning demand sales scaling">
-                    <img src="img/value-chain__core2.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core2.svg" width="24" height="24" alt="">
                     Стратегія
                   </button>
                 </li>
                 <li class="value-chain__service-item">
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="analytics" data-value-chain-targets="leads sales retention scaling">
-                    <img src="img/value-chain__core3.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core3.svg" width="24" height="24" alt="">
                     Аналітика
                   </button>
                 </li>
                 <li class="value-chain__service-item">
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="digital" data-value-chain-targets="trust acquisition leads sales">
-                    <img src="img/value-chain__core4.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core4.svg" width="24" height="24" alt="">
                     Digital / сайт
                   </button>
                 </li>
                 <li class="value-chain__service-item">
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="content" data-value-chain-targets="awareness trust communication loyalty">
-                    <img src="img/value-chain__core5.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core5.svg" width="24" height="24" alt="">
                     Контент
                   </button>
                 </li>
@@ -1114,7 +1124,7 @@
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="marketing"
                     data-value-chain-targets="demand acquisition communication retention">
-                    <img src="img/value-chain__core6.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core6.svg" width="24" height="24" alt="">
                     Маркетинг
                   </button>
                 </li>
@@ -1122,7 +1132,7 @@
                   <button class="value-chain__service" type="button" aria-pressed="false"
                     data-value-chain-service="advertising"
                     data-value-chain-targets="awareness demand acquisition leads">
-                    <img src="img/value-chain__core7.svg" width="24" height="24" alt="">
+                    <img loading="lazy" src="img/value-chain__core7.svg" width="24" height="24" alt="">
                     Реклама
                   </button>
                 </li>
@@ -1256,7 +1266,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar1.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar1.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1273,7 +1283,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar2.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar2.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1290,7 +1300,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar3.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar3.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1307,7 +1317,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar4.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar4.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1324,7 +1334,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar5.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar5.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1341,7 +1351,7 @@
               <div class="team__slide swiper-slide">
                 <a href="#" class="team__card" target="_blank" rel="noopener noreferrer">
                   <div class="team__card-media">
-                    <img class="team__card-img" src="img/avatar6.png" width="56" height="56" alt="" loading="lazy"
+                    <img class="team__card-img" src="img/avatar6.webp" width="56" height="56" alt="" loading="lazy"
                       decoding="async">
                   </div>
                   <div class="team__card-content">
@@ -1409,7 +1419,7 @@
                     </div>
                     <figcaption class="reviews__author">
                       <div class="reviews__author-media">
-                        <img class="reviews__author-img" src="img/autor.png" width="80" height="80" alt=""
+                        <img class="reviews__author-img" src="img/autor.webp" width="80" height="80" alt=""
                           loading="lazy" decoding="async">
                       </div>
                       <div class="reviews__author-info">
@@ -1440,7 +1450,7 @@
                     </div>
                     <figcaption class="reviews__author">
                       <div class="reviews__author-media">
-                        <img class="reviews__author-img" src="img/autor.png" width="80" height="80" alt=""
+                        <img class="reviews__author-img" src="img/autor.webp" width="80" height="80" alt=""
                           loading="lazy" decoding="async">
                       </div>
                       <div class="reviews__author-info">
@@ -1471,7 +1481,7 @@
                     </div>
                     <figcaption class="reviews__author">
                       <div class="reviews__author-media">
-                        <img class="reviews__author-img" src="img/autor.png" width="80" height="80" alt=""
+                        <img class="reviews__author-img" src="img/autor.webp" width="80" height="80" alt=""
                           loading="lazy" decoding="async">
                       </div>
                       <div class="reviews__author-info">
@@ -1502,7 +1512,7 @@
                     </div>
                     <figcaption class="reviews__author">
                       <div class="reviews__author-media">
-                        <img class="reviews__author-img" src="img/autor.png" width="80" height="80" alt=""
+                        <img class="reviews__author-img" src="img/autor.webp" width="80" height="80" alt=""
                           loading="lazy" decoding="async">
                       </div>
                       <div class="reviews__author-info">
@@ -1533,7 +1543,7 @@
                     </div>
                     <figcaption class="reviews__author">
                       <div class="reviews__author-media">
-                        <img class="reviews__author-img" src="img/autor.png" width="80" height="80" alt=""
+                        <img class="reviews__author-img" src="img/autor.webp" width="80" height="80" alt=""
                           loading="lazy" decoding="async">
                       </div>
                       <div class="reviews__author-info">
@@ -1681,29 +1691,28 @@
           </div>
         </div>
         <div class="footer__media">
-          <video class="footer__video" src="img/footer.mp4" muted loop playsinline preload="none" aria-hidden="true" data-lazy-video></video>
+          <video class="footer__video" src="img/footer-720.mp4" muted loop playsinline preload="none" aria-hidden="true" data-lazy-video></video>
         </div>
       </footer>
     </div>
   </div>
 
-  <script src="js/libs/gsap.min.js"></script>
-  <script src="js/libs/ScrollTrigger.min.js"></script>
-  <script src="js/libs/lenis.min.js"></script>
-  <script src="js/libs/swiper-bundle.min.js"></script>
-  <script src="js/libs/fancybox.umd.js"></script>
-  <script src="js/burger.js"></script>
-  <script src="js/accordion.js"></script>
-  <script src="js/expand-cards.js"></script>
-  <script src="js/lazy-videos.js"></script>
-  <script src="js/cases.js"></script>
-  <script src="js/value-chain.js"></script>
-  <script src="js/counter.js"></script>
-  <script src="js/team-slider.js"></script>
-  <script src="js/reviews-slider.js"></script>
-  <script src="js/footer-reveal.js"></script>
-  <script src="js/reveal.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/libs/gsap.min.js" defer></script>
+  <script src="js/libs/ScrollTrigger.min.js" defer></script>
+  <script src="js/libs/lenis.min.js" defer></script>
+  <script src="js/libs/swiper-bundle.min.js" defer></script>
+  <script src="js/burger.js" defer></script>
+  <script src="js/accordion.js" defer></script>
+  <script src="js/expand-cards.js" defer></script>
+  <script src="js/lazy-videos.js" defer></script>
+  <script src="js/cases.js" defer></script>
+  <script src="js/value-chain.js" defer></script>
+  <script src="js/counter.js" defer></script>
+  <script src="js/team-slider.js" defer></script>
+  <script src="js/reviews-slider.js" defer></script>
+  <script src="js/footer-reveal.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

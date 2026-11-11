@@ -1,12 +1,13 @@
 /* Azo Sans — Typekit (https://use.typekit.net/ytp3bxc.css) */
 
-/* Inter */
+/* Inter — урізаний до латиниці й кирилиці (fontTools subset), тому unicode-range */
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/inter/Inter-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0400-04FF, U+2000-206F, U+20AC, U+20B4, U+2116, U+2122, U+2190-2199, U+2212, U+2215;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0400-04FF, U+2000-206F, U+20AC, U+20B4, U+2116, U+2122, U+2190-2199, U+2212, U+2215;
 }
 
 @font-face {
@@ -23,4 +25,5 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0400-04FF, U+2000-206F, U+20AC, U+20B4, U+2116, U+2122, U+2190-2199, U+2212, U+2215;
 }
