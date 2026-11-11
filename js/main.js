@@ -43,6 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // value-chain: підсвітка результатів, пов'язаних з послугою
   const valueChain = initValueChain()
 
+  // about: лічильники рахують від 0, коли з'являються на екрані
+  initCounters()
+
+  // team: слайдер команди
+  const teamSlider = initTeamSlider()
+
+  // reviews: слайдер відгуків (fade)
+  const reviewsSlider = initReviewsSlider()
+
   window.app = {
     lenis,
     gsap,
@@ -52,17 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     businessValueCards,
     cases,
     valueChain,
+    teamSlider,
+    reviewsSlider,
   }
-
-  // Swiper — розкоментуй, коли буде розмітка .swiper
-  // const swiper = new Swiper('.swiper', {
-  //   slidesPerView: 1,
-  //   spaceBetween: 20,
-  //   loop: true,
-  //   pagination: { el: '.swiper-pagination', clickable: true },
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // })
 })
