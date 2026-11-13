@@ -58,7 +58,7 @@ function initCasesSlider(options = {}) {
     },
     breakpoints: {
       768: { spaceBetween: 16 },
-      1280: { spaceBetween: 24 },
+      1280: { spaceBetween: 48 },
     },
     a11y: {
       enabled: true,

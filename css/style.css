@@ -3131,7 +3131,7 @@ body.is-menu-open .header {
 }
 
 .team__slide {
-  width: 314px;
+  width: auto;
 }
 
 .team__card {
@@ -3141,7 +3141,7 @@ body.is-menu-open .header {
   background: var(--white-100, #FFF);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 11px;
   box-shadow: inset 0 0 0 1px transparent;
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
@@ -3218,6 +3218,7 @@ body.is-menu-open .header {
   padding: 0 8px 0 40px;
   border-radius: 99px;
   color: #393939;
+  gap: 16px;
   text-wrap-style: balance;
   font-family: var(--font-inter);
   font-size: 14px;
@@ -4229,7 +4230,7 @@ body.is-menu-open .header {
 
 .services-hero {
   min-height: 100vh;
-  padding: 160px 24px 20px 24px;
+  padding: 164px 24px 20px 24px;
   background: #FFF;
   display: flex;
   flex-direction: column;
@@ -4249,7 +4250,7 @@ body.is-menu-open .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
   align-self: stretch;
 }
 
@@ -4294,6 +4295,8 @@ body.is-menu-open .header {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
+  height: 56px;
+
   /* inline-block: інакше заливка не обрізається по заокругленню */
   display: inline-block;
   position: relative;
@@ -4450,7 +4453,7 @@ body.is-menu-open .header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 25px;
   align-self: stretch;
 }
 
@@ -4477,6 +4480,7 @@ body.is-menu-open .header {
 .services-listing__card-link {
   border-radius: 99px;
   padding: 16px;
+  height: 56px;
   color: #393939;
   text-wrap-style: balance;
   font-family: var(--font-inter);
@@ -4835,6 +4839,7 @@ body.is-menu-open .header {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
+  max-width: 70%;
 }
 
 .banner__link {
@@ -4844,6 +4849,7 @@ body.is-menu-open .header {
   display: flex;
   align-items: center;
   color: #F3F3F3;
+  gap: 18px;
   text-wrap-style: balance;
   font-family: var(--font-inter);
   font-size: 14px;
@@ -5015,6 +5021,10 @@ body.is-menu-open .header {
   letter-spacing: 0;
 }
 
+.work-stages__card-title br {
+  display: none;
+}
+
 .work-stages__card-text {
   color: #393939;
   text-wrap-style: balance;
@@ -5026,7 +5036,7 @@ body.is-menu-open .header {
 }
 
 .faq {
-  padding: 48px 16px;
+  padding: 48px 16px 56px;
 }
 
 .faq .container {
@@ -5233,6 +5243,7 @@ body.is-menu-open .header {
 
 textarea {
   resize: none;
+  height: 93px;
 }
 
 .application__actions {
@@ -5240,7 +5251,7 @@ textarea {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  gap: 24px;
+  gap: 26px;
   align-self: stretch;
   flex-wrap: wrap;
 }
@@ -5259,8 +5270,8 @@ textarea {
   appearance: none;
   -webkit-appearance: none;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   margin: 1px 0 0;
   border: 1px solid #101010;
   border-radius: 4px;
@@ -5296,9 +5307,11 @@ textarea {
   display: flex;
   min-width: 276px;
   max-width: 276px;
+  padding-left: 30px;
   justify-content: center;
   align-items: center;
   flex: 1 0 0;
+  margin-left: auto;
   gap: 16px;
   border-radius: 99px;
   background: #101010;
@@ -5561,6 +5574,51 @@ textarea {
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0;
+}
+
+.process .problems__item {
+padding: 56px 24px;
+}
+
+/* process на мобілці: номер — окрема колонка зліва, заголовок, підзаголовок і текст — в одну лінію праворуч
+   (на десктопі так уже є). 58px = ширина номера 42px + відступ 16px */
+.process .problems__item-button {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  /* місце під стрілку потрібне лише заголовку (вона на його рівні) — підзаголовок іде до краю */
+  padding-right: 0;
+}
+
+.process .problems__item-title {
+  padding-right: 40px;
+}
+
+.process .problems__item-number {
+  flex-shrink: 0;
+}
+
+.process .problems__item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.process .problems__item-body {
+  padding-left: 58px;
+}
+
+.faq .problems__item {
+  min-height: 64px;
+  justify-content: center;
+}
+
+.faq .problems__item::after {
+  bottom: -16px;
+}
+
+.team-services {
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 /* ==================== Десктоп (від 1280px) ==================== */
@@ -6717,6 +6775,7 @@ textarea {
   .services-hero__title {
     font-size: 86px;
     text-align: left;
+    font-weight: 1;
   }
 
   .services-hero__text {
@@ -6726,15 +6785,20 @@ textarea {
 
   .services-hero__btn {
     font-size: 16px;
+    margin-top: 16px;
+  }
+
+  .services-listing__heading {
+    gap: 16px;
   }
 
   .services-listing {
-    padding: 96px 52px;
+    padding: 103px 52px 100px;
   }
 
   .services-listing .container {
     max-width: 1176px;
-    gap: 16px;
+    gap: 80px;
   }
 
   .services-listing__heading {
@@ -6772,6 +6836,7 @@ textarea {
 
   .services-listing__card-link {
     font-size: 16px;
+    padding: 16px 32px;
   }
 
   .services-listing__card-number {
@@ -6861,7 +6926,7 @@ textarea {
   }
 
   .visual-interlude__content {
-    gap: 48px;
+    gap: 40px;
   }
 
   .visual-interlude__label {
@@ -6888,6 +6953,8 @@ textarea {
 
   .process {
     gap: 64px;
+    padding-top: 95px;
+    padding-bottom: 98px;
   }
 
   .banner {
@@ -6912,11 +6979,12 @@ textarea {
   }
 
   .work-stages {
-    padding: 96px 52px;
+    padding: 96px 52px 145px;
   }
 
   .work-stages .container {
     max-width: 1176px;
+    gap: 0;
   }
 
   .work-stages__label {
@@ -6935,9 +7003,14 @@ textarea {
     flex-wrap: nowrap;
   }
 
+.work-stages__card-title br {
+    display: block;
+  }
+
   .work-stages__card {
     flex: 1 0 0;
     position: relative;
+    min-width: 258px;
   }
 
   .work-stages__card-number {
@@ -6949,7 +7022,7 @@ textarea {
     position: absolute;
     width: 198px;
     height: 53px;
-    top: 0px;
+    top: -27px;
     left: 100px;
   }
 
@@ -6961,12 +7034,16 @@ textarea {
     font-size: 16px;
   }
 
+  .work-stages__card:nth-of-type(1) {
+    margin-bottom: -50px;
+  }
+
   .work-stages__card:nth-of-type(2) {
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .work-stages__card:nth-of-type(3) {
-    margin-bottom: 64px;
+    margin-bottom: 38px;
   }
 
   .work-stages__card:nth-of-type(4) {
@@ -6979,7 +7056,7 @@ textarea {
 
   .faq .container {
     max-width: 1176px;
-    gap: 64px;
+    gap: 80px;
   }
 
   .faq__label {
@@ -7017,7 +7094,7 @@ textarea {
   }
 
   .application__form {
-    gap: 32px;
+    gap: 30px;
   }
 
   .application__input,
@@ -7041,6 +7118,8 @@ textarea {
 
   .cases-services__heading {
     gap: 24px;
+    width: 476px;
+    flex: none;
   }
 
   .cases-services__label {
@@ -7069,6 +7148,14 @@ textarea {
 
   .cases-services__slider {
     gap: 40px;
+  }
+
+  .faq .problems__item {
+    padding: 56px 24px;
+  }
+
+  .faq  .problems__item-body {
+    padding: 16px 40px 0 40px;
   }
 }
 
