@@ -5646,6 +5646,18 @@ textarea {
   background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), radial-gradient(93.06% 130% at 7.02% 118.85%, #66B1FE 0%, #9C9CFE 100%);
 }
 
+.services-contant {
+  background: linear-gradient(135deg, rgba(200, 196, 232, 0.25) 0%, rgba(220, 216, 240, 0.25) 30%, rgba(232, 226, 244, 0.25) 55%, rgba(240, 221, 240, 0.25) 80%, rgba(237, 224, 245, 0.25) 100%), #FFF;
+}
+
+.problems__card--content {
+  background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-additional-colors-malachite-40, #9AE8BE);
+}
+
+.banner--content {
+  background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), radial-gradient(102.01% 142.5% at 7.02% 131.35%, #5B5AFF 0%, var(--colors-additional-colors-malachite-60, #68DC9D) 100%);
+}
+
 /* ==================== Десктоп (від 1280px) ==================== */
 @media (min-width: 1280px) {
   .working-model__diagram {

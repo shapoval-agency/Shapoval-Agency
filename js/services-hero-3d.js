@@ -6,7 +6,8 @@
  *
  * Розмітка (контейнерів може бути кілька — у кожного своя сцена):
  *   [data-hero-3d]                      — контейнер (сюди додається canvas), картинки-заглушки немає
- *   [data-hero-3d="hex"]                — варіант сцени: шестикутники (digital); порожньо — кулі (marketing)
+ *   [data-hero-3d="hex"]                — варіант сцени: шестикутники (digital)
+ *   [data-hero-3d="asterisk"]           — варіант сцени: зірочки (content); порожньо — кулі (marketing)
  *     button[data-hero-3d-pause]        — необов'язково: кнопка паузи / відтворення (зараз у розмітці немає)
  *
  * Класи:
@@ -148,7 +149,7 @@ async function initScene(host) {
           Math.sin(a + 0.6) * orbit.depth,
         )
         s.light.position.copy(s.mesh.position)
-        s.mesh.rotation.y = time * 0.12
+        s.mesh.rotation.y = time * 0.12 + (s.phase || 0)
         s.mesh.rotation.x = s.tilt ? Math.sin(time * 0.2 + s.angle) * s.tilt : 0
       }
 
@@ -348,6 +349,65 @@ const SCENES = {
       },
     }
   },
+
+  // content: велика біла матова зірочка (6 заокруглених променів) + 3 м'ятні зірочки-супутники
+  asterisk(THREE, scene, grain) {
+    const white = new THREE.MeshPhysicalMaterial({
+      color: 0xf7f8f7,
+      roughness: 0.86,
+      metalness: 0,
+      bumpMap: grain,
+      bumpScale: 0.03,
+      sheen: 0.08,
+      sheenColor: 0xd3f3e2,
+      sheenRoughness: 0.8,
+    })
+    const main = new THREE.Mesh(asteriskGeometry(THREE, { length: 1.9, width: 1.14, tip: 0.24, depth: 0.55, bevel: 0.16 }), white)
+    main.position.set(0, -0.32, 0)
+    scene.add(main)
+
+    // світло: білий ключ зверху зліва, м'ятний відбитий знизу й по краю
+    addLights(THREE, scene, { ground: 0xf2f9f5, fill: 0xf4fbf7, rim: 0xc9efdb, sky: 1.95 })
+
+    // м'ятні напівглянцеві супутники; від кожного м'ятне світло ковзає променями великої зірочки
+    const mint = new THREE.MeshPhysicalMaterial({
+      color: 0xb4ecd0,
+      roughness: 0.45,
+      metalness: 0,
+      clearcoat: 0.55,
+      clearcoatRoughness: 0.45,
+      sheen: 0.3,
+      sheenColor: 0xffffff,
+    })
+    const satellites = [0.3, 0.24, 0.34].map((length, i) => {
+      const geometry = asteriskGeometry(THREE, { length, width: length * 0.6, tip: length * 0.13, depth: length * 0.4, bevel: length * 0.09 })
+      const mesh = new THREE.Mesh(geometry, mint)
+      const light = new THREE.PointLight(0x8fe3b8, 0.9, 2.4, 2)
+      scene.add(mesh, light)
+      // стартові кути ≈ як на картинці: зверху (ребром), зліва, знизу праворуч
+      return {
+        mesh,
+        light,
+        angle: [1.35, 3.35, 5.15][i],
+        velocity: [0.19, 0.14, 0.11][i],
+        tilt: 0.3,
+        phase: [1.35, 0, 0.5][i],
+      }
+    })
+
+    return {
+      satellites,
+      // орбіта витягнута вертикально — супутники зверху й знизу, як на картинці
+      orbit: { x: 0, y: -0.3, rx: 2.35, ry: 2.45, depth: 1.4 },
+      update(time, float, smooth) {
+        // повернута трохи боком (видно товщину праворуч), повільно хитається і реагує на курсор
+        main.position.y = -0.32 + float
+        main.rotation.y = -0.34 + Math.sin(time * 0.2) * 0.14 + smooth.x * 0.22
+        main.rotation.x = 0.1 + Math.sin(time * 0.17) * 0.08 - smooth.y * 0.18
+        main.rotation.z = Math.sin(time * 0.11) * 0.05
+      },
+    }
+  },
 }
 
 // спільне світло сцен: м'яке небо/земля, білий ключ зверху зліва, заповнення і контурне
@@ -364,18 +424,17 @@ function addLights(THREE, scene, { ground, fill, rim, sky = 1.6 }) {
   scene.add(rimLight)
 }
 
-// шестикутна "таблетка": вершиною догори, заокруглені кути (corner) і м'яка фаска граней (bevel)
-function roundedHexGeometry(THREE, { radius, corner, depth, bevel }) {
-  const points = Array.from({ length: 6 }, (_, i) => {
-    const a = Math.PI / 2 + (i * Math.PI) / 3
-    return new THREE.Vector2(Math.cos(a) * radius, Math.sin(a) * radius)
-  })
+// заокруглений багатокутник, видавлений у 3D: points — вершини по колу, radii — радіус заокруглення кожної вершини
+function roundedPolygonGeometry(THREE, points, radii, { depth, bevel }) {
   const shape = new THREE.Shape()
+  const n = points.length
   points.forEach((p, i) => {
-    const prev = points[(i + 5) % 6]
-    const next = points[(i + 1) % 6]
-    const from = p.clone().add(prev.clone().sub(p).setLength(corner))
-    const to = p.clone().add(next.clone().sub(p).setLength(corner))
+    const prev = points[(i + n - 1) % n]
+    const next = points[(i + 1) % n]
+    // радіус не більший за половину сусідніх ребер — щоб заокруглення не перехльостувались
+    const r = Math.min(radii[i], prev.distanceTo(p) / 2, next.distanceTo(p) / 2)
+    const from = p.clone().add(prev.clone().sub(p).setLength(r))
+    const to = p.clone().add(next.clone().sub(p).setLength(r))
     if (i === 0) shape.moveTo(from.x, from.y)
     else shape.lineTo(from.x, from.y)
     shape.quadraticCurveTo(p.x, p.y, to.x, to.y)
@@ -391,4 +450,36 @@ function roundedHexGeometry(THREE, { radius, corner, depth, bevel }) {
   })
   geometry.center()
   return geometry
+}
+
+// шестикутна "таблетка": вершиною догори, заокруглені кути (corner) і м'яка фаска граней (bevel)
+function roundedHexGeometry(THREE, { radius, corner, depth, bevel }) {
+  const points = Array.from({ length: 6 }, (_, i) => {
+    const a = Math.PI / 2 + (i * Math.PI) / 3
+    return new THREE.Vector2(Math.cos(a) * radius, Math.sin(a) * radius)
+  })
+  return roundedPolygonGeometry(THREE, points, points.map(() => corner), { depth, bevel })
+}
+
+// зірочка з 6 променів (як іконка Asterisk): length — від центру до краю променя, width — ширина променя,
+// tip — заокруглення кінчиків; внутрішні кути між променями заокруглені трохи
+function asteriskGeometry(THREE, { length, width, tip, depth, bevel }) {
+  const w = width / 2
+  const points = []
+  const radii = []
+  for (let k = 0; k < 6; k++) {
+    const a = Math.PI / 2 + (k * Math.PI) / 3
+    const dir = new THREE.Vector2(Math.cos(a), Math.sin(a))
+    const side = new THREE.Vector2(-dir.y, dir.x)
+    // внутрішній кут між попереднім і цим променем: на бісектрисі, на відстані w / sin(30°) = 2w
+    const inner = a - Math.PI / 6
+    points.push(new THREE.Vector2(Math.cos(inner) * 2 * w, Math.sin(inner) * 2 * w))
+    radii.push(w * 0.18)
+    // кінчик променя: два кути
+    points.push(dir.clone().multiplyScalar(length).add(side.clone().multiplyScalar(-w)))
+    radii.push(tip)
+    points.push(dir.clone().multiplyScalar(length).add(side.clone().multiplyScalar(w)))
+    radii.push(tip)
+  }
+  return roundedPolygonGeometry(THREE, points, radii, { depth, bevel })
 }
