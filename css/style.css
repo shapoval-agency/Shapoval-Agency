@@ -3760,8 +3760,8 @@ body.is-menu-open .header {
 
 
 /* ==================== Services hero 3D (js/services-hero-3d.js) ====================
-   Мінімум для роботи: canvas поверх картинки, плавна заміна картинки на 3D.
-   Розмір блоку задає картинка — canvas займає її місце */
+   Мінімум для роботи: canvas займає блок і плавно проявляється, коли сцена готова.
+   Картинки-заглушки немає — розмір блоку задано явно (нижче) */
 .services-hero__media,
 .application__top-media {
   position: relative;
@@ -3778,19 +3778,19 @@ body.is-menu-open .header {
   touch-action: pan-y;
 }
 
-.services-hero__img,
-.application__top-img {
-  transition: opacity 0.8s ease;
+/* розмір блоків задаємо явно (у них немає вмісту, крім canvas):
+   у формі висота 476px; у hero на мобілці flex: 1 0 0 стискав би блок до вільного місця екрана (387px) */
+.application__top-media {
+  height: 476px;
+}
+
+.services-hero__media {
+  min-height: 476px;
 }
 
 .services-hero__media.is-3d-ready canvas,
 .application__top-media.is-3d-ready canvas {
   opacity: 1;
-}
-
-.services-hero__media.is-3d-ready .services-hero__img,
-.application__top-media.is-3d-ready .application__top-img {
-  opacity: 0;
 }
 
 /* у формі сцена вилітає за блок (data-hero-3d-bleed) — обрізає секція, а не блок.
@@ -4687,6 +4687,7 @@ body.is-menu-open .header {
   align-items: center;
   gap: 40px;
   align-self: stretch;
+  margin: 0 auto;
 }
 
 .visual-interlude__label {
@@ -5391,7 +5392,7 @@ textarea {
   overflow: hidden;
 }
 
-.cases-services__slide  {
+.cases-services__slide {
   overflow: visible;
 }
 
@@ -5490,7 +5491,7 @@ textarea {
   font-weight: 400;
   padding: 0 8px;
   line-height: 1.6;
-  letter-spacing:0;
+  letter-spacing: 0;
 }
 
 .cases-services__slider {
@@ -5577,7 +5578,7 @@ textarea {
 }
 
 .process .problems__item {
-padding: 56px 24px;
+  padding: 56px 24px;
 }
 
 /* process на мобілці: номер — окрема колонка зліва, заголовок, підзаголовок і текст — в одну лінію праворуч
@@ -5619,6 +5620,30 @@ padding: 56px 24px;
 .team-services {
   padding-top: 48px;
   padding-bottom: 48px;
+}
+
+.services-marketing {
+  background: linear-gradient(135deg, rgba(200, 196, 232, 0.25) 0%, rgba(220, 216, 240, 0.25) 30%, rgba(232, 226, 244, 0.25) 55%, rgba(240, 221, 240, 0.25) 80%, rgba(237, 224, 245, 0.25) 100%), #FFF;
+}
+
+.services-digital {
+  background: linear-gradient(135deg, rgba(200, 196, 232, 0.25) 0%, rgba(220, 216, 240, 0.25) 30%, rgba(232, 226, 244, 0.25) 55%, rgba(240, 221, 240, 0.25) 80%, rgba(237, 224, 245, 0.25) 100%), #FFF;
+}
+
+.process .problems__card.problems__card--digital {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%), #DEDEFF;
+}
+
+.process .problems__card.problems__card--digital .problems__card-icon {
+  background: #DEDEFF;
+}
+
+.process .problems__card.problems__card--digital .problems__card-icon i::before {
+  color: #BDBDFF;
+}
+
+.banner-digital {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), radial-gradient(93.06% 130% at 7.02% 118.85%, #66B1FE 0%, #9C9CFE 100%);
 }
 
 /* ==================== Десктоп (від 1280px) ==================== */
@@ -7003,7 +7028,7 @@ padding: 56px 24px;
     flex-wrap: nowrap;
   }
 
-.work-stages__card-title br {
+  .work-stages__card-title br {
     display: block;
   }
 
@@ -7154,7 +7179,7 @@ padding: 56px 24px;
     padding: 56px 24px;
   }
 
-  .faq  .problems__item-body {
+  .faq .problems__item-body {
     padding: 16px 40px 0 40px;
   }
 }
@@ -7225,6 +7250,7 @@ padding: 56px 24px;
   .cases-services__card:focus-visible .cases-services__card-item {
     transform: none;
   }
+
   .cases__card-list {
     opacity: 0;
     transition: opacity 0.4s ease;

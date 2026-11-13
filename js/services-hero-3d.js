@@ -5,12 +5,12 @@
  * сцена зібрана під нашу картинку: 5 білих матових куль по колу + 3 рожеві глянцеві супутники.
  *
  * Розмітка (контейнерів може бути кілька — у кожного своя сцена):
- *   [data-hero-3d]                      — контейнер (сюди додається canvas)
- *     img                               — картинка: показується першою (LCP) і лишається, якщо 3D немає
+ *   [data-hero-3d]                      — контейнер (сюди додається canvas), картинки-заглушки немає
+ *   [data-hero-3d="hex"]                — варіант сцени: шестикутники (digital); порожньо — кулі (marketing)
  *     button[data-hero-3d-pause]        — необов'язково: кнопка паузи / відтворення (зараз у розмітці немає)
  *
  * Класи:
- *   [data-hero-3d].is-3d-ready          — 3D відмалювалось, canvas проявляється поверх картинки
+ *   [data-hero-3d].is-3d-ready          — 3D відмалювалось, canvas плавно проявляється
  *
  * Виліт за межі блоку:
  *   [data-hero-3d-bleed="0.5"]          — canvas більший за блок на 50% з кожного боку, камера відсувається
@@ -19,14 +19,14 @@
  * Швидкість сторінки:
  *   Three.js вантажиться лише після події load, коли браузер вільний (requestIdleCallback),
  *   і коли блок підходить до екрана.
- *   prefers-reduced-motion — Three.js не вантажиться взагалі, лишається картинка.
+ *   prefers-reduced-motion — сцена вантажиться, але показує один статичний кадр (без руху).
  *   Рендер зупиняється, коли сцена поза екраном або вкладка прихована.
- *   Немає WebGL або помилка — лишається картинка.
+ *   Немає WebGL або помилка — блок лишається порожнім.
  */
 // може бути кілька сцен на сторінці (services-hero, application) — Three.js вантажиться один раз
 const hosts = [...document.querySelectorAll('[data-hero-3d]')]
 
-if (hosts.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (hosts.length) {
   const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 200))
 
   // кожна сцена стартує, коли її блок підходить до екрана (hero — одразу, application — біля форми)
@@ -109,61 +109,9 @@ async function initScene(host) {
     grain.wrapS = grain.wrapT = THREE.RepeatWrapping
     grain.repeat.set(2, 1.5)
 
-    // білі матові кулі — кільце з 5 штук
-    const pearl = new THREE.MeshPhysicalMaterial({
-      color: 0xf1f0f1,
-      roughness: 0.88,
-      metalness: 0,
-      bumpMap: grain,
-      bumpScale: 0.035,
-      sheen: 0.18,
-      sheenColor: 0xf3d2e3,
-      sheenRoughness: 0.8,
-    })
-    const ring = new THREE.Group()
-    const ringRadius = 1.3
-    const ballGeometry = new THREE.SphereGeometry(0.68, 72, 48)
-    const balls = Array.from({ length: 5 }, (_, i) => {
-      const mesh = new THREE.Mesh(ballGeometry, pearl)
-      const angle = Math.PI / 2 + 0.35 + (i * Math.PI * 2) / 5
-      mesh.userData.angle = angle
-      mesh.position.set(Math.cos(angle) * ringRadius, Math.sin(angle) * ringRadius, 0)
-      ring.add(mesh)
-      return mesh
-    })
-    ring.position.set(-0.55, -0.3, 0)
-    scene.add(ring)
-
-    // світло: білий ключ зверху зліва, рожевий відбитий знизу — як на картинці
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xf4dbe7, 1.6))
-    const key = new THREE.DirectionalLight(0xffffff, 2.2)
-    key.position.set(-3, 4, 5)
-    scene.add(key)
-    const fill = new THREE.DirectionalLight(0xffeef6, 0.55)
-    fill.position.set(3, -1, 3)
-    scene.add(fill)
-    const rim = new THREE.DirectionalLight(0xffe3f0, 0.7)
-    rim.position.set(2, -3, -3)
-    scene.add(rim)
-
-    // рожеві глянцеві супутники; від кожного рожеве світло — відблиски на білих кулях рухаються разом із ними
-    const pink = new THREE.MeshPhysicalMaterial({
-      color: 0xf7d6e7,
-      roughness: 0.4,
-      metalness: 0,
-      clearcoat: 0.85,
-      clearcoatRoughness: 0.35,
-      sheen: 0.4,
-      sheenColor: 0xffffff,
-    })
-    const orbit = { x: -0.1, y: 0, rx: 2.2, ry: 1.85, depth: 1.1 }
-    const satellites = [0.24, 0.32, 0.32].map((radius, i) => {
-      const mesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 40, 28), pink)
-      const light = new THREE.PointLight(0xffa8d2, 1.1, 2.4, 2)
-      scene.add(mesh, light)
-      // стартові кути ≈ як на картинці: зверху зліва, справа, знизу зліва
-      return { mesh, light, angle: [2.25, -0.15, 3.95][i], velocity: [0.19, 0.14, 0.11][i] }
-    })
+    // вміст сцени (об'єкти, світло, супутники, рух) — за варіантом: data-hero-3d="hex" або порожньо (кулі)
+    const build = SCENES[host.getAttribute('data-hero-3d')] || SCENES.balls
+    const { satellites, orbit, update } = build(THREE, scene, grain)
 
     let time = 0
     let last = performance.now()
@@ -189,15 +137,8 @@ async function initScene(host) {
       const float = Math.sin(time * 0.45) * 0.07
       smooth.lerp(pointer, 0.03)
 
-      // кільце повільно обертається, трохи хитається і реагує на курсор
-      ring.position.y = -0.3 + float
-      ring.rotation.z = time * 0.06
-      ring.rotation.x = Math.sin(time * 0.17) * 0.12 - smooth.y * 0.18
-      ring.rotation.y = Math.sin(time * 0.13) * 0.1 + smooth.x * 0.22
-      balls.forEach((ball, i) => {
-        ball.position.z = Math.sin(time * 0.5 + i * 1.3) * 0.14
-        ball.rotation.y = time * 0.05
-      })
+      // головний об'єкт: обертається, хитається, реагує на курсор
+      update(time, float, smooth)
 
       for (const s of satellites) {
         const a = s.angle
@@ -208,6 +149,7 @@ async function initScene(host) {
         )
         s.light.position.copy(s.mesh.position)
         s.mesh.rotation.y = time * 0.12
+        s.mesh.rotation.x = s.tilt ? Math.sin(time * 0.2 + s.angle) * s.tilt : 0
       }
 
       camera.position.x = smooth.x * 0.12
@@ -284,7 +226,169 @@ async function initScene(host) {
     label()
     start()
   } catch (error) {
-    // немає WebGL — лишається картинка
-    console.error('Services hero 3D: fallback на картинку', error)
+    // немає WebGL — блок лишається порожнім
+    console.error('Services hero 3D: WebGL недоступний', error)
   }
+}
+
+/* ==================== Варіанти сцени ====================
+   Кожен збирач додає в сцену об'єкти й світло і повертає:
+   satellites — супутники для orbit-physics, orbit — форма орбіти, update(time, float, smooth) — рух головного об'єкта */
+const SCENES = {
+  // marketing: 5 білих матових куль по колу + 3 рожеві глянцеві кулі-супутники
+  balls(THREE, scene, grain) {
+    const pearl = new THREE.MeshPhysicalMaterial({
+      color: 0xf1f0f1,
+      roughness: 0.88,
+      metalness: 0,
+      bumpMap: grain,
+      bumpScale: 0.035,
+      sheen: 0.18,
+      sheenColor: 0xf3d2e3,
+      sheenRoughness: 0.8,
+    })
+    const ring = new THREE.Group()
+    const ringRadius = 1.3
+    const ballGeometry = new THREE.SphereGeometry(0.68, 72, 48)
+    const balls = Array.from({ length: 5 }, (_, i) => {
+      const mesh = new THREE.Mesh(ballGeometry, pearl)
+      const angle = Math.PI / 2 + 0.35 + (i * Math.PI * 2) / 5
+      mesh.position.set(Math.cos(angle) * ringRadius, Math.sin(angle) * ringRadius, 0)
+      ring.add(mesh)
+      return mesh
+    })
+    ring.position.set(-0.55, -0.3, 0)
+    scene.add(ring)
+
+    // світло: білий ключ зверху зліва, рожевий відбитий знизу — як на картинці
+    addLights(THREE, scene, { ground: 0xf4dbe7, fill: 0xffeef6, rim: 0xffe3f0 })
+
+    // рожеві глянцеві супутники; від кожного рожеве світло — відблиски на білих кулях рухаються разом із ними
+    const pink = new THREE.MeshPhysicalMaterial({
+      color: 0xf7d6e7,
+      roughness: 0.4,
+      metalness: 0,
+      clearcoat: 0.85,
+      clearcoatRoughness: 0.35,
+      sheen: 0.4,
+      sheenColor: 0xffffff,
+    })
+    const satellites = [0.24, 0.32, 0.32].map((radius, i) => {
+      const mesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 40, 28), pink)
+      const light = new THREE.PointLight(0xffa8d2, 1.1, 2.4, 2)
+      scene.add(mesh, light)
+      // стартові кути ≈ як на картинці: зверху зліва, справа, знизу зліва
+      return { mesh, light, angle: [2.25, -0.15, 3.95][i], velocity: [0.19, 0.14, 0.11][i] }
+    })
+
+    return {
+      satellites,
+      orbit: { x: -0.1, y: 0, rx: 2.2, ry: 1.85, depth: 1.1 },
+      update(time, float, smooth) {
+        // кільце повільно обертається, трохи хитається і реагує на курсор
+        ring.position.y = -0.3 + float
+        ring.rotation.z = time * 0.06
+        ring.rotation.x = Math.sin(time * 0.17) * 0.12 - smooth.y * 0.18
+        ring.rotation.y = Math.sin(time * 0.13) * 0.1 + smooth.x * 0.22
+        balls.forEach((ball, i) => {
+          ball.position.z = Math.sin(time * 0.5 + i * 1.3) * 0.14
+          ball.rotation.y = time * 0.05
+        })
+      },
+    }
+  },
+
+  // digital: великий білий матовий шестикутник із заокругленими гранями + 3 лавандові шестикутники-супутники
+  hex(THREE, scene, grain) {
+    const white = new THREE.MeshPhysicalMaterial({
+      color: 0xf6f6f7,
+      roughness: 0.86,
+      metalness: 0,
+      bumpMap: grain,
+      bumpScale: 0.03,
+      sheen: 0.12,
+      sheenColor: 0xe2dcff,
+      sheenRoughness: 0.8,
+    })
+    const main = new THREE.Mesh(roundedHexGeometry(THREE, { radius: 2.05, corner: 0.42, depth: 0.5, bevel: 0.16 }), white)
+    main.position.set(-0.6, -0.25, 0)
+    scene.add(main)
+
+    // світло: білий ключ зверху зліва, лавандовий відбитий знизу й по краю
+    addLights(THREE, scene, { ground: 0xf0eefa, fill: 0xf4f2ff, rim: 0xd8d0ff, sky: 1.95 })
+
+    // лавандові напівглянцеві супутники; від кожного лавандове світло ковзає гранями великого шестикутника
+    const lavender = new THREE.MeshPhysicalMaterial({
+      color: 0xd8d2fb,
+      roughness: 0.42,
+      metalness: 0,
+      clearcoat: 0.6,
+      clearcoatRoughness: 0.4,
+      sheen: 0.3,
+      sheenColor: 0xffffff,
+    })
+    const satellites = [0.22, 0.28, 0.28].map((radius, i) => {
+      const geometry = roundedHexGeometry(THREE, { radius, corner: radius * 0.22, depth: radius * 0.55, bevel: radius * 0.12 })
+      const mesh = new THREE.Mesh(geometry, lavender)
+      const light = new THREE.PointLight(0xb7a8ff, 0.9, 2.4, 2)
+      scene.add(mesh, light)
+      // стартові кути ≈ як на картинці: зверху зліва, справа, знизу зліва
+      return { mesh, light, angle: [2.3, -0.1, 3.95][i], velocity: [0.19, 0.14, 0.11][i], tilt: 0.35 }
+    })
+
+    return {
+      satellites,
+      orbit: { x: -0.1, y: 0, rx: 2.35, ry: 2.0, depth: 1.4 },
+      update(time, float, smooth) {
+        // повернутий трохи боком (видно товщину праворуч, як на картинці), повільно хитається і реагує на курсор
+        main.position.y = -0.25 + float
+        main.rotation.y = -0.38 + Math.sin(time * 0.2) * 0.14 + smooth.x * 0.22
+        main.rotation.x = 0.12 + Math.sin(time * 0.17) * 0.08 - smooth.y * 0.18
+        main.rotation.z = Math.sin(time * 0.11) * 0.05
+      },
+    }
+  },
+}
+
+// спільне світло сцен: м'яке небо/земля, білий ключ зверху зліва, заповнення і контурне
+function addLights(THREE, scene, { ground, fill, rim, sky = 1.6 }) {
+  scene.add(new THREE.HemisphereLight(0xffffff, ground, sky))
+  const key = new THREE.DirectionalLight(0xffffff, 2.2)
+  key.position.set(-3, 4, 5)
+  scene.add(key)
+  const fillLight = new THREE.DirectionalLight(fill, 0.55)
+  fillLight.position.set(3, -1, 3)
+  scene.add(fillLight)
+  const rimLight = new THREE.DirectionalLight(rim, 0.7)
+  rimLight.position.set(2, -3, -3)
+  scene.add(rimLight)
+}
+
+// шестикутна "таблетка": вершиною догори, заокруглені кути (corner) і м'яка фаска граней (bevel)
+function roundedHexGeometry(THREE, { radius, corner, depth, bevel }) {
+  const points = Array.from({ length: 6 }, (_, i) => {
+    const a = Math.PI / 2 + (i * Math.PI) / 3
+    return new THREE.Vector2(Math.cos(a) * radius, Math.sin(a) * radius)
+  })
+  const shape = new THREE.Shape()
+  points.forEach((p, i) => {
+    const prev = points[(i + 5) % 6]
+    const next = points[(i + 1) % 6]
+    const from = p.clone().add(prev.clone().sub(p).setLength(corner))
+    const to = p.clone().add(next.clone().sub(p).setLength(corner))
+    if (i === 0) shape.moveTo(from.x, from.y)
+    else shape.lineTo(from.x, from.y)
+    shape.quadraticCurveTo(p.x, p.y, to.x, to.y)
+  })
+  shape.closePath()
+  const geometry = new THREE.ExtrudeGeometry(shape, {
+    depth,
+    curveSegments: 16,
+    bevelEnabled: true,
+    bevelThickness: bevel,
+    bevelSize: bevel,
+    bevelSegments: 8,
+  })
+  geometry.center()
+  return geometry
 }

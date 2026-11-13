@@ -24,15 +24,13 @@
     <link rel="stylesheet" href="css/icomoon.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <!-- картинка services-hero — перше, що видно на екрані -->
-    <link rel="preload" as="image" href="img/services-hero__media.webp" fetchpriority="high">
     <!-- поява при скролі (js/reveal.js): клас ставимо до відмальовки, щоб перший екран не блимав -->
     <script>
         if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-ready')
     </script>
 </head>
 
-<body>
+<body class="services-marketing">
     <a class="skip-link" href="#main">Перейти до вмісту</a>
 
     <header class="header">
@@ -226,10 +224,7 @@
                     <a href="#contact" class="services-hero__btn">Обговорити проєкт</a>
                 </div>
             </div>
-            <div class="services-hero__media" data-hero-3d>
-                <img class="services-hero__img" src="img/services-hero__media.webp" width="1302" height="1302" alt=""
-                    fetchpriority="high" decoding="async">
-            </div>
+            <div class="services-hero__media" aria-hidden="true" data-hero-3d></div>
         </section>
 
         <section class="services-listing" aria-labelledby="services-listing-title">
@@ -809,10 +804,7 @@
                         <p class="application__text">Розкажіть про бізнес і цілі — запропонуємо канали та план
                             просування.</p>
                     </div>
-                    <div class="application__top-media" aria-hidden="true" data-hero-3d data-hero-3d-bleed="0.5">
-                        <img class="application__top-img" src="img/services-hero__media.webp" width="1302" height="1302"
-                            alt="" loading="lazy" decoding="async">
-                    </div>
+                    <div class="application__top-media" aria-hidden="true" data-hero-3d data-hero-3d-bleed="0.5"></div>
                 </div>
                 <div class="application__body">
                     <form class="application__form" method="post" aria-labelledby="application-title">
