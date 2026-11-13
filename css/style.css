@@ -933,7 +933,8 @@ body.is-menu-open .header {
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  gap: 16px;
+  /* без gap: закрита панель (height 0) все одно отримувала б 16px зверху — "дірка" під заголовком.
+     Відступ — padding-top у .problems__item-body, він ховається разом із панеллю */
   align-self: stretch;
   padding: 16px;
   border-radius: 12px;
@@ -1090,6 +1091,7 @@ body.is-menu-open .header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-top: 16px;
 }
 
 .problems__item .problems__item-icon {
@@ -1816,7 +1818,8 @@ body.is-menu-open .header {
   letter-spacing: 0;
 }
 
-.cases__all-link {
+.cases__all-link,
+.cases-services__all-link {
   border-radius: 99px;
   background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
   padding: 0 8px 0 40px;
@@ -1832,7 +1835,12 @@ body.is-menu-open .header {
   letter-spacing: 0;
 }
 
-.cases__all-link .icon-namecaret-right {
+.cases-services__all-link {
+  margin: 0 auto;
+}
+
+.cases__all-link .icon-namecaret-right,
+.cases-services__all-link .icon-namecaret-right {
   width: 56px;
   height: 56px;
   display: flex;
@@ -1840,12 +1848,14 @@ body.is-menu-open .header {
   align-items: center;
 }
 
-.cases__all-link .icon-namecaret-right::before {
+.cases__all-link .icon-namecaret-right::before,
+.cases-services__all-link .icon-namecaret-right::before {
   font-size: 24px;
   color: #393939;
 }
 
-.cases__all-link {
+.cases__all-link,
+.cases-services__all-link {
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -1853,7 +1863,8 @@ body.is-menu-open .header {
   transition: box-shadow 0.35s ease;
 }
 
-.cases__all-link::before {
+.cases__all-link::before,
+.cases-services__all-link::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1866,31 +1877,44 @@ body.is-menu-open .header {
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.cases__all-link .icon-namecaret-right {
+.cases__all-link .icon-namecaret-right,
+.cases-services__all-link .icon-namecaret-right {
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cases__all-link:hover,
 .cases__all-link:focus-visible,
-.cases__all-link:active {
+.cases__all-link:active,
+.cases-services__all-link:hover,
+.cases-services__all-link:focus-visible,
+.cases-services__all-link:active {
   box-shadow: 0 0 1px 0 #5b5aff;
 }
 
 .cases__all-link:hover::before,
 .cases__all-link:focus-visible::before,
-.cases__all-link:active::before {
+.cases__all-link:active::before,
+.cases-services__all-link:hover::before,
+.cases-services__all-link:focus-visible::before,
+.cases-services__all-link:active::before {
   width: 100%;
 }
 
 .cases__all-link:hover .icon-namecaret-right,
 .cases__all-link:focus-visible .icon-namecaret-right,
-.cases__all-link:active .icon-namecaret-right {
+.cases__all-link:active .icon-namecaret-right,
+.cases-services__all-link:hover .icon-namecaret-right,
+.cases-services__all-link:focus-visible .icon-namecaret-right,
+.cases-services__all-link:active .icon-namecaret-right {
   transform: translateX(4px);
 }
 
 .cases__all-link:hover,
 .cases__all-link:focus-visible,
-.cases__all-link:active {
+.cases__all-link:active,
+.cases-services__all-link:hover,
+.cases-services__all-link:focus-visible,
+.cases-services__all-link:active {
   border-radius: 99px;
   background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
   box-shadow: 0 0 1px 0 #9C9CFE;
@@ -2984,7 +3008,8 @@ body.is-menu-open .header {
   align-self: stretch;
 }
 
-.team__nav {
+.team__nav,
+.cases-services__nav {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -2992,7 +3017,8 @@ body.is-menu-open .header {
   align-self: stretch;
 }
 
-.team__nav-btn {
+.team__nav-btn,
+.cases-services__nav-btn {
   width: 56px;
   height: 56px;
   border-radius: 99px;
@@ -3009,7 +3035,8 @@ body.is-menu-open .header {
 }
 
 /* заливка зліва направо, як у кнопок по всьому сайту */
-.team__nav-btn::before {
+.team__nav-btn::before,
+.cases-services__nav-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -3022,12 +3049,14 @@ body.is-menu-open .header {
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.team__nav-btn span {
+.team__nav-btn span,
+.cases-services__nav-btn span {
   display: flex;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.team__nav-btn span::before {
+.team__nav-btn span::before,
+.cases-services__nav-btn span::before {
   font-size: 24px;
   color: #393939;
   transition: color 0.35s ease;
@@ -3035,44 +3064,62 @@ body.is-menu-open .header {
 
 .team__nav-btn:hover,
 .team__nav-btn:focus-visible,
-.team__nav-btn:active {
+.team__nav-btn:active,
+.cases-services__nav-btn:hover,
+.cases-services__nav-btn:focus-visible,
+.cases-services__nav-btn:active {
   box-shadow: 0 0 1px 0 #5B5AFF;
 }
 
 .team__nav-btn:hover::before,
 .team__nav-btn:focus-visible::before,
-.team__nav-btn:active::before {
+.team__nav-btn:active::before,
+.cases-services__nav-btn:hover::before,
+.cases-services__nav-btn:focus-visible::before,
+.cases-services__nav-btn:active::before {
   width: 100%;
 }
 
 .team__nav-btn:hover span::before,
 .team__nav-btn:focus-visible span::before,
-.team__nav-btn:active span::before {
+.team__nav-btn:active span::before,
+.cases-services__nav-btn:hover span::before,
+.cases-services__nav-btn:focus-visible span::before,
+.cases-services__nav-btn:active span::before {
   color: #F3F3F3;
 }
 
 /* стрілка зсувається у бік гортання */
 .team__nav-btn--prev:hover span,
-.team__nav-btn--prev:focus-visible span {
+.team__nav-btn--prev:focus-visible span,
+.cases-services__nav-btn--prev:hover span,
+.cases-services__nav-btn--prev:focus-visible span {
   transform: translateX(-3px);
 }
 
 .team__nav-btn--next:hover span,
-.team__nav-btn--next:focus-visible span {
+.team__nav-btn--next:focus-visible span,
+.cases-services__nav-btn--next:hover span,
+.cases-services__nav-btn--next:focus-visible span {
   transform: translateX(3px);
 }
 
-.team__nav-btn:active span {
+.team__nav-btn:active span,
+.cases-services__nav-btn:active span {
   transform: scale(0.9);
 }
 
-.team__nav-btn:focus-visible {
+.team__nav-btn:focus-visible,
+.cases-services__nav-btn:focus-visible {
   outline: 2px solid #5B5AFF;
   outline-offset: 2px;
 }
 
+/* крайній слайд: Swiper ставить disabled + is-disabled */
 .team__nav-btn:disabled,
-.team__nav-btn.is-disabled {
+.team__nav-btn.is-disabled,
+.cases-services__nav-btn:disabled,
+.cases-services__nav-btn.is-disabled {
   opacity: 0.4;
   cursor: default;
   pointer-events: none;
@@ -3714,11 +3761,13 @@ body.is-menu-open .header {
 /* ==================== Services hero 3D (js/services-hero-3d.js) ====================
    Мінімум для роботи: canvas поверх картинки, плавна заміна картинки на 3D.
    Розмір блоку задає картинка — canvas займає її місце */
-.services-hero__media {
+.services-hero__media,
+.application__top-media {
   position: relative;
 }
 
-.services-hero__media canvas {
+.services-hero__media canvas,
+.application__top-media canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -3728,16 +3777,32 @@ body.is-menu-open .header {
   touch-action: pan-y;
 }
 
-.services-hero__img {
+.services-hero__img,
+.application__top-img {
   transition: opacity 0.8s ease;
 }
 
-.services-hero__media.is-3d-ready canvas {
+.services-hero__media.is-3d-ready canvas,
+.application__top-media.is-3d-ready canvas {
   opacity: 1;
 }
 
-.services-hero__media.is-3d-ready .services-hero__img {
+.services-hero__media.is-3d-ready .services-hero__img,
+.application__top-media.is-3d-ready .application__top-img {
   opacity: 0;
+}
+
+/* у формі сцена вилітає за блок (data-hero-3d-bleed) — обрізає секція, а не блок.
+   canvas під текстом і формою та не перехоплює кліки */
+.application {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.application__top-media canvas {
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ==================== Visual interlude: "дихання" картинки ====================
@@ -4659,7 +4724,7 @@ body.is-menu-open .header {
   align-items: center;
   border-radius: 99px;
   background: #101010;
-  color:#F3F3F3;
+  color: #F3F3F3;
   text-wrap-style: balance;
   font-family: var(--font-inter);
   font-size: 14px;
@@ -4704,24 +4769,799 @@ body.is-menu-open .header {
   outline-offset: 2px;
 }
 
+.process .problems__card {
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #9AE8BE;
+}
 
+.process .problems__card-icon {
+  background: #9AE8BE;
+}
 
+.process .problems__card-icon i::before {
+  font-size: 32px;
+  color: #68DC9D;
+}
 
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
+.banner {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 40px 32px;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), radial-gradient(102.01% 142.5% at 7.02% 131.35%, #5B5AFF 0%, #DDAAD1 100%);
+}
 
+.banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 256px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
 
+.banner__action {
+  min-width: 256px;
+}
 
+.banner__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
 
+.banner__text {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
 
+.banner__link {
+  padding: 0 8px 0 40px;
+  border-radius: 99px;
+  background: #101010;
+  display: flex;
+  align-items: center;
+  color: #F3F3F3;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease;
+}
 
+.banner__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
+.banner__link:hover,
+.banner__link:focus-visible,
+.banner__link:active {
+  background: var(--colors-basic-colors-grayscale-100, #101010);
+  box-shadow: 0 0 1px 0 var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
+}
 
+.banner__link:hover::before,
+.banner__link:focus-visible::before,
+.banner__link:active::before {
+  width: 100%;
+}
 
+.banner__link:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
 
+.banner__link span {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
+.banner__link:hover span,
+.banner__link:focus-visible span,
+.banner__link:active span {
+  transform: translateX(4px);
+}
 
+.banner__link span::before {
+  font-size: 24px;
+  color: #F3F3F3;
+}
 
+.work-stages {
+  padding: 48px 16px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+}
 
+.work-stages__card-media {
+  display: none;
+}
+
+.work-stages .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 20px;
+}
+
+.work-stages__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.work-stages__label {
+  color: #FF831A;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.work-stages__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.work-stages__list {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  gap: 48px 16px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+}
+
+.work-stages__card {
+  display: flex;
+  min-width: 276px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+}
+
+.work-stages__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.work-stages__card-number {
+  color: #DEDEFF;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.work-stages__card:nth-of-type(2) .work-stages__card-number {
+  color: #9C9CFE;
+}
+
+.work-stages__card:nth-of-type(3) .work-stages__card-number {
+  color: #7B7BFF;
+}
+
+.work-stages__card:nth-of-type(4) .work-stages__card-number {
+  color: #5B5AFF;
+}
+
+.work-stages__card-title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.work-stages__card-text {
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.faq {
+  padding: 48px 16px;
+}
+
+.faq .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.faq__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.faq__label {
+  color: #FF831A;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.faq__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.problems__item-icon {
+  top: -4px;
+}
+
+.application {
+  padding: 64px 16px;
+  background: #FFF;
+}
+
+.application .container {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.application__top {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+}
+
+.application__top-content {
+  display: flex;
+  min-width: 276px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex: 1 0 0;
+}
+
+.application__top-media {
+  display: flex;
+  min-width: 276px;
+  max-height: 476px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.application__label {
+  color: #FF831A;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.application__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.application__text {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.application__body {
+  width: 100%;
+}
+
+.application__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 24px;
+  flex: 1 0 0;
+}
+
+.application__body-row {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.application__body-row-col {
+  display: flex;
+  min-width: 137px;
+  flex: 1 0 0;
+}
+
+.application__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  width: 100%;
+  flex: 1;
+}
+
+.application__field-label {
+  color: #696969;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.application__input,
+.application__select,
+.application__textarea {
+  min-height: 56px;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #393939;
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.application__input::placeholder,
+.application__textarea::placeholder {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.application__consent-text {
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.application__actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+/* згода: чекбокс зліва, текст справа; клік по тексту теж ставить галочку (label) */
+.application__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* кастомний чекбокс (як у макеті): квадрат з темною рамкою → фіолетовий з білою галочкою.
+   Звичайний input — клавіатура, required і клік по label працюють як завжди */
+.application__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  border: 1px solid #101010;
+  border-radius: 4px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0 no-repeat;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, background-size 0.2s ease;
+}
+
+.application__checkbox:hover {
+  border-color: #5B5AFF;
+}
+
+.application__checkbox:checked {
+  border-color: #5B5AFF;
+  background-color: #5B5AFF;
+  background-size: 100%;
+}
+
+.application__checkbox:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
+
+.application__actions .application__consent {
+  display: flex;
+  min-width: 276px;
+  padding: 12px;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
+.application__submit {
+  display: flex;
+  min-width: 276px;
+  max-width: 276px;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  gap: 16px;
+  border-radius: 99px;
+  background: #101010;
+  color: #F3F3F3;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0 0 1px 0 transparent;
+  transition: box-shadow 0.35s ease;
+}
+
+/* фіолетова заливка зліва направо, як у .banner__link / .reviews__cta */
+.application__submit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  border-radius: 99px;
+  background-color: #5B5AFF;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.application__submit:hover,
+.application__submit:focus-visible,
+.application__submit:active {
+  box-shadow: 0 0 1px 0 #5B5AFF;
+}
+
+.application__submit:hover::before,
+.application__submit:focus-visible::before,
+.application__submit:active::before {
+  width: 100%;
+}
+
+.application__submit:focus-visible {
+  outline: 2px solid #5B5AFF;
+  outline-offset: 2px;
+}
+
+.application__submit span {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.application__submit:hover span,
+.application__submit:focus-visible span,
+.application__submit:active span {
+  transform: translateX(4px);
+}
+
+.application__submit span::before {
+  font-size: 20px;
+}
+
+.team-services {
+  background: transparent;
+}
+
+.cases-services {
+  padding: 48px 16px 64px 16px;
+  background: #FFF;
+  overflow: hidden;
+}
+
+.cases-services__slide  {
+  overflow: visible;
+}
+
+.cases-services .container {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.cases-services__heading {
+  min-width: 276px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex: 1 0 0;
+}
+
+.cases-services__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.cases-services__card-title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.cases-services__card-text {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.cases-services__text {
+  display: flex;
+  min-width: 276px;
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  flex: 1 0 0;
+}
+
+.cases-services__top {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}
+
+.cases-services__card-list {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  margin-top: -8px;
+}
+
+.cases-services__card-item {
+  display: flex;
+  align-items: center;
+  border-radius: 99px;
+  border: 1px solid #393939;
+  min-height: 24px;
+  justify-content: center;
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0 8px;
+  line-height: 1.6;
+  letter-spacing:0;
+}
+
+.cases-services__slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+}
+
+/* width: без цього .swiper у колонці з align-items: center стискається до ширини всієї стрічки
+   і Swiper вимикається (вважає, що всі слайди вміщаються).
+   overflow: visible — слайди й тінь обрізає секція .cases-services (overflow: hidden), а не слайдер */
+.cases-services__swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.cases-services__slide {
+  width: 276px;
+}
+
+.cases-services__card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cases-services__card-media {
+  border-radius: 12px;
+  box-shadow: 0 0 68px 0 rgba(0, 0, 0, 0.25);
+  height: 224px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cases-services__card-badge {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  border-radius: 99px;
+  background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
+  color: #393939;
+  text-wrap-style: balance;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.cases-services__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cases-services__label {
+  text-wrap-style: balance;
+  width: 100%;
+  font-family: var(--font-azo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  background: linear-gradient(270deg, #5B5AFF 54.52%, #FF831A 124.52%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cases-services__title {
+  color: #101010;
+  text-wrap-style: balance;
+  font-family: var(--font-azo);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
 
 /* ==================== Десктоп (від 1280px) ==================== */
 @media (min-width: 1280px) {
@@ -5150,7 +5990,6 @@ body.is-menu-open .header {
 
   .problems__item {
     padding: 24px;
-    gap: 16px;
   }
 
   .problems__item-button {
@@ -5185,7 +6024,7 @@ body.is-menu-open .header {
 
   .problems__item-body {
     gap: 16px;
-    padding: 0 40px 0 58px;
+    padding: 16px 40px 0 58px;
   }
 
   .problems__item-text {
@@ -5371,7 +6210,8 @@ body.is-menu-open .header {
     font-size: 16px;
   }
 
-  .cases__all-link {
+  .cases__all-link,
+  .cases-services__all-link {
     font-size: 16px;
   }
 
@@ -6040,10 +6880,264 @@ body.is-menu-open .header {
   .visual-interlude__title {
     font-size: 86px;
   }
+
+  .process .problems__intro {
+    gap: 64px;
+    height: auto;
+  }
+
+  .process {
+    gap: 64px;
+  }
+
+  .banner {
+    max-width: 1176px;
+    padding: 64px;
+    gap: 24px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .banner__title {
+    font-size: 24px;
+  }
+
+  .banner__text {
+    font-size: 16px;
+    max-width: 600px;
+  }
+
+  .banner__link {
+    font-size: 16px;
+  }
+
+  .work-stages {
+    padding: 96px 52px;
+  }
+
+  .work-stages .container {
+    max-width: 1176px;
+  }
+
+  .work-stages__label {
+    font-size: 16px;
+  }
+
+  .work-stages__title {
+    font-size: 38px;
+  }
+
+  .work-stages__list {
+    display: flex;
+    align-items: flex-end;
+    gap: 48px;
+    flex: 1 0 0;
+    flex-wrap: nowrap;
+  }
+
+  .work-stages__card {
+    flex: 1 0 0;
+    position: relative;
+  }
+
+  .work-stages__card-number {
+    font-size: 61px;
+  }
+
+  .work-stages__card-media {
+    display: block;
+    position: absolute;
+    width: 198px;
+    height: 53px;
+    top: 0px;
+    left: 100px;
+  }
+
+  .work-stages__card-title {
+    font-size: 24px;
+  }
+
+  .work-stages__card-text {
+    font-size: 16px;
+  }
+
+  .work-stages__card:nth-of-type(2) {
+    margin-bottom: 24px;
+  }
+
+  .work-stages__card:nth-of-type(3) {
+    margin-bottom: 64px;
+  }
+
+  .work-stages__card:nth-of-type(4) {
+    margin-bottom: 112px;
+  }
+
+  .faq {
+    padding: 96px 52px;
+  }
+
+  .faq .container {
+    max-width: 1176px;
+    gap: 64px;
+  }
+
+  .faq__label {
+    font-size: 16px;
+  }
+
+  .faq__title {
+    font-size: 38px;
+  }
+
+  .application {
+    padding: 48px 52px 96px 52px;
+  }
+
+  .application .container {
+    max-width: 1176px;
+    gap: 24px;
+  }
+
+  .application__top {
+    gap: 48px;
+  }
+
+  .application__label {
+    font-size: 16px;
+  }
+
+  .application__title {
+    font-size: 61px;
+    max-width: 200px;
+  }
+
+  .application__text {
+    font-size: 24px;
+  }
+
+  .application__form {
+    gap: 32px;
+  }
+
+  .application__input,
+  .application__select,
+  .application__textarea {
+    font-size: 16px;
+  }
+
+  .application__submit {
+    font-size: 16px;
+  }
+
+  .cases-services {
+    padding: 128px 52px;
+  }
+
+  .cases-services .container {
+    max-width: 1176px;
+    gap: 48px;
+  }
+
+  .cases-services__heading {
+    gap: 24px;
+  }
+
+  .cases-services__label {
+    font-size: 16px;
+  }
+
+  .cases-services__title {
+    font-size: 38px;
+  }
+
+  .cases-services__card-text {
+    font-size: 16px;
+  }
+
+  .cases-services__card-media {
+    height: 254px;
+  }
+
+  .cases-services__card-title {
+    font-size: 24px;
+  }
+
+  .cases-services__text {
+    font-size: 24px;
+  }
+
+  .cases-services__slider {
+    gap: 40px;
+  }
 }
 
 /* ==================== Десктоп з мишею: ховер-анімації ==================== */
 @media (min-width: 1280px) and (hover: hover) {
+
+  /* cases-services (десктоп з мишею): при ховері / фокусі список послуг виїжджає знизу,
+     а картинка зменшується рівно на його висоту — картка не змінює висоту, слайдер не стрибає.
+     Висоту списку (--cs-list-h) міряє js/cases-slider.js; 56px — запасне значення (2 рядки) */
+  .cases-services__card {
+    --cs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cases-services__card-media {
+    transition: height 0.6s var(--cs-ease);
+  }
+
+  /* згорнутий список: висота 0, margin -32px гасить gap картки (інакше лишалась би "дірка" внизу) */
+  .cases-services__card-list {
+    max-height: 0;
+    margin-top: -32px;
+    overflow: hidden;
+    /* рядки від верху: з align-content: center у згорнутому (0px) списку вони вилазили б угору */
+    align-content: flex-start;
+    opacity: 0;
+    transition:
+      max-height 0.6s var(--cs-ease),
+      margin-top 0.6s var(--cs-ease),
+      opacity 0.4s ease;
+  }
+
+  .cases-services__card-item {
+    transform: translateY(10px);
+    transition: transform 0.6s var(--cs-ease);
+  }
+
+  .cases-services__card-item:nth-child(2) {
+    transition-delay: 0.04s;
+  }
+
+  .cases-services__card-item:nth-child(3) {
+    transition-delay: 0.08s;
+  }
+
+  .cases-services__card-item:nth-child(4) {
+    transition-delay: 0.12s;
+  }
+
+  .cases-services__card-item:nth-child(n + 5) {
+    transition-delay: 0.16s;
+  }
+
+  /* 254px — висота картинки на десктопі, 24px — відступ над списком (gap 32px - 8px) */
+  .cases-services__card:hover .cases-services__card-media,
+  .cases-services__card:focus-visible .cases-services__card-media {
+    height: calc(254px - var(--cs-list-h, 56px) - 24px);
+  }
+
+  .cases-services__card:hover .cases-services__card-list,
+  .cases-services__card:focus-visible .cases-services__card-list {
+    max-height: var(--cs-list-h, 56px);
+    margin-top: -8px;
+    opacity: 1;
+  }
+
+  .cases-services__card:hover .cases-services__card-item,
+  .cases-services__card:focus-visible .cases-services__card-item {
+    transform: none;
+  }
   .cases__card-list {
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -6148,7 +7242,10 @@ body.is-menu-open .header {
   .services-listing__card-link,
   .services-listing__card-link::before,
   .visual-interlude__btn,
-  .visual-interlude__btn::before {
+  .visual-interlude__btn::before,
+  .banner__link,
+  .banner__link::before,
+  .banner__link span {
     transition: none;
   }
 
@@ -6156,10 +7253,21 @@ body.is-menu-open .header {
     animation: none;
   }
 
+  .application__checkbox,
+  .application__submit,
+  .application__submit::before,
+  .application__submit span {
+    transition: none;
+  }
+
   .team__nav-btn,
   .team__nav-btn::before,
   .team__nav-btn span,
   .team__nav-btn span::before,
+  .cases-services__nav-btn,
+  .cases-services__nav-btn::before,
+  .cases-services__nav-btn span,
+  .cases-services__nav-btn span::before,
   .reviews__nav-btn,
   .reviews__nav-btn::before,
   .reviews__nav-btn span,
@@ -6203,7 +7311,10 @@ body.is-menu-open .header {
 
   .cases__all-link,
   .cases__all-link::before,
-  .cases__all-link .icon-namecaret-right {
+  .cases__all-link .icon-namecaret-right,
+  .cases-services__all-link,
+  .cases-services__all-link::before,
+  .cases-services__all-link .icon-namecaret-right {
     transition: none;
   }
 
@@ -6237,6 +7348,12 @@ body.is-menu-open .header {
 
   .service__card-img,
   .service__card-link {
+    transition: none;
+  }
+
+  .cases-services__card-media,
+  .cases-services__card-list,
+  .cases-services__card-item {
     transition: none;
   }
 }

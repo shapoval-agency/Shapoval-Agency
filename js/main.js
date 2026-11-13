@@ -68,8 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // footer: виїжджає з-під контенту при скролі (як на awsmd.com)
   const footerReveal = initFooterReveal()
 
+  // кейси на сторінках послуг (скрипт підключений лише там, де є секція)
+  const casesSlider = window.initCasesSlider?.() ?? null
+
+  // маска телефону у формі заявки (скрипт підключений лише там, де є форма)
+  const phoneMask = window.initPhoneMask?.() ?? null
+
   window.app = {
     lenis,
+    phoneMask,
+    casesSlider,
     gsap,
     ScrollTrigger,
     burger,

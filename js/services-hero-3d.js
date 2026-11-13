@@ -4,7 +4,7 @@
  * Основа — набір hero-3d-developer (рушій, світло, orbit-physics, пауза, економія ресурсів),
  * сцена зібрана під нашу картинку: 5 білих матових куль по колу + 3 рожеві глянцеві супутники.
  *
- * Розмітка:
+ * Розмітка (контейнерів може бути кілька — у кожного своя сцена):
  *   [data-hero-3d]                      — контейнер (сюди додається canvas)
  *     img                               — картинка: показується першою (LCP) і лишається, якщо 3D немає
  *     button[data-hero-3d-pause]        — необов'язково: кнопка паузи / відтворення (зараз у розмітці немає)
@@ -12,17 +12,41 @@
  * Класи:
  *   [data-hero-3d].is-3d-ready          — 3D відмалювалось, canvas проявляється поверх картинки
  *
+ * Виліт за межі блоку:
+ *   [data-hero-3d-bleed="0.5"]          — canvas більший за блок на 50% з кожного боку, камера відсувається
+ *                                         так само (кулі того ж розміру). Обрізає вже секція (overflow: hidden)
+ *
  * Швидкість сторінки:
- *   Three.js вантажиться лише після події load і коли браузер вільний (requestIdleCallback).
+ *   Three.js вантажиться лише після події load, коли браузер вільний (requestIdleCallback),
+ *   і коли блок підходить до екрана.
  *   prefers-reduced-motion — Three.js не вантажиться взагалі, лишається картинка.
  *   Рендер зупиняється, коли сцена поза екраном або вкладка прихована.
  *   Немає WebGL або помилка — лишається картинка.
  */
-const host = document.querySelector('[data-hero-3d]')
+// може бути кілька сцен на сторінці (services-hero, application) — Three.js вантажиться один раз
+const hosts = [...document.querySelectorAll('[data-hero-3d]')]
 
-if (host && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (hosts.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 200))
-  const boot = () => idle(() => initScene(host), { timeout: 2000 })
+
+  // кожна сцена стартує, коли її блок підходить до екрана (hero — одразу, application — біля форми)
+  const boot = () =>
+    idle(
+      () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(({ target, isIntersecting }) => {
+              if (!isIntersecting) return
+              observer.unobserve(target)
+              initScene(target)
+            })
+          },
+          { rootMargin: '300px 0px' },
+        )
+        hosts.forEach((host) => observer.observe(host))
+      },
+      { timeout: 2000 },
+    )
 
   if (document.readyState === 'complete') boot()
   else window.addEventListener('load', boot, { once: true })
@@ -52,6 +76,20 @@ async function initScene(host) {
     renderer.toneMappingExposure = 1.05
     renderer.domElement.setAttribute('aria-hidden', 'true')
     host.append(renderer.domElement)
+
+    // виліт canvas за межі блоку (частка розміру з кожного боку)
+    // getAttribute, а не dataset: дефіс перед цифрою (-3d) dataset не перетворює на camelCase
+    const bleed = Math.max(0, parseFloat(host.getAttribute('data-hero-3d-bleed')) || 0)
+    if (bleed) {
+      // width/height теж задаємо: у CSS canvas має 100%, і це перебило б розтягування через inset
+      Object.assign(renderer.domElement.style, {
+        top: `-${bleed * 100}%`,
+        left: `-${bleed * 100}%`,
+        width: `${(1 + bleed * 2) * 100}%`,
+        height: `${(1 + bleed * 2) * 100}%`,
+        maxWidth: 'none', // reset.css обмежує canvas до 100% ширини
+      })
+    }
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 40)
@@ -138,9 +176,11 @@ async function initScene(host) {
     function resize() {
       const rect = host.getBoundingClientRect()
       if (!rect.width || !rect.height) return
-      renderer.setSize(rect.width, rect.height, false)
+      const scale = 1 + bleed * 2
+      renderer.setSize(rect.width * scale, rect.height * scale, false)
       camera.aspect = rect.width / rect.height
-      camera.position.z = Math.max(9, 7.2 / camera.aspect)
+      // з вильотом canvas більший — камера далі на стільки ж, щоб кулі лишились того ж розміру
+      camera.position.z = Math.max(9, 7.2 / camera.aspect) * scale
       camera.updateProjectionMatrix()
       draw()
     }

@@ -14,6 +14,11 @@
  *
  * Клас при відкритті: .problems__item.is-open
  * Анімація висоти — через GSAP, CSS для роботи не потрібен.
+ *
+ * Вимкнений режим: якщо акордеон усередині staticSelector (за замовчуванням .process),
+ * він не запускається — усі пункти відкриті (.is-open), кнопки стають span з тими ж класами
+ * (без "кнопка, згорнуто" для скрінрідера), у панелей прибирається role="region".
+ * Корінь отримує клас .is-static.
  */
 function initAccordion(options = {}) {
   const {
@@ -22,6 +27,7 @@ function initAccordion(options = {}) {
     buttonSelector = '.problems__item-button',
     panelSelector = '.problems__item-panel',
     openClass = 'is-open',
+    staticSelector = '.process', // усередині такого контейнера акордеон вимкнено
     initialOpen = 0, // індекс відкритого пункту при завантаженні, null — всі закриті
     hoverDelay = 120, // мс, щоб пункти не "блимали" при швидкому проведенні мишею
     duration = 0.45,
@@ -29,10 +35,24 @@ function initAccordion(options = {}) {
     onChange,
   } = options
 
-  const root = document.querySelector(rootSelector)
+  // усі акордеони на сторінці (напр. на marketing.html: process — вимкнений, faq — робочий)
+  const controllers = [...document.querySelectorAll(rootSelector)]
+    .map((root) => {
+      if (staticSelector && root.closest(staticSelector)) {
+        makeStatic(root, { itemSelector, buttonSelector, panelSelector, openClass })
+        return null
+      }
+      return setupAccordion(root, { itemSelector, buttonSelector, panelSelector, openClass, initialOpen, hoverDelay, duration, ease, onChange })
+    })
+    .filter(Boolean)
 
-  if (!root) return null
+  if (!controllers.length) return null
 
+  // API першого акордеона (як було), решта — в .all
+  return Object.assign(controllers[0], { all: controllers })
+}
+
+function setupAccordion(root, { itemSelector, buttonSelector, panelSelector, openClass, initialOpen, hoverDelay, duration, ease, onChange }) {
   const hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 
@@ -110,6 +130,30 @@ function initAccordion(options = {}) {
     close: (index) => items[index] && setOpen(items[index], false),
     closeAll: () => items.forEach((item) => setOpen(item, false)),
   }
+}
+
+// вимкнений акордеон: звичайний список, усе відкрито
+function makeStatic(root, { itemSelector, buttonSelector, panelSelector, openClass }) {
+  root.classList.add('is-static')
+
+  root.querySelectorAll(itemSelector).forEach((item) => {
+    item.classList.add(openClass)
+
+    const button = item.querySelector(buttonSelector)
+    if (button) {
+      const span = document.createElement('span')
+      span.className = button.className
+      span.append(...button.childNodes)
+      button.replaceWith(span)
+    }
+
+    const panel = item.querySelector(panelSelector)
+    if (panel) {
+      panel.removeAttribute('role')
+      panel.removeAttribute('aria-labelledby')
+      panel.inert = false
+    }
+  })
 }
 
 window.initAccordion = initAccordion
