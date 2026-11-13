@@ -7,7 +7,9 @@
  * Розмітка (контейнерів може бути кілька — у кожного своя сцена):
  *   [data-hero-3d]                      — контейнер (сюди додається canvas), картинки-заглушки немає
  *   [data-hero-3d="hex"]                — варіант сцени: шестикутники (digital)
- *   [data-hero-3d="asterisk"]           — варіант сцени: зірочки (content); порожньо — кулі (marketing)
+ *   [data-hero-3d="asterisk"]           — варіант сцени: зірочки (content)
+ *   [data-hero-3d="sphere"]             — варіант сцени: велика куля з жовтими супутниками (strategy-brand)
+ *   порожньо                            — кулі по колу (marketing)
  *     button[data-hero-3d-pause]        — необов'язково: кнопка паузи / відтворення (зараз у розмітці немає)
  *
  * Класи:
@@ -405,6 +407,51 @@ const SCENES = {
         main.rotation.y = -0.34 + Math.sin(time * 0.2) * 0.14 + smooth.x * 0.22
         main.rotation.x = 0.1 + Math.sin(time * 0.17) * 0.08 - smooth.y * 0.18
         main.rotation.z = Math.sin(time * 0.11) * 0.05
+      },
+    }
+  },
+
+  // strategy-brand: велика біла матова куля + 3 жовті супутники (композиція з набору hero-3d-developer,
+  // куля біла замість графітової). Кольори з набору: #ffcc16, світло від супутників #ffc526
+  sphere(THREE, scene, grain) {
+    const white = new THREE.MeshPhysicalMaterial({
+      color: 0xf2f2f3,
+      roughness: 0.82,
+      metalness: 0,
+      bumpMap: grain,
+      bumpScale: 0.05,
+      sheen: 0.15,
+      sheenColor: 0xfff1d2,
+      sheenRoughness: 0.8,
+    })
+    const main = new THREE.Mesh(new THREE.SphereGeometry(2.15, 96, 64), white)
+    main.position.set(0.05, 0, 0)
+    scene.add(main)
+
+    // світло: білий ключ зверху зліва, сірувато-лавандова тінь знизу праворуч (як на картинці)
+    addLights(THREE, scene, { ground: 0xc6c5d2, fill: 0xf3f2f7, rim: 0xe8e4f2, sky: 1.35 })
+
+    // жовті супутники; від кожного тепле світло — жовтий відблиск на кулі рухається разом із ними
+    const yellow = new THREE.MeshStandardMaterial({ color: 0xffcc16, roughness: 0.45, metalness: 0.05 })
+    const satellites = [0.18, 0.31, 0.3].map((radius, i) => {
+      const mesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 40, 28), yellow)
+      // світло жовтіше й м'якше, ніж у наборі (#ffc526): з Neutral tone mapping воно йшло б в оранжевий
+      const light = new THREE.PointLight(0xffe27a, 1.6, 4, 2)
+      scene.add(mesh, light)
+      // стартові кути ≈ як на картинці: зліва, справа (попереду), знизу (за кулею)
+      return { mesh, light, angle: [2.7, 0.56, 4.36][i], velocity: [0.19, 0.14, 0.11][i] }
+    })
+
+    return {
+      satellites,
+      // орбіта з набору (2.03 / 1.77 / 0.95), збільшена під розмір кулі
+      orbit: { x: 0.05, y: 0, rx: 2.66, ry: 2.32, depth: 1.25 },
+      update(time, float, smooth) {
+        // як у наборі: повільно обертається, ледь хитається, реагує на курсор
+        main.position.y = float
+        main.rotation.y = time * 0.055 + smooth.x * 0.1
+        main.rotation.x = Math.sin(time * 0.17) * 0.08 - smooth.y * 0.08
+        main.rotation.z = smooth.x * 0.025
       },
     }
   },
