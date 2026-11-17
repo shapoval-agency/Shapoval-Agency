@@ -71,6 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // кейси на сторінках послуг (скрипт підключений лише там, де є секція)
   const casesSlider = window.initCasesSlider?.() ?? null
 
+  // рубрики блогу (скрипт підключений лише на сторінці блогу)
+  const blogSliders = window.initBlogSliders?.() ?? []
+
+  // "Нові матеріали": 6 карток, далі по одній за клік (скрипт лише на сторінці блогу)
+  const loadMore = window.initLoadMore?.() ?? null
+
+  // кастомні select (скрипт лише там, де є select[data-custom-select])
+  const customSelects = window.initCustomSelects?.() ?? []
+
+  // "Поділитися" на сторінці статті
+  const share = window.initShare?.() ?? null
+
   // маска телефону у формі заявки (скрипт підключений лише там, де є форма)
   const phoneMask = window.initPhoneMask?.() ?? null
 
@@ -78,6 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
     lenis,
     phoneMask,
     casesSlider,
+    blogSliders,
+    loadMore,
+    customSelects,
+    share,
     gsap,
     ScrollTrigger,
     burger,

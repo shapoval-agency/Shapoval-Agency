@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Позиціонування бренду: як знайти свою відмінність на ринку — Блог Shapoval Agency</title>
+    <meta name="description"
+        content="Як знайти відмінність бренду, яка важлива клієнту: дослідження, фокус, робоча формула позиціонування та перевірка рішення. Практичний гайд від Shapoval Agency." />
+
+    <!-- Typekit (Azo Sans): з'єднання заздалегідь і CSS без блокування відмальовки.
+       Поки Azo вантажиться, заголовки показуються system-ui, потім підміняються -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+    <link rel="preload" href="https://use.typekit.net/ytp3bxc.css" as="style">
+    <link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://use.typekit.net/ytp3bxc.css">
+    </noscript>
+    <link rel="preload" as="image" href="img/block-img-660.webp"
+        imagesrcset="img/block-img-660.webp 660w, img/block-img.webp 1320w"
+        imagesizes="(min-width: 1280px) 1320px, 100vw" fetchpriority="high">
+    <link rel="stylesheet" href="css/libs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/libs/lenis.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- поява при скролі (js/reveal.js): клас ставимо до відмальовки, щоб перший екран не блимав -->
+    <script>
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reveal-ready')
+    </script>
+</head>
+
+<body class="blog-page">
+    <a class="skip-link" href="#main">Перейти до вмісту</a>
+
+    <header class="header header2">
+        <div class="container">
+            <a href="/" class="logo" aria-label="Shapoval Agency">
+                <img src="img/logo.svg" alt="" width="282" height="48" class="logo__img" decoding="async" />
+                <img src="img/services-logo-mob.svg" alt="" width="87" height="80" class="logo__img logo__img--mob"
+                    decoding="async" />
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Головна навігація">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link">Головна</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Про нас</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">Послуги</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__actions-slot" aria-hidden="true"></div>
+        </div>
+    </header>
+
+    <div class="header__actions">
+        <a href="#contact" class="header__action">
+            <span class="icon-nameplus" aria-hidden="true"></span>
+            Стати клієнтом
+        </a>
+
+        <span class="header__action-mob">Стати клієнтом</span>
+
+        <button class="burger" type="button" aria-label="Відкрити меню" data-label-close="Закрити меню"
+            aria-controls="menu" aria-expanded="false">
+            <span class="burger__line" aria-hidden="true"></span>
+            <span class="burger__line" aria-hidden="true"></span>
+            <span class="burger__line" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <div class="menu" id="menu" role="dialog" aria-modal="true" aria-labelledby="menu-title" aria-hidden="true"
+        data-lenis-prevent>
+        <div class="menu__inner">
+            <div class="menu__header">
+                <a href="/" class="menu__logo" aria-label="Shapoval Agency">
+                    <img src="img/logo-mob.svg" alt="" width="87" height="80" decoding="async" />
+                </a>
+                <h2 class="menu__title" id="menu-title">Навігація</h2>
+            </div>
+
+            <div class="menu__body">
+                <div class="menu__aside">
+                    <address class="menu__contacts">
+                        <ul class="menu__contacts-list">
+                            <li class="menu__contacts-item">
+                                <a class="menu__contacts-link" href="mailto:yaroslav@shapoval.agency">
+                                    yaroslav@shapoval.agency
+                                </a>
+                            </li>
+                            <li class="menu__contacts-item">
+                                <a class="menu__contacts-link" href="tel:+380979534724">
+                                    +38 (097) 953-47-24
+                                </a>
+                            </li>
+                            <li class="menu__contacts-item">
+                                Україна, м. Одеса,<br />
+                                вул. Комітетська, буд. 14а
+                            </li>
+                        </ul>
+                    </address>
+
+                    <div class="menu__meta">
+                        <p class="menu__copy">
+                            © 2015–2026 Shapoval [agency]. All rights reserved | Усі права захищені.
+                            Юридична особа: ФОП “Шаповал Ярослав” · ЄДРПОУ 562 4441 5871 2224 · Ukraine
+                        </p>
+
+                        <ul class="menu__legal-list">
+                            <li class="menu__legal-item">
+                                <a class="menu__legal-link" href="/privacy">Політика конфіденційності</a>
+                            </li>
+                            <li class="menu__legal-item">
+                                <a class="menu__legal-link" href="/terms">Умови використання</a>
+                            </li>
+                        </ul>
+
+                        <nav class="menu__langs" aria-label="Мова сайту">
+                            <ul class="menu__langs-list">
+                                <li class="menu__langs-item">
+                                    <a class="menu__langs-link" href="/en" hreflang="en" lang="en">ENG</a>
+                                </li>
+                                <li class="menu__langs-item">
+                                    <a class="menu__langs-link" href="/" hreflang="uk" lang="uk"
+                                        aria-current="true">UKR</a>
+                                </li>
+                                <li class="menu__langs-item">
+                                    <a class="menu__langs-link" href="/ru" hreflang="ru" lang="ru">RUS</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <nav class="menu__nav" aria-label="Меню сайту">
+                    <ul class="menu__list menu__list--left">
+                        <li class="menu__item">
+                            <a class="menu__link" href="/strategy">
+                                Стратегія і бренд
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/digital">
+                                Digital
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/marketing">
+                                Маркетинг
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/content">
+                                Контент
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="menu__list menu__list--right">
+                        <li class="menu__item">
+                            <a class="menu__link" href="#about">
+                                Про нас
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/blog" aria-current="page">
+                                Блог
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/portfolio">
+                                Портфоліо
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/reviews">
+                                Відгуки
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/courses">
+                                Курси
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="#contact">
+                                Контакти
+                                <span class="icon-namearrow-right" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <main id="main">
+        <section class="blog-hero blog-hero--article" aria-labelledby="blog-hero-title">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлібні крихти">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__link">Головна</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="blog.html" class="breadcrumbs__link">Блог</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="blog-brand.html" class="breadcrumbs__link">Стратегія та бренд</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <span class="breadcrumbs__current" aria-current="page">Позиціонування бренду</span>
+                        </li>
+                    </ol>
+                </nav>
+                <ul class="blog-hero__filters">
+                    <li class="blog-hero__filter">
+                        <a href="blog.html" class="blog-hero__filter-btn">Все</a>
+                    </li>
+                    <li class="blog-hero__filter">
+                        <a href="blog-brand.html" class="blog-hero__filter-btn is-active">Стратегія та бренд</a>
+                    </li>
+                    <li class="blog-hero__filter">
+                        <a href="blog-digital.html" class="blog-hero__filter-btn">Digital</a>
+                    </li>
+                    <li class="blog-hero__filter">
+                        <a href="blog-marketing.html" class="blog-hero__filter-btn">Performance-маркетинг</a>
+                    </li>
+                    <li class="blog-hero__filter">
+                        <a href="blog-content.html" class="blog-hero__filter-btn">Контент</a>
+                    </li>
+                    <li class="blog-hero__filter">
+                        <a href="blog-cases.html" class="blog-hero__filter-btn">Кейси</a>
+                    </li>
+                </ul>
+                <div class="blog-hero__article">
+                    <div class="blog-hero__article-heading">
+                        <p class="blog-hero__article-label">СТРАТЕГІЯ ТА БРЕНД</p>
+                        <h1 class="blog-hero__article-title" id="blog-hero-title">Позиціонування бренду: як знайти свою
+                            відмінність на ринку</h1>
+                    </div>
+                    <p class="blog-hero__article-lead">Не просто розповісти про себе. Допомогти клієнту зрозуміти, чому
+                        обрати саме вас — і підтвердити це досвідом.</p>
+                    <div class="blog-hero__meta">
+                        <time class="blog-hero__date" datetime="2026-10-16">16 жовт. 2026</time>
+                        <span class="blog-hero__dots" aria-hidden="true">·</span>
+                        <span class="blog-hero__reading">6 хв читання</span>
+                    </div>
+                </div>
+                <div class="blog-hero__bar">
+                    <div class="blog-hero__author">
+                        <img class="blog-hero__author-img" src="img/avatar1.webp" width="80" height="80" alt=""
+                            decoding="async">
+                        <div class="blog-hero__author-info">
+                            <p class="blog-hero__author-name">Ярослав Шаповал</p>
+                            <p class="blog-hero__author-role">CEO Shapoval [agency]</p>
+                        </div>
+                    </div>
+                    <button type="button" class="blog-hero__share" data-share>Поділитися
+                        <span class="icon-namearrow-up-right" aria-hidden="true"></span>
+                    </button>
+                    <p class="visually-hidden" role="status" data-share-status></p>
+                </div>
+                <div class="blog-hero__media">
+                    <img class="blog-hero__img" src="img/block-img.webp"
+                        srcset="img/block-img-660.webp 660w, img/block-img.webp 1320w"
+                        sizes="(min-width: 1280px) 1320px, 100vw" width="1320" height="808" alt="" fetchpriority="high"
+                        decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <div class="article-page">
+            <div class="container">
+                <div class="article-page__left">
+                    <nav class="article-page__toc" aria-labelledby="article-toc-title">
+                        <p class="article-page__toc-title" id="article-toc-title">У ЦІЙ СТАТТІ</p>
+                        <ul class="article-page__toc-list">
+                            <li class="article-page__toc-item">
+                                <a href="#summary" class="article-page__toc-link">Коротко про головне
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#basics" class="article-page__toc-link">Що таке позиціонування
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#research" class="article-page__toc-link">Почніть із клієнта
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#focus" class="article-page__toc-link">Знайдіть свою відмінність
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#formula" class="article-page__toc-link">Сформулюйте позицію
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#experience" class="article-page__toc-link">Перенесіть її в досвід
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#check" class="article-page__toc-link">Перевірте рішення
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="article-page__toc-item">
+                                <a href="#faq" class="article-page__toc-link">Поширені запитання
+                                    <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="article-page__cta">
+                        <p class="article-page__cta-title">Потрібен погляд на ваш бренд?</p>
+                        <a href="strategy-brand.html#contact" class="article-page__cta-link">Обговорити задачу</a>
+                        <div class="article-page__cta-media">
+                            <video class="article-page__cta-video" src="img/article-video-720.mp4"
+                                poster="img/article-video-poster.webp" width="720" height="406" muted loop playsinline
+                                preload="none" aria-hidden="true" data-lazy-video></video>
+                        </div>
+                    </div>
+                </div>
+
+                <article class="article-page__body" aria-labelledby="blog-hero-title">
+                    <section class="article-page__section" id="summary" aria-label="Коротко про головне">
+                        <p class="article-page__lead">Коли всі в категорії обіцяють якість, сервіс і індивідуальний
+                            підхід, клієнту складно побачити різницю. Позиціонування допомагає зробити цю різницю
+                            зрозумілою: визначити, для кого ви працюєте, яку задачу вирішуєте і чим підтверджуєте свою
+                            обіцянку.</p>
+                        <p class="article-page__text">Це основа для рішень про продукт, комунікацію й дизайн. Вона дає
+                            команді спільну відповідь на запитання «чому ми?» та допомагає не починати цю розмову заново
+                            з кожною новою кампанією.</p>
+                        <div class="article-page__key">
+                            <p class="article-page__eyebrow">КЛЮЧОВІ ДУМКИ</p>
+                            <h2 class="article-page__key-title">Що варто запам’ятати</h2>
+                            <ul class="article-page__list">
+                                <li class="article-page__list-item">Відмінність має бути важливою клієнту, а не лише
+                                    зручною для презентації.</li>
+                                <li class="article-page__list-item">Сильна позиція спирається на реальні можливості
+                                    бізнесу й конкретні докази.</li>
+                                <li class="article-page__list-item">Фокус допомагає обрати свою аудиторію та чесно
+                                    визначити, кому ви не підходите.</li>
+                                <li class="article-page__list-item">Позиціонування має відчуватися в продукті, сервісі,
+                                    сайті та розмові з командою.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="article-page__section" id="basics" aria-labelledby="basics-title">
+                        <p class="article-page__eyebrow">01 / ОСНОВА</p>
+                        <h2 class="article-page__title" id="basics-title">Позиціонування — це місце, яке бренд займає у
+                            виборі клієнта</h2>
+                        <p class="article-page__text">Людина порівнює вас не з усім ринком одразу, а з кількома
+                            доступними способами розв’язати свою задачу. Для невеликої компанії альтернативою агентству
+                            може бути власний маркетолог, фрилансер або рішення поки нічого не змінювати.</p>
+                        <p class="article-page__text">Тому почніть не з переліку конкурентів, а із ситуації вибору. Що
+                            сталося в бізнесі клієнта? Якого результату він прагне? Чого побоюється? Які компроміси
+                            готовий прийняти?</p>
+                        <h3 class="article-page__subtitle">Відмінність від слогана та айдентики</h3>
+                        <p class="article-page__text">Позиціонування визначає зміст. Слоган стисло передає частину
+                            цього змісту, а айдентика робить його впізнаваним. Новий логотип сам по собі не пояснить,
+                            чому ваша пропозиція потрібна певній аудиторії.</p>
+                        <figure class="article-page__quote">
+                            <blockquote class="article-page__quote-text">
+                                <p>Відмінність працює тоді, коли клієнт може пояснити її своїми словами.</p>
+                            </blockquote>
+                            <figcaption class="article-page__quote-caption">Думка, на якій будується ця стаття
+                            </figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="article-page__section" id="research" aria-labelledby="research-title">
+                        <p class="article-page__eyebrow">02 / ДОСЛІДЖЕННЯ</p>
+                        <h2 class="article-page__title" id="research-title">Почніть із того, як клієнт ухвалює рішення
+                        </h2>
+                        <p class="article-page__text">Опис «власники бізнесу віком від 30 років» не пояснює мотивацію.
+                            Корисніше знати, що компанія виходить на новий ринок, має обмежений ресурс команди й шукає
+                            партнера, який допоможе зібрати запуск в одну систему.</p>
+                        <p class="article-page__text">Проведіть розмови з людьми, які нещодавно обрали вас, відмовилися
+                            або перейшли до іншого рішення. Попросіть пригадати конкретний момент вибору замість оцінки
+                            абстрактного «ідеального бренду».</p>
+                        <ul class="article-page__list">
+                            <li class="article-page__list-item">Що стало причиною пошуку нового рішення?</li>
+                            <li class="article-page__list-item">Які варіанти розглядали й за якими критеріями
+                                порівнювали?</li>
+                            <li class="article-page__list-item">Що викликало сумніви перед зверненням?</li>
+                            <li class="article-page__list-item">Яка інформація або дія допомогла довіритися?</li>
+                            <li class="article-page__list-item">Що після покупки підтвердило чи змінило очікування?</li>
+                        </ul>
+                        <figure class="article-page__figure">
+                            <img class="article-page__figure-img" src="img/figure-772.webp"
+                                srcset="img/figure-772.webp 772w, img/figure.webp 1544w"
+                                sizes="(min-width: 1280px) 772px, 100vw" width="772" height="512"
+                                alt="Троє людей за столом обговорюють роздруковані фотографії та нотатки" loading="lazy"
+                                decoding="async">
+                            <figcaption class="article-page__figure-caption">У розмові з командою важливо відокремити
+                                припущення від того, що справді почули від клієнтів. Ілюстративне зображення, створене
+                                за
+                                допомогою ШІ.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="article-page__section" id="focus" aria-labelledby="focus-title">
+                        <p class="article-page__eyebrow">03 / ФОКУС</p>
+                        <h2 class="article-page__title" id="focus-title">Шукайте перетин потреби, можливості й вільного
+                            простору</h2>
+                        <p class="article-page__text">Складіть карту обіцянок у своїй категорії. Фіксуйте, на чому
+                            конкуренти роблять акцент, які докази показують і до кого звертаються. Ваше завдання —
+                            знайти корисний фокус, який ви здатні підтримувати щодня.</p>
+                        <div class="article-page__pillars">
+                            <h3 class="article-page__pillars-title">ТРИ ОПОРИ ПОЗИЦІЇ</h3>
+                            <dl class="article-page__pillars-list">
+                                <div class="article-page__pillar">
+                                    <dt class="article-page__pillar-name">Потреба</dt>
+                                    <dd class="article-page__pillar-text">Важлива задача, яку клієнт хоче вирішити.</dd>
+                                </div>
+                                <div class="article-page__pillar">
+                                    <dt class="article-page__pillar-name">Можливість</dt>
+                                    <dd class="article-page__pillar-text">Те, що бізнес справді може забезпечити та
+                                        підтвердити.</dd>
+                                </div>
+                                <div class="article-page__pillar">
+                                    <dt class="article-page__pillar-name">Відмінність</dt>
+                                    <dd class="article-page__pillar-text">Зрозуміла причина обрати вас серед
+                                        альтернатив.</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <h3 class="article-page__subtitle">Перетворіть загальну перевагу на конкретну обіцянку</h3>
+                        <p class="article-page__text">«Висока якість» потребує пояснення. Для сервісу це може бути
+                            погоджений строк відповіді та зрозумілий порядок вирішення проблем. Для виробника —
+                            матеріал,
+                            контроль партій або можливість відновити виріб. Обіцянка стає сильнішою, коли зрозуміло, що
+                            саме за нею стоїть.</p>
+                        <p class="article-page__text">Не кожен фокус має бути унікальним на весь світ. Важливо, щоб він
+                            був помітним у вашій ситуації вибору та підкріплювався досвідом, який важко повторити лише
+                            словами.</p>
+                        <div class="article-page__service">
+                            <div class="article-page__service-body">
+                                <p class="article-page__service-title">Стратегія</p>
+                                <p class="article-page__service-text">Аналізуємо ринок, конкурентів і аудиторію.
+                                    Складаємо план дій з урахуванням потенціалу бізнесу</p>
+                                <a href="strategy-brand.html" class="article-page__service-link">Детальніше про
+                                    послугу<span class="visually-hidden"> «Стратегія»</span></a>
+                            </div>
+                            <div class="article-page__service-media">
+                                <img class="article-page__service-img" src="img/article-card-346.webp"
+                                    srcset="img/article-card-346.webp 346w, img/article-card.webp 692w" sizes="346px"
+                                    width="346" height="258" alt="" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="article-page__section" id="formula" aria-labelledby="formula-title">
+                        <p class="article-page__eyebrow">04 / ФОРМУЛЮВАННЯ</p>
+                        <h2 class="article-page__title" id="formula-title">Зберіть позиціонування в одне робоче речення
+                        </h2>
+                        <p class="article-page__text">Коротка формула допомагає перевірити логіку. Вона не обов’язково
+                            потрапить на головний екран сайту: спочатку це інструмент для команди.</p>
+                        <div class="article-page__formula">
+                            <p class="article-page__formula-label">РОБОЧА ФОРМУЛА</p>
+                            <p class="article-page__formula-text">Для <span
+                                    class="article-page__formula-slot">[аудиторії
+                                    в певній ситуації]</span> ми — <span class="article-page__formula-slot">[категорія
+                                    рішення]</span>, що допомагає <span class="article-page__formula-slot">[отримати
+                                    важливий результат]</span>, завдяки <span
+                                    class="article-page__formula-slot">[конкретній
+                                    перевазі та її доказу]</span>.</p>
+                        </div>
+                        <h3 class="article-page__subtitle">Як це може звучати</h3>
+                        <p class="article-page__text">Уявімо невелику студію меблів. Замість «створюємо якісні меблі на
+                            замовлення» вона обирає фокус на компактних квартирах і пропонує рішення для складних
+                            планувань — із замірами, перевіркою ергономіки та монтажем однією командою.</p>
+                        <p class="article-page__text">Це вигаданий приклад, а не кейс агентства. Він показує, як
+                            аудиторія, задача і спосіб роботи збираються в зрозумілу пропозицію. До публікації бізнес
+                            має
+                            перевірити, чи справді може забезпечити таку обіцянку.</p>
+                        <figure class="article-page__quote">
+                            <blockquote class="article-page__quote-text">
+                                <p>Хороша позиція допомагає не лише сказати потрібне, а й відмовитися від зайвого.</p>
+                            </blockquote>
+                            <figcaption class="article-page__quote-caption">Редакційний акцент</figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="article-page__section" id="experience" aria-labelledby="experience-title">
+                        <p class="article-page__eyebrow">05 / ВПРОВАДЖЕННЯ</p>
+                        <h2 class="article-page__title" id="experience-title">Зробіть позицію відчутною в кожній точці
+                            контакту</h2>
+                        <p class="article-page__text">Якщо бренд обіцяє простоту, але змушує клієнта заповнювати складну
+                            форму й чекати відповіді без зрозумілого строку, комунікація суперечить досвіду. Перевірте
+                            шлях від першого оголошення до користування продуктом.</p>
+                        <ol class="article-page__list article-page__list--ordered">
+                            <li class="article-page__list-item">Пропозиція. Поясніть результат, межі послуги та
+                                наступний
+                                крок.</li>
+                            <li class="article-page__list-item">Сайт. Покажіть релевантні докази поруч з обіцянкою, а не
+                                ховайте їх у кінці сторінки.</li>
+                            <li class="article-page__list-item">Візуальна мова. Узгодьте композицію, фотографії й тон із
+                                характером бренду.</li>
+                            <li class="article-page__list-item">Команда. Погодьте, як описувати цінність у листуванні,
+                                презентації та розмові.</li>
+                            <li class="article-page__list-item">Сервіс. Закріпіть дії, завдяки яким обіцянка справді
+                                виконується.</li>
+                        </ol>
+                        <figure class="article-page__figure">
+                            <img class="article-page__figure-img" src="img/figure2-772.webp"
+                                srcset="img/figure2-772.webp 772w, img/figure2.webp 1544w"
+                                sizes="(min-width: 1280px) 772px, 100vw" width="772" height="512"
+                                alt="Мудборд бренду на столі: фотографії, зразки матеріалів і кольорів, блокнот з нотатками"
+                                loading="lazy" decoding="async">
+                            <figcaption class="article-page__figure-caption">Візуальні рішення мають підтримувати одну
+                                ідею: від матеріалів і пакування до фотографій та цифрових носіїв. Ілюстративне
+                                зображення, створене за допомогою ШІ.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section class="article-page__section" id="check" aria-labelledby="check-title">
+                        <p class="article-page__eyebrow">06 / ПЕРЕВІРКА</p>
+                        <h2 class="article-page__title" id="check-title">Перевіряйте розуміння, а не лише симпатію</h2>
+                        <p class="article-page__text">Питання «вам подобається?» часто веде до розмови про смак.
+                            Покажіть пропозицію представникам аудиторії та попросіть пояснити: що робить компанія, для
+                            кого вона, чим корисна і які докази запам’яталися.</p>
+                        <p class="article-page__text">Відповіді допоможуть знайти нечіткі формулювання. Якщо люди бачать
+                            іншу цінність, ніж ви закладали, перевірте і зміст, і спосіб подачі. Не робіть висновок за
+                            однією розмовою.</p>
+                        <h3 class="article-page__subtitle">Короткий чекліст перед запуском</h3>
+                        <ul class="article-page__list">
+                            <li class="article-page__list-item">Аудиторія та ситуація вибору визначені конкретно.</li>
+                            <li class="article-page__list-item">Відмінність пов’язана з важливою задачею клієнта.</li>
+                            <li class="article-page__list-item">Для основної обіцянки є перевірювані докази.</li>
+                            <li class="article-page__list-item">Команда однаково розуміє зміст позиціонування.</li>
+                            <li class="article-page__list-item">Продукт і сервіс підтримують заявлену цінність.</li>
+                        </ul>
+                        <p class="article-page__text">Після запуску збирайте запитання, причини відмов і відгуки.
+                            Спостерігайте, які аргументи допомагають рухатися далі. Позиціонування варто уточнювати,
+                            коли змінюється ринок або бізнес, зберігаючи послідовність у щоденній комунікації.</p>
+                    </section>
+
+                    <section class="article-page__faq" id="faq" aria-labelledby="faq-title">
+                        <p class="article-page__eyebrow">FAQ</p>
+                        <h2 class="article-page__title" id="faq-title">Що ще варто знати</h2>
+                        <div class="problems__accordion" data-accordion>
+                            <div class="problems__item">
+                                <h3 class="problems__item-heading">
+                                    <button class="problems__item-button" type="button" id="faq-button-1"
+                                        aria-expanded="false" aria-controls="faq-panel-1">
+                                        <span class="problems__item-content">
+                                            <span class="problems__item-title">Чи можна почати з айдентики, а
+                                                позиціонування зробити пізніше?</span>
+                                        </span>
+                                        <span class="problems__item-icon" aria-hidden="true">
+                                            <i class="icon-namecaret-up"></i>
+                                        </span>
+                                    </button>
+                                </h3>
+                                <div class="problems__item-panel" id="faq-panel-1" role="region"
+                                    aria-labelledby="faq-button-1">
+                                    <div class="problems__item-body">
+                                        <p class="problems__item-text">Можна, але тоді дизайн доведеться перевіряти й
+                                            допрацьовувати, коли з’явиться позиція. Айдентика робить зміст впізнаваним,
+                                            а
+                                            не створює його, тому надійніше спершу визначити, для кого бренд і чим він
+                                            відрізняється.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="problems__item">
+                                <h3 class="problems__item-heading">
+                                    <button class="problems__item-button" type="button" id="faq-button-2"
+                                        aria-expanded="false" aria-controls="faq-panel-2">
+                                        <span class="problems__item-content">
+                                            <span class="problems__item-title">Скільки часу займає робота над
+                                                позиціонуванням?</span>
+                                        </span>
+                                        <span class="problems__item-icon" aria-hidden="true">
+                                            <i class="icon-namecaret-up"></i>
+                                        </span>
+                                    </button>
+                                </h3>
+                                <div class="problems__item-panel" id="faq-panel-2" role="region"
+                                    aria-labelledby="faq-button-2">
+                                    <div class="problems__item-body">
+                                        <p class="problems__item-text">Залежить від ринку й обсягу досліджень. Зазвичай
+                                            це кілька тижнів: інтерв’ю з клієнтами, аналіз конкурентів, робочі сесії з
+                                            командою та перевірка формулювань.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="problems__item">
+                                <h3 class="problems__item-heading">
+                                    <button class="problems__item-button" type="button" id="faq-button-3"
+                                        aria-expanded="false" aria-controls="faq-panel-3">
+                                        <span class="problems__item-content">
+                                            <span class="problems__item-title">Як зрозуміти, що позиціонування вже
+                                                застаріло?</span>
+                                        </span>
+                                        <span class="problems__item-icon" aria-hidden="true">
+                                            <i class="icon-namecaret-up"></i>
+                                        </span>
+                                    </button>
+                                </h3>
+                                <div class="problems__item-panel" id="faq-panel-3" role="region"
+                                    aria-labelledby="faq-button-3">
+                                    <div class="problems__item-body">
+                                        <p class="problems__item-text">Сигнали — клієнти дедалі частіше порівнюють вас
+                                            лише за ціною, конкуренти говорять те саме, а команда по-різному пояснює,
+                                            чим ви корисні. Також варто переглянути позицію після зміни продукту,
+                                            аудиторії чи ринку.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-page__banner">
+                            <p class="article-page__banner-title">Знайдемо сильну ідею вашого бренду</p>
+                            <p class="article-page__banner-text">Розберемося в задачі, аудиторії та конкурентному
+                                середовищі. Зберемо позицію, яку можна перевести в дизайн і комунікацію.</p>
+                            <a href="strategy-brand.html#contact" class="article-page__banner-link">Обговорити
+                                проєкт</a>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+
+        <!-- хлібні крихти, стаття та FAQ для Google -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://shapoval-agency.github.io/Shapoval-Agency/" },
+            { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://shapoval-agency.github.io/Shapoval-Agency/blog.html" },
+            { "@type": "ListItem", "position": 3, "name": "Стратегія та бренд", "item": "https://shapoval-agency.github.io/Shapoval-Agency/blog-brand.html" },
+            { "@type": "ListItem", "position": 4, "name": "Позиціонування бренду" }
+          ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Позиціонування бренду: як знайти свою відмінність на ринку",
+          "description": "Як знайти відмінність бренду, яка важлива клієнту: дослідження, фокус, робоча формула позиціонування та перевірка рішення.",
+          "image": "https://shapoval-agency.github.io/Shapoval-Agency/img/block-img.webp",
+          "datePublished": "2026-10-16",
+          "inLanguage": "uk",
+          "author": { "@type": "Person", "name": "Ярослав Шаповал", "jobTitle": "CEO" },
+          "publisher": { "@type": "Organization", "name": "Shapoval Agency" },
+          "mainEntityOfPage": "https://shapoval-agency.github.io/Shapoval-Agency/article.html"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Чи можна почати з айдентики, а позиціонування зробити пізніше?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Можна, але тоді дизайн доведеться перевіряти й допрацьовувати, коли з’явиться позиція. Айдентика робить зміст впізнаваним, а не створює його, тому надійніше спершу визначити, для кого бренд і чим він відрізняється." } },
+            { "@type": "Question", "name": "Скільки часу займає робота над позиціонуванням?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Залежить від ринку й обсягу досліджень. Зазвичай це кілька тижнів: інтерв’ю з клієнтами, аналіз конкурентів, робочі сесії з командою та перевірка формулювань." } },
+            { "@type": "Question", "name": "Як зрозуміти, що позиціонування вже застаріло?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Сигнали — клієнти дедалі частіше порівнюють вас лише за ціною, конкуренти говорять те саме, а команда по-різному пояснює, чим ви корисні. Також варто переглянути позицію після зміни продукту, аудиторії чи ринку." } }
+          ]
+        }
+        </script>
+    </main>
+
+    <!-- футер "виїжджає" з-під контенту при скролі (js/footer-reveal.js) -->
+    <div class="footer-reveal" data-footer-reveal>
+        <div class="footer-reveal__inner" data-footer-reveal-inner>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__top">
+                        <div class="footer__info">
+                            <a href="/" class="footer__logo" aria-label="Shapoval Agency">
+                                <img class="footer__logo-img" src="img/logo-footer.svg" width="143" height="132" alt=""
+                                    loading="lazy" decoding="async">
+                            </a>
+                            <div class="footer__cta">
+                                <h2 class="footer__title">Не знаєте, з чого почати?</h2>
+                                <a href="#contact" class="footer__cta-link">Замовити консультацію
+                                    <span class="icon-namecaret-right" aria-hidden="true"></span>
+                                </a>
+                                <p class="footer__text">Розкажіть про свій бізнес — ми проаналізуємо ситуацію і
+                                    запропонуємо конкретні кроки.</p>
+                            </div>
+                            <address class="footer__contacts">
+                                <a href="mailto:yaroslav@shapoval.agency"
+                                    class="footer__contact">yaroslav@shapoval.agency</a>
+                                <a href="tel:+380979534724"
+                                    class="footer__contact">+38&nbsp;(097)&nbsp;953&#8209;47&#8209;24</a>
+                                <p class="footer__address">Україна, м. Одеса,<br>
+                                    вул. Комітетська, буд. 14а</p>
+                            </address>
+                        </div>
+                        <nav class="footer__nav" aria-label="Навігація у футері">
+                            <ul class="footer__menu">
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Стратегія і бренд
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Digital
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Маркетинг
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Контент
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="footer__menu">
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Про нас
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Блог
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Портфоліо
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Відгуки
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Курси
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a href="#" class="footer__menu-link">Контакти
+                                        <span class="icon-namearrow-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer__bottom">
+                        <ul class="footer__socials">
+                            <li class="footer__social">
+                                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                                    <img class="footer__social-img" src="img/footer-link.svg" width="80" height="20"
+                                        alt="LinkedIn" loading="lazy" decoding="async">
+                                </a>
+                            </li>
+                            <li class="footer__social">
+                                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                                    <img class="footer__social-img" src="img/footer__link2.svg" width="86" height="16"
+                                        alt="Behance" loading="lazy" decoding="async">
+                                </a>
+                            </li>
+                            <li class="footer__social">
+                                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                                    <img class="footer__social-img" src="img/footer__link3.svg" width="83" height="16"
+                                        alt="Facebook" loading="lazy" decoding="async">
+                                </a>
+                            </li>
+                            <li class="footer__social">
+                                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                                    <img class="footer__social-img" src="img/footer__link4.svg" width="85" height="24"
+                                        alt="Instagram" loading="lazy" decoding="async">
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer__legal">
+                            <p class="footer__copyright">© 2015–2026 Shapoval [agency]. All rights reserved | Усі права
+                                захищені. Юридична особа: ФОП “Шаповал Ярослав” · ЄДРПОУ 562 4441 5871 2224 · Ukraine
+                            </p>
+                            <ul class="footer__legal-links">
+                                <li class="footer__legal-item">
+                                    <a href="#" class="footer__legal-link">Політика конфіденційності</a>
+                                </li>
+                                <li class="footer__legal-item">
+                                    <a href="#" class="footer__legal-link">Умови використання</a>
+                                </li>
+                                <li class="footer__lang">
+                                    <a href="#" class="footer__lang-link" lang="en" hreflang="en">ENG</a>
+                                </li>
+                                <li class="footer__lang">
+                                    <a href="#" class="footer__lang-link footer__lang-link--current" lang="uk"
+                                        hreflang="uk" aria-current="page">UKR</a>
+                                </li>
+                                <li class="footer__lang">
+                                    <a href="#" class="footer__lang-link" lang="ru" hreflang="ru">RUS</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__media">
+                    <video class="footer__video" src="img/footer-720.mp4" muted loop playsinline preload="none"
+                        aria-hidden="true" data-lazy-video></video>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/libs/gsap.min.js" defer></script>
+    <script src="js/libs/ScrollTrigger.min.js" defer></script>
+    <script src="js/libs/lenis.min.js" defer></script>
+    <script src="js/libs/swiper-bundle.min.js" defer></script>
+    <script src="js/burger.js" defer></script>
+    <script src="js/accordion.js" defer></script>
+    <script src="js/expand-cards.js" defer></script>
+    <script src="js/lazy-videos.js" defer></script>
+    <script src="js/cases.js" defer></script>
+    <script src="js/value-chain.js" defer></script>
+    <script src="js/counter.js" defer></script>
+    <script src="js/team-slider.js" defer></script>
+    <script src="js/reviews-slider.js" defer></script>
+    <script src="js/blog-slider.js" defer></script>
+    <script src="js/load-more.js" defer></script>
+    <script src="js/custom-select.js" defer></script>
+    <script src="js/share.js" defer></script>
+    <script src="js/footer-reveal.js" defer></script>
+    <script src="js/reveal.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
