@@ -5756,7 +5756,7 @@ textarea {
 
 .breadcrumbs__link::after {
   content: "";
-  background: url(/img/icons.svg);
+  background: url(../img/icons.svg);
   width: 16px;
   height: 16px;
   background-size: contain;
