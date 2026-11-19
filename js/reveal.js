@@ -35,6 +35,28 @@ const REVEAL_UP = [
   '.team__label', '.team__title', '.team__text', '.team__slider', '.team__all-link',
   // reviews
   '.reviews__label', '.reviews__title', '.reviews__all-link', '.reviews__slider', '.reviews__cta',
+  // ---- внутрішні сторінки ----
+  // services-hero, blog-hero (перший екран — як hero на головній)
+  '.services-hero__content > *', '.blog-hero .container > *',
+  // services-listing, situations
+  '.services-listing__label', '.services-listing__title', '.services-listing__card',
+  '.situations__label', '.situations__title', '.situations__card',
+  // visual-interlude
+  '.visual-interlude__label', '.visual-interlude__title', '.visual-interlude__text', '.visual-interlude__btn', '.visual-interlude__media',
+  // banner, work-stages, faq
+  '.banner__title', '.banner__text', '.banner__action',
+  '.work-stages__label', '.work-stages__title', '.work-stages__card',
+  '.faq__label', '.faq__title',
+  // application
+  '.application__label', '.application__title', '.application__text', '.application__form',
+  // cases-services
+  '.cases-services__heading', '.cases-services__text', '.cases-services__slider', '.cases-services__all-link',
+  // блог: block-grid, слайдери рубрик, "Нові матеріали"
+  '.block-grid__featured', '.block-grid__card',
+  '.block-slider__top', '.block-slider__swiper',
+  '.new-materials__heading', '.new-materials__item', '.new-materials__more',
+  // стаття
+  '.article-page__toc', '.article-page__cta', '.article-page__section > *', '.article-page__faq > *',
   // footer
   '.footer__logo', '.footer__title', '.footer__cta-link', '.footer__text', '.footer__contacts',
   '.footer__menu-item', '.footer__social', '.footer__copyright', '.footer__legal-item', '.footer__lang',

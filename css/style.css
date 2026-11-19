@@ -3866,7 +3866,9 @@ body.is-menu-open .header {
    До появи елемент прозорий; саму анімацію запускає JS (Web Animations API).
    hero прихований одразу (клас reveal-ready ставиться в <head>), інші — коли JS позначив їх data-reveal */
 .reveal-ready [data-reveal]:not(.is-revealed),
-.reveal-ready .hero__content> :not(.is-revealed) {
+.reveal-ready .hero__content> :not(.is-revealed),
+.reveal-ready .services-hero__content> :not(.is-revealed),
+.reveal-ready .blog-hero .container> :not(.is-revealed) {
   opacity: 0;
 }
 
