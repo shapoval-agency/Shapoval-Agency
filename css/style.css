@@ -146,7 +146,6 @@ body {
 
 .burger {
   position: relative;
-  overflow: hidden;
   width: 56px;
   height: 56px;
   flex-shrink: 0;
@@ -165,10 +164,10 @@ body {
 .burger::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   z-index: 0;
   border-radius: 99px;
   background-color: #5b5aff;
@@ -182,7 +181,7 @@ body {
 
 .burger:hover::before,
 .burger:focus-visible::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 /* Відкрите меню: кнопка чорна, без фіолетової заливки */
@@ -493,6 +492,12 @@ body {
   justify-content: flex-end;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  /* прокрутка лишається, смуга скролу прихована (видно при масштабі 90/110%) */
+  scrollbar-width: none;
+}
+
+.menu__inner::-webkit-scrollbar {
+  display: none;
 }
 
 /* лого вже в .header на мобілці — дубль у меню не показуємо */
@@ -596,7 +601,6 @@ body.is-menu-open .header {
 .hero__btn {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   border-radius: 99px;
   background: #101010;
   display: flex;
@@ -615,10 +619,10 @@ body.is-menu-open .header {
 .hero__btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   z-index: -1;
   border-radius: 99px;
   background-color: #5b5aff;
@@ -634,7 +638,7 @@ body.is-menu-open .header {
 .hero__btn:hover::before,
 .hero__btn:focus-visible::before,
 .hero__btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .hero__google {
@@ -970,7 +974,6 @@ body.is-menu-open .header {
   margin-left: auto;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-20, #DEDEFF);
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
@@ -979,10 +982,10 @@ body.is-menu-open .header {
 .problems__item-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   z-index: -1;
   border-radius: 99px;
   background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-40, #BDBDFF);
@@ -998,7 +1001,7 @@ body.is-menu-open .header {
 .problems__item-link:hover::before,
 .problems__item-link:focus-visible::before,
 .problems__item-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .problems__item::after {
@@ -1648,7 +1651,6 @@ body.is-menu-open .header {
 .working-model__card .btn {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -1656,11 +1658,11 @@ body.is-menu-open .header {
 .working-model__card .btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: #5b5aff;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1679,7 +1681,7 @@ body.is-menu-open .header {
 .working-model__card .btn:hover::before,
 .working-model__card .btn:focus-visible::before,
 .working-model__card .btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .working-model__card .btn:hover .icon-namecaret-right,
@@ -1859,7 +1861,6 @@ body.is-menu-open .header {
 .cases-services__all-link {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -1868,11 +1869,11 @@ body.is-menu-open .header {
 .cases-services__all-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #BDBDFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1898,7 +1899,7 @@ body.is-menu-open .header {
 .cases-services__all-link:hover::before,
 .cases-services__all-link:focus-visible::before,
 .cases-services__all-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .cases__all-link:hover .icon-namecaret-right,
@@ -2107,7 +2108,6 @@ body.is-menu-open .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -2115,11 +2115,11 @@ body.is-menu-open .header {
 .service__card-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: #5b5aff;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2134,7 +2134,7 @@ body.is-menu-open .header {
 .service__card-link:hover::before,
 .service__card-link:focus-visible::before,
 .service__card-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .service__card-body {
@@ -2470,18 +2470,17 @@ body.is-menu-open .header {
   /* заливка зліва направо, як у кнопок по сайту */
   position: relative;
   z-index: 0;
-  overflow: hidden;
   transition: color 0.35s ease;
 }
 
 .value-chain__outcome::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: var(--colors-basic-colors-dodger-blue-80, #7b7bff);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2492,7 +2491,7 @@ body.is-menu-open .header {
 }
 
 .value-chain__outcome.is-highlighted::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 /* ---- внутрішнє коло + послуги ---- */
@@ -2581,17 +2580,16 @@ body.is-menu-open .header {
   /* заливка зліва направо, як у кнопок по сайту */
   position: relative;
   z-index: 0;
-  overflow: hidden;
 }
 
 .value-chain__service::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: var(--colors-basic-colors-dodger-blue-100, #5b5aff);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2618,7 +2616,7 @@ body.is-menu-open .header {
 
 /* активна послуга (ховер / фокус / закріплена) — фіолетова заливка виїжджає зліва */
 .value-chain__service.is-active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .value-chain {
@@ -2724,7 +2722,6 @@ body.is-menu-open .header {
 .value-chain__link {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -2732,11 +2729,11 @@ body.is-menu-open .header {
 .value-chain__link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2752,7 +2749,7 @@ body.is-menu-open .header {
 .value-chain__link:hover::before,
 .value-chain__link:focus-visible::before,
 .value-chain__link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .about {
@@ -3029,7 +3026,6 @@ body.is-menu-open .header {
   justify-content: center;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   cursor: pointer;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, opacity 0.35s ease;
@@ -3041,11 +3037,11 @@ body.is-menu-open .header {
 .block-slider__btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3087,7 +3083,7 @@ body.is-menu-open .header {
 .block-slider__btn:hover::before,
 .block-slider__btn:focus-visible::before,
 .block-slider__btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .team__nav-btn:hover span::before,
@@ -3163,15 +3159,37 @@ body.is-menu-open .header {
   display: flex;
   align-items: center;
   gap: 11px;
-  box-shadow: inset 0 0 0 1px transparent;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  transition: border-color 0.35s ease;
+}
+
+/* ховер: градієнтна обводка 2px (помаранчевий → фіолетовий), плавно проявляється.
+   Рамка — псевдоелемент з маскою: градієнт видно лише в смузі padding */
+.team__card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #FF831A 0%, #C46FB0 45%, #5B5AFF 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
 .team__card:hover,
 .team__card:focus-visible,
 .team__card:active {
-  border-color: #5B5AFF;
-  box-shadow: inset 0 0 0 1px #5B5AFF;
+  border-color: transparent;
+}
+
+.team__card:hover::before,
+.team__card:focus-visible::before,
+.team__card:active::before {
+  opacity: 1;
 }
 
 .team__card:focus-visible {
@@ -3252,7 +3270,6 @@ body.is-menu-open .header {
   background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-20, #DEDEFF);
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -3261,11 +3278,11 @@ body.is-menu-open .header {
 .team__all-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3286,7 +3303,7 @@ body.is-menu-open .header {
 .team__all-link:hover::before,
 .team__all-link:focus-visible::before,
 .team__all-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .team__all-link:focus-visible {
@@ -3404,7 +3421,6 @@ body.is-menu-open .header {
   align-items: center;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -3413,11 +3429,11 @@ body.is-menu-open .header {
 .reviews__all-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3433,7 +3449,7 @@ body.is-menu-open .header {
 .reviews__all-link:hover::before,
 .reviews__all-link:focus-visible::before,
 .reviews__all-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .reviews__all-link:focus-visible {
@@ -3482,7 +3498,6 @@ body.is-menu-open .header {
   border-radius: 99px;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   cursor: pointer;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, opacity 0.35s ease;
@@ -3492,11 +3507,11 @@ body.is-menu-open .header {
 .reviews__nav-btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3532,7 +3547,7 @@ body.is-menu-open .header {
 .reviews__nav-btn:hover::before,
 .reviews__nav-btn:focus-visible::before,
 .reviews__nav-btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .reviews__nav-btn:hover span::before,
@@ -3619,7 +3634,6 @@ body.is-menu-open .header {
   letter-spacing: 0;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
@@ -3628,11 +3642,11 @@ body.is-menu-open .header {
 .reviews__link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: linear-gradient(0deg, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 0%, var(--colors-basic-colors-grayscale-20-75, rgba(243, 243, 243, 0.75)) 100%), var(--colors-basic-colors-dodger-blue-20, #DEDEFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3649,7 +3663,7 @@ body.is-menu-open .header {
 .reviews__link:hover::before,
 .reviews__link:focus-visible::before,
 .reviews__link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .reviews__link:focus-visible {
@@ -3722,7 +3736,6 @@ body.is-menu-open .header {
   align-items: center;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -3731,11 +3744,11 @@ body.is-menu-open .header {
 .reviews__cta::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3751,7 +3764,7 @@ body.is-menu-open .header {
 .reviews__cta:hover::before,
 .reviews__cta:focus-visible::before,
 .reviews__cta:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .reviews__cta:focus-visible {
@@ -3993,7 +4006,6 @@ body.is-menu-open .header {
   letter-spacing: 0;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -4002,11 +4014,11 @@ body.is-menu-open .header {
 .footer__cta-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -4022,7 +4034,7 @@ body.is-menu-open .header {
 .footer__cta-link:hover::before,
 .footer__cta-link:focus-visible::before,
 .footer__cta-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .footer__cta-link:focus-visible {
@@ -4322,7 +4334,6 @@ body.is-menu-open .header {
   display: inline-block;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -4331,11 +4342,11 @@ body.is-menu-open .header {
 .services-hero__btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -4351,7 +4362,7 @@ body.is-menu-open .header {
 .services-hero__btn:hover::before,
 .services-hero__btn:focus-visible::before,
 .services-hero__btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .services-hero__btn:focus-visible {
@@ -4514,7 +4525,6 @@ body.is-menu-open .header {
   display: inline-block;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -4523,11 +4533,11 @@ body.is-menu-open .header {
 .services-listing__card-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -4543,7 +4553,7 @@ body.is-menu-open .header {
 .services-listing__card-link:hover::before,
 .services-listing__card-link:focus-visible::before,
 .services-listing__card-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .services-listing__card-link:focus-visible {
@@ -4759,7 +4769,6 @@ body.is-menu-open .header {
   letter-spacing: 0;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -4767,11 +4776,11 @@ body.is-menu-open .header {
 .visual-interlude__btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -4787,7 +4796,7 @@ body.is-menu-open .header {
 .visual-interlude__btn:hover::before,
 .visual-interlude__btn:focus-visible::before,
 .visual-interlude__btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .visual-interlude__btn:focus-visible {
@@ -4880,7 +4889,6 @@ body.is-menu-open .header {
   letter-spacing: 0;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -4888,11 +4896,11 @@ body.is-menu-open .header {
 .banner__link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: var(--colors-basic-colors-dodger-blue-100, #5B5AFF);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -4908,7 +4916,7 @@ body.is-menu-open .header {
 .banner__link:hover::before,
 .banner__link:focus-visible::before,
 .banner__link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .banner__link:focus-visible {
@@ -5348,7 +5356,6 @@ textarea {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -5357,11 +5364,11 @@ textarea {
 .application__submit::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background-color: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -5376,7 +5383,7 @@ textarea {
 .application__submit:hover::before,
 .application__submit:focus-visible::before,
 .application__submit:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .application__submit:focus-visible {
@@ -5881,7 +5888,6 @@ textarea {
 .blog-hero__filter-btn {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   cursor: pointer;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease, background-color 0.35s ease;
@@ -5891,11 +5897,11 @@ textarea {
 .blog-hero__filter-btn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -5911,7 +5917,7 @@ textarea {
 .blog-hero__filter-btn:hover::before,
 .blog-hero__filter-btn:focus-visible::before,
 .blog-hero__filter-btn:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .blog-hero__filter-btn:focus-visible {
@@ -6270,7 +6276,6 @@ textarea {
   background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #DEDEFF;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -6279,11 +6284,11 @@ textarea {
 .block-slider__all-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -6299,7 +6304,7 @@ textarea {
 .block-slider__all-link:hover::before,
 .block-slider__all-link:focus-visible::before,
 .block-slider__all-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .block-slider__all-link:focus-visible {
@@ -6326,7 +6331,6 @@ textarea {
   /* анімація — спільна з .cases-services__nav-btn */
   position: relative;
   z-index: 0;
-  overflow: hidden;
   cursor: pointer;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, opacity 0.35s ease;
@@ -6727,7 +6731,6 @@ textarea {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -6735,11 +6738,11 @@ textarea {
 .new-materials__more::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -6769,7 +6772,7 @@ textarea {
 .new-materials__more:hover::before,
 .new-materials__more:focus-visible::before,
 .new-materials__more:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 /* плюс прокручується на чверть оберту */
@@ -6960,7 +6963,6 @@ textarea {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -6968,11 +6970,11 @@ textarea {
 .blog-hero__share::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -6999,7 +7001,7 @@ textarea {
 .blog-hero__share:focus-visible::before,
 .blog-hero__share:active::before,
 .blog-hero__share.is-copied::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 
@@ -7192,7 +7194,6 @@ textarea {
 
 /* чорна кнопка: фіолетова заливка зліва направо, як у чорних кнопок сайту */
 .article-page__cta-link {
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -7200,11 +7201,11 @@ textarea {
 .article-page__cta-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -7219,7 +7220,7 @@ textarea {
 .article-page__cta-link:hover::before,
 .article-page__cta-link:focus-visible::before,
 .article-page__cta-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .article-page__cta-link:focus-visible {
@@ -7525,7 +7526,6 @@ textarea {
   justify-content: center;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease, color 0.35s ease;
 }
@@ -7533,11 +7533,11 @@ textarea {
 .article-page__service-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -7553,7 +7553,7 @@ textarea {
 .article-page__service-link:hover::before,
 .article-page__service-link:focus-visible::before,
 .article-page__service-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .article-page__service-link:focus-visible {
@@ -7680,7 +7680,6 @@ width: max-content;
 .article-page__banner-link {
   position: relative;
   z-index: 0;
-  overflow: hidden;
   box-shadow: 0 0 1px 0 transparent;
   transition: box-shadow 0.35s ease;
 }
@@ -7688,11 +7687,11 @@ width: max-content;
 .article-page__banner-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   z-index: -1;
   width: 0;
-  height: 100%;
+  height: calc(100% + 2px);
   border-radius: 99px;
   background: #5B5AFF;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -7707,7 +7706,7 @@ width: max-content;
 .article-page__banner-link:hover::before,
 .article-page__banner-link:focus-visible::before,
 .article-page__banner-link:active::before {
-  width: 100%;
+  width: calc(100% + 2px);
 }
 
 .article-page__banner-link:focus-visible {
@@ -7715,7 +7714,14 @@ width: max-content;
   outline-offset: 2px;
 }
 
-
+.working-model__card-label2 {
+  background: linear-gradient(270deg, #5B5AFF -10.41%, #FF831A 104.24%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-wrap-style: balance;
+  width: 100%;
+}
 
 
 
@@ -7918,7 +7924,6 @@ width: max-content;
   .nav__link {
     position: relative;
     z-index: 0;
-    overflow: hidden;
     display: flex;
     min-width: 76px;
     padding: 8px 12px;
@@ -7932,6 +7937,12 @@ width: max-content;
     line-height: var(--line-height-relaxed);
     letter-spacing: var(--font-letter-spacing-0);
     border-radius: 99px;
+  }
+
+  /* плашка ховера / активного пункту: заливка градієнтом зліва направо, як у кнопок сайту
+     (на #BDBDFF — трохи темніша за фон .nav, інакше заливки не видно);
+     тонка обводка — на самому посиланні (overflow: hidden обрізав би її на плашці) */
+  .nav__link {
     box-shadow: 0 0 1px 0 transparent;
     transition: box-shadow 0.35s ease;
   }
@@ -7939,37 +7950,38 @@ width: max-content;
   .nav__link::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
+    top: -1px;
+    left: -1px;
     z-index: -1;
+    width: 0;
+    height: calc(100% + 2px);
     border-radius: 99px;
-    background:
-      linear-gradient(0deg,
-        rgba(243, 243, 243, 0.75) 0%,
-        rgba(243, 243, 243, 0.75) 100%),
-      #dedeff;
-    box-shadow: 0 0 1px 0 #9c9cfe;
+    background: linear-gradient(0deg, rgba(243, 243, 243, 0.75) 0%, rgba(243, 243, 243, 0.75) 100%), #BDBDFF;
     transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .nav__link:hover,
   .nav__link:focus-visible,
-  .nav__link:active {
-    box-shadow: 0 0 1px 0 #9c9cfe;
+  .nav__link:active,
+  .nav__link[aria-current="page"] {
+    box-shadow: 0 0 1px 0 #9C9CFE;
   }
 
   .nav__link:hover::before,
   .nav__link:focus-visible::before,
-  .nav__link:active::before {
-    width: 100%;
+  .nav__link:active::before,
+  .nav__link[aria-current="page"]::before {
+    width: calc(100% + 2px);
+  }
+
+  .nav__link:focus-visible {
+    outline: 2px solid #5B5AFF;
+    outline-offset: 2px;
   }
 
   .header__action {
     position: relative;
     z-index: 0;
-    overflow: hidden;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -7998,10 +8010,10 @@ width: max-content;
   .header__action::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1px;
+    left: -1px;
     width: 0;
-    height: 100%;
+    height: calc(100% + 2px);
     z-index: -1;
     border-radius: 99px;
     background: #5b5aff;
@@ -8018,7 +8030,7 @@ width: max-content;
   .header__action:hover::before,
   .header__action:focus-visible::before,
   .header__action:active::before {
-    width: 100%;
+    width: calc(100% + 2px);
   }
 
   .header__action .icon-nameplus {
@@ -9822,6 +9834,7 @@ width: max-content;
 @media (prefers-reduced-motion: reduce) {
 
   .team__card,
+  .team__card::before,
   .team__card-icon.icon-namearrow-down-right,
   .team__all-link,
   .team__all-link::before,
@@ -9896,6 +9909,8 @@ width: max-content;
   .article-page__service-link::before,
   .article-page__banner-link,
   .article-page__banner-link::before,
+  .nav__link,
+  .nav__link::before,
   .reviews__nav-btn,
   .reviews__nav-btn::before,
   .reviews__nav-btn span,
